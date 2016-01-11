@@ -52,7 +52,7 @@ colorlinks=true]{hyperref}
 
 
 \begin{document}
-\author{Stefan Strecker (eic@emisa-journal.org) \and Martin Sievers (\ldots)}
+\author{Stefan Strecker (stefan.strecker@fernuni-hagen.de) \and Martin Sievers (martin.sievers@schoenerpublizieren.de)}
 \title{A \LaTeX{} class for preparing manuscripts for submissions to the OA  journal ‘Enterprise Modelling and Information Systems Architectures – An International Journal’ (EMISA)}
 \maketitle
 %\begin{abstract}
@@ -64,11 +64,11 @@ colorlinks=true]{hyperref}
 
 \section{Introduction}
 Enterprise Modelling and Information Systems Architectures --~An International Journal (EMISA) is a publisher-independent, peer-reviewed scholarly open access journal (\url{http://emisa-journal.org}). 
-EMISA is published by the German Informatics Society (GI) and is a publication of its Special Interest Group (SIG) on Modelling Business Information Systems (SIG MoBIS) and its SIG on Design Methods for Information Systems (SIG EMISA). SIG~MoBIS sponsored the development of the \pkg{EMISA} \LaTeX\ package currently maintained by Stefan Strecker, Editor-in-Chief of EMISA (eic@emisa-journal.org) and Martin Sievers (...).
+EMISA is published by the German Informatics Society (GI) and is a publication of its Special Interest Group (SIG) on Modelling Business Information Systems (SIG MoBIS) and its SIG on Design Methods for Information Systems (SIG EMISA). SIG~MoBIS has sponsored the development of the \pkg{EMISA} \LaTeX\ package currently maintained by Stefan Strecker (stefan.strecker@fernuni-hagen.de) and Martin Sievers (martin.sievers@schoenerpublizieren.de).
 
 The EMISA \LaTeX{} document class is provided for preparing manuscripts for submission to EMISA, and for preparing accepted submissions for publication as well as for typesetting the final publication by the editorial office. Articles in EMISA are published online at \url{http://emisa-journal.org} (in the Portable Document Format or PDF format).
 The EMISA editorial office is run (alongside many other tasks and projects) by the two Editors-in-Chief assisted by three doctoral students. Editorial work at EMISA is best described as a volunteer effort for the scientific community.
-Please assist us by preparing your manuscript following the instructions and guidelines described in this document: Your work will be published quicker with less (typographical) glitches and will have a professional appearance.
+Please assist us by preparing your manuscript following the instructions and style guidelines described in this document: Your work will be published quicker with less (typographical) glitches and will have a professional appearance.
 
 
 
@@ -136,7 +136,7 @@ The production tool chain at the editorial office requires that all text files o
 
 
 \section{Class Options}
-\DescribeOption{british} British English is the language of choice for publishing in EMISA. The class option ‘british’ must be used with the \pkg{EMISA} class to obtain the correct hyphenation for British English (as provided by the \pkg{babel} package). Example: \verb|\documentclass[british]{emisa}|.
+\DescribeOption{british} British English is the language of choice for publishing in EMISA. The class option ‘british’ is preloaded by default to obtain the correct hyphenation for British English (as provided by the \pkg{babel} package). The class option \emph{may be} used with the \pkg{EMISA} class to exemplify the use of British English. Example: \verb|\documentclass[british]{emisa}|.
 
 \DescribeOption{referee, review} By default, a final version of the manuscript is typeset for online publication including the names and affiliations of authors. For reviewing purposes, the names and affiliations of the authors are omitted using the document option ‘referee’ or ‘review’ to allow for the anonymous (i.\,e.\ double blind) peer-review process of the EMISA journal. Example: \verb|\documentclass[british,referee]{emisa}|.
 
@@ -171,7 +171,7 @@ Keywords describing the manuscript are typeset using \cs{keywords}\marg{keywords
 Acknowledgements, for example, of collaborators, funding agencies etc.\ may be added using \cs{acknowledgements}\marg{acknowledgements}. The acknowledgements are typset in a footnote on the first page following the corresponding author’s email address.
 
 \DescribeMacro{\authornote}%
-Additional information for reviewers and readers may be added in a footnote on the titlepage using \cs{authornote}\marg{author note}. This is typically used for stating earlier publications (e.\,g.\ in conference proceedings) on which the present manuscript is based.
+Additional information for reviewers and readers may be added in a footnote on the titlepage using \cs{authornote}\marg{author note}. This is typically used for stating earlier publications (e.\,g.\ in conference proceedings) on which the present manuscript is based. 
 
 
 
