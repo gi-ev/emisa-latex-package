@@ -48,8 +48,8 @@
 %% Please declare the title elements of your article here.  Unused
 %% elements can either be deleted or commented out, or else just let
 %% empty.  In either case they are not typeset.
-%% If the option referee is given, all author tags, address and email
-%% will be likewise omitted.
+%% If the option referee or review is given, all author tags, address,
+%% email and acknowledgements will be likewise omitted.
   \title{}
   \subtitle{}
   \author*{<Name>}{<Email address>}
@@ -71,9 +71,9 @@
 %% Please insert your article text here.
 
 %% This directive typesets the bibliography.  To achieve this, one has
-%% to run the BibTeX program on the corresponding auxiliary file
-%% generated in the previous LaTeX run; its name starts with the job
-%% name (the name of this file without ".tex") and ends with "1-blx.aux".
+%% to run the biber program on the corresponding auxiliary file
+%% generated in the previous LaTeX run; you can just use the job name
+%% (the name of this file without ".tex")", e.g.: biber emisa-author-template
 \printbibliography
 \end{article}
 
@@ -88,6 +88,7 @@
    \abstract{}
    \keywords{Keyword 1 \and keyword 2\and keyword 3}
    \authornote{This article extends an earlier conference paper, see ...}
+   \acknowledgements{}
    \editor{My self}
    \received{24 Octover 2014}
    \accepted[2]{1 November 2015}

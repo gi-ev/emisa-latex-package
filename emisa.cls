@@ -23,7 +23,7 @@
 %% http://www.latex-project.org/lppl.txt
 %% 
 %% This work is "maintained" (as per LPPL maintenance status) by
-%% Stefan Strecker <eic@emisa-journal.org> and
+%% Stefan Strecker <stefan.strecker@fernuni-hagen.de> and
 %% Martin Sievers <martin.sievers@schoenerpublizieren.de>.
 %% 
 %% This work consists of all files listed in manifest.txt.
@@ -31,7 +31,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2016/01/11 2.0BETA LaTeX class EMISA]
+[2016/01/12 2.0BETA LaTeX class EMISA]
 \PassOptionsToPackage{british}{babel}
 \newif\if@draft
 \DeclareOption{draft}{%
