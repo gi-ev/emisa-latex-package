@@ -9,20 +9,30 @@
 %% If you absolutely have to change emisa.cls, please
 %% do so in emisa.dtx (after altering the name, of course!).
 %% 
-%% Copyright (C) 2015  Martin Sievers
+%% Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig
+%% <mwl@moss.in-berlin.de>
+%% Copyright (C) 2015,2016 by Enterprise Modelling and Information
+%% Systems Architectures - An International Electronic Journal (EMISA)
 %% ------------------------------------------------------------------------
 %% 
-%% This file may be distributed and/or modified under the conditions of
-%% the LaTeX Project Public License, either version 1.2 of this license
-%% or (at your option) any later version.  The latest version of this
-%% license, see <http://www.latex-project.org/lppl.txt> and version 1.2
-%% or later is part of all distributions of LaTeX version 1999/12/01 or
-%% later.
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License (LPPL), either
+%% version 1.3c of this license or (at your option) any later
+%% version.  The latest version of this license is in the file:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status) by
+%% Stefan Strecker <eic@emisa-journal.org> and
+%% Martin Sievers <martin.sievers@schoenerpublizieren.de>.
+%% 
+%% This work consists of all files listed in manifest.txt.
 %% ------------------------------------------------------------------------
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2015/12/08 2.0BETA LaTeX class EMISA  -MS-]
+[2016/01/11 2.0BETA LaTeX class EMISA]
+\PassOptionsToPackage{british}{babel}
 \newif\if@draft
 \DeclareOption{draft}{%
   \@drafttrue
@@ -37,11 +47,6 @@
 \DeclareOption{noreferee}{\@refereefalse}
 \DeclareOption{review}{\@refereetrue}
 \DeclareOption{noreview}{\@refereefalse}
-\newif\if@main@cfg
-\DeclareOption{cfg}{\@main@cfgtrue}
-\DeclareOption{nocfg}{\@main@cfgfalse}
-\DeclareOption{globalcfg}{\@main@cfgtrue}
-\DeclareOption{noglobalcfg}{\@main@cfgfalse}
 \newif\if@cover
 \def\coveron{\@covertrue}
 \def\coveroff{\@coverfalse}
@@ -52,7 +57,7 @@
 \DeclareOption{nomicrotype}{\@microtypefalse}
 \PassOptionsToClass{a4paper,twoside,11pt}{article}%
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}%
-\ExecuteOptions{final,noreferee,nocover,cfg,oneside,openany}%
+\ExecuteOptions{final,noreferee,nocover,oneside,openany}%
 \ProcessOptions*\relax%
 \IfFileExists{latexrelease.sty}%
    {\RequirePackage[latest]{latexrelease}}%
@@ -65,7 +70,7 @@
    \RequirePackage{microtype}%
 \else
    \ClassWarning{emisa}{Package `microtype` not loaded!\MessageBreak Output will differ from final result in the journal!\MessageBreak Please consult the documentation, if you\MessageBreak get an error when loading microtype}
-\fi
+\fi%
 \RequirePackage{babel}%
 \RequirePackage{float}
 \RequirePackage[font={small}]{caption}
@@ -73,22 +78,22 @@
 \RequirePackage[fixinclude,table]{xcolor}%
 \RequirePackage{etoolbox}%
 \RequirePackage[%
- style=emisa,%
- natbib=true,%
- backend=biber,%
- ]{biblatex}
+    style=emisa,%
+    natbib=true,%
+    backend=biber,%
+]{biblatex}
 \ExecuteBibliographyOptions{%
- maxcitenames=3,%
- maxbibnames=999,%
- terseinits=false,%
- isbn=false,%
- url=true,%
- doi=false,%
- eprint=false,%
- dashed=false,%
- bibencoding=inputenc,%
- sorting=anyt,%
- hyperref=true%
+   maxcitenames=3,%
+   maxbibnames=999,%
+   terseinits=false,%
+   isbn=false,%
+   url=true,%
+   doi=false,%
+   eprint=false,%
+   dashed=false,%
+   bibencoding=inputenc,%
+   sorting=anyt,%
+   hyperref=true%
 }%
 \RequirePackage[babel=once,english=british]{csquotes}
 \RequirePackage{twoopt}%
@@ -112,16 +117,16 @@
 \RequirePackage[zerostyle=b,straightquotes]{newtxtt}
 \if@microtype
    \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-\fi
+\fi%
 \InputIfFileExists{glyphtounicode}%
- {\ClassInfo{emisa}{Reading file `glyphtounicode.tex`}
-  \pdfgentounicode=1}%
- {\ClassWarning{emisa}{Couldn't find file `glyphtounicode.tex`}}%
-\RequirePackage{booktabs}
-\RequirePackage{listings}
-\lstset{basicstyle=\ttfamily\small}
-\RequirePackage{amsmath}
-\RequirePackage[amsmath,standard,hyperref]{ntheorem}
+   {\ClassInfo{emisa}{Reading file `glyphtounicode.tex`}
+    \pdfgentounicode=1}%
+   {\ClassWarning{emisa}{Couldn't find file `glyphtounicode.tex`}}%
+   \RequirePackage{booktabs}
+   \RequirePackage{listings}
+   \lstset{basicstyle=\ttfamily\small}
+   \RequirePackage{amsmath}
+   \RequirePackage[amsmath,standard,hyperref]{ntheorem}
 \RequirePackage{url}
 \urlstyle{same}
 \RequirePackage[%
@@ -137,6 +142,7 @@
   urlcolor=black,
   hyperfootnotes=false
   ]{hyperref}%
+\RequirePackage{doclicense}
 \begingroup
   \catcode`\Z=3
   \long\gdef\@M@T@#1#2Z#3#4#5\@nil{#4}
@@ -164,7 +170,6 @@
 \marginparpush 5mm%
 \AtBeginDocument{\baselineskip=13.6pt plus 0.5pt}%
 \parindent=4mm%
-%%%\parskip=.5\baselineskip plus .33\baselineskip minus .33\baselineskip
 \smallskipamount=.5\baselineskip
 \medskipamount=2\smallskipamount
 \bigskipamount=2\medskipamount
@@ -204,22 +209,6 @@
   \def\baselinestretch{#1}%
   \@currsize
 }
-%\def\setrefereespacing#1{\@bsphack\def\@referee@spacing{#1}\@esphack}
-%\setrefereespacing{1.67}
-%\newcommand{\referee@spacing}{%
-%  \if@referee
-%    \begingroup
-%      \setstretch{\@referee@spacing}%
-%  \fi}
-%\newcommand{\restore@spacing}{%
-%  \if@referee
-%      \par
-%      %%%\vskip \parskip
-%      \vskip \baselineskip
-%    \endgroup
-%    %%%\vskip -\parskip
-%    \vskip -\baselineskip
-%  \fi}
 \def\@setsize#1#2#3#4{%
   \@nomath#1%
   \let\@currsize#1%
@@ -290,13 +279,12 @@
   \@ifempty{#1}{\def\@shortsubtitle{\@subtitle}}{\def\@shortsubtitle{#1}}%
   \@ifempty{#2}{\def\@tocsubtitle{\@shortsubtitle}}{\def\@tocsubtitle{#2}}%
   \@esphack}%
-
 \def\email#1{%
    \ifx\@email\@empty
       \def\@email{#1}
    \else
       \ClassError{emisa}{There can only be one corresponding author!}{}
-   \fi}
+   \fi}%
 \renewcommand{\author}{\@ifstar{\@authorstar}{\@authornostar}}
 \newcommand*{\@authornostar}[1]{%
   \@bsphack
@@ -342,11 +330,7 @@
    \@esphack}%
 \newcommand{\authornote}[1]{
    \@bsphack
-   \if@referee
-      \def\@authornote{}%
-   \else
-      \def\@authornote{#1}%
-   \fi%
+   \def\@authornote{#1}%
    \@esphack}%
 \newcommand{\editor}[1]{
    \@bsphack
@@ -361,7 +345,41 @@
    \def\@articleinfo@rounds{#1}
    \def\@articleinfo@adate{#2}%
    \@esphack}%
-\newcommand{\doi}[1]{
+\newcommand{\doitext}{DOI:}
+\newcommand*{\outdoi}{%
+  \begingroup
+  \lccode`\~=`\#\relax
+  \lowercase{\def~{\#}}%
+  \lccode`\~=`\_\relax
+  \lowercase{\def~{\_}}%
+  \lccode`\~=`\<\relax
+  \lowercase{\def~{\textless}}%
+  \lccode`\~=`\>\relax
+  \lowercase{\def~{\textgreater}}%
+  \lccode`\~=0\relax
+  \catcode`\#=\active
+  \catcode`\_=\active
+  \catcode`\<=\active
+  \catcode`\>=\active
+  \@outdoi
+}
+\def\@outdoi#1{%
+  \let\#\relax
+  \let\_\relax
+  \let\textless\relax
+  \let\textgreater\relax
+  \edef\x{\toks0={{#1}}}%
+  \x
+  \edef\#{\@percentchar23}%
+  \edef\_{_}%
+  \edef\textless{\@percentchar3C}% instead of {\string<} for Apple
+  \edef\textgreater{\@percentchar3E}% instead of {\string>} for Apple
+  \edef\x{\toks1={\noexpand\href{http://dx.doi.org/#1}}}%
+  \x
+  \edef\x{\endgroup\doitext\the\toks1 \the\toks0}%
+  \x
+}
+\newcommand*{\doi}[1]{
    \@bsphack
    \def\@doi{#1}
    \@esphack}%
@@ -369,7 +387,24 @@
    \@bsphack
    \def\@acknowledgements{#1}
    \@esphack}%
-
+\newif\if@licenseset
+\newcommand{\licence}[1]{%
+   \@bsphack
+   \def\@licence{#1}
+   \@esphack}%
+\let\license\licence
+\newcommand{\CCBYNCSAThree}{%
+   \@licensesettrue%
+   \def\doclicense@type{CC}%
+   \def\doclicense@modifier@uppercase{BY-NC-SA}%
+   \def\doclicense@versionUsed{3.0}%
+}%
+\newcommand{\CCBYNCSAFour}{%
+   \@licensesettrue%
+   \def\doclicense@type{CC}%
+   \def\doclicense@modifier@uppercase{BY-NC-SA}%
+   \def\doclicense@versionUsed{4.0}%
+}%
 \newcounter{addresses}
 \renewcommand{\theaddresses}{\alph{addresses}}
 \newcommand{\address}[2][]{%
@@ -392,7 +427,6 @@
             \fi}
   \fi
   \@esphack}%
-
 \title{}%
 \subtitle{}%
 \author{}%
@@ -400,10 +434,11 @@
 \keywords{}%
 \authornote{}%
 \editor{}%
-\received{}
-\accepted{}
-\doi{}
-\acknowledgements{}
+\received{}%
+\accepted{}%
+\doi{}%
+\licence{}
+\acknowledgements{}%
 \def\abstract#1{\@bsphack\def\@abstract{#1}\@esphack}%
 \abstract{}%
 \def\@authors{}
@@ -413,10 +448,11 @@
 \def\@tocauthors{}
 \def\@email{}
 \def\@addresses@list{}
-
+\def\abstract#1{\@bsphack\def\@abstract{#1}\@esphack}%
+\abstract{}%
 \DeclareRobustCommand{\outputarticleappendix}{%
   {%
-    \appendix
+   \appendix
 \@articleappendix
 \global\let\@articleappendix\relax
   }%
@@ -432,7 +468,7 @@
 \renewcommand\@makefntext[1]{%
     \parindent 1em%
     \noindent%
-    \@makefnmark#1}
+    \@makefnmark#1}%
 \newlength{\headwidth}%
 \newlength{\bleed}%
 \newlength{\headmargin}%
@@ -466,7 +502,7 @@
   \egroup
 }%
 \newcommand{\theheadvolume}{%
-  \textcolor{headtextcolor}{Vol.\,\@volume, No.\,\@issue\ (\@issuedate)\ifx\@specialissuetitle\relax\else\ (\@specialissuetitle)\fi}}%
+  \begingroup\hypersetup{urlcolor=headtextcolor}\textcolor{headtextcolor}{Vol.\,\@volume, No.\,\@issue\ (\@issuedate).\ifx\@doi\@empty\else\ \outdoi{\@doi}\fi\ifx\@specialissuetitle\relax\else\ (\@specialissuetitle)\fi}\endgroup}%
 \newlength{\headpageoffset}%
 \setlength{\headpageoffset}{10mm}%
 \def\theoddheadpage{%
@@ -684,12 +720,19 @@
   \l@article
   \begin{refsection}%
   \maketitle
-  %\referee@spacing
   \ignorespaces
   }{%
   \end{refsection}%
   \outputarticleappendix
-  %\restore@spacing
+  \if@licenseset
+     \begin{minipage}{\textwidth}
+     \parbox[t]{\dimexpr .95\textwidth-\doclicense@imagewidth\relax}{\vskip 0pt\doclicenseLongText}%
+     \hfill%
+     \parbox[t]{\doclicense@imagewidth}{\vskip 0pt\doclicenseImage}%
+     \end{minipage}%
+  \else
+     \ifx\@licence\@empty\relax\else\par\noindent\@licence\fi%
+  \fi%
   \onecolumn
   \ignorespacesafterend}%
 \newcommandtwoopt{\edit@setup}[3][][]{%
@@ -705,12 +748,10 @@
   \edit@setup{#1}%
   \l@editorialcontent
   \raisebox{5.5mm}[10mm][0pt]{\sec@font\@title}\\
-  %\referee@spacing
   \begin{refsection}%
   \ignorespaces
   }{%
   \end{refsection}%
-  %\restore@spacing
   \onecolumn
   \ignorespacesafterend}%
 \def\editorialname{Editorial Preface}%
@@ -910,23 +951,22 @@
   journal.  A comprehensive description as well as a corresponding
   Word template is provided on the web portal of the GI-SIG-MobIS
   (http://www.fg-mobis.gi-ev.de/).}
-  \def\maketitle{%
-    \begingroup
-    \let\footnoterule\relax
-    \let\footnote\thanks
-    \let\thefootnote\relax
-    %\renewcommand\thefootnote{\@fnsymbol\c@footnote}%
-    \def\@makefnmark{\textsuperscript{\@thefnmark}}%
-    \ifnum\col@number=\@ne
+\def\maketitle{%
+   \begingroup
+   \let\footnoterule\relax
+   \let\footnote\thanks
+   \let\thefootnote\relax
+   \def\@makefnmark{\textsuperscript{\@thefnmark}}%
+   \ifnum\col@number=\@ne
       \@maketitle
-    \else
+   \else
       \twocolumn[\@maketitle]%
-    \fi
-    \global\@topnum\z@
-    \@thanks
+   \fi
+   \global\@topnum\z@
+   \@thanks
   \endgroup
   \setcounter{footnote}{0}%
-}
+}%
 \def\@maketitle{%
   \bgroup
   \normalfont
@@ -965,7 +1005,7 @@
    \ifx\@acknowledgements\@empty
    \else
       \ignorespaces\makebox[0pt][l]{\footnote{\@acknowledgements}}%
-   \fi%   
+   \fi%
    \strut\par}%
   \vskip2mm\relax
   \fi
@@ -1012,7 +1052,7 @@
     \fi%
     \if!\@articleinfo@adate!%
     \else
-       \space Accepted\ %  
+       \space Accepted\ %
        \if!\@articleinfo@rounds!%
        \else%
          \ifnum\@articleinfo@rounds=1
@@ -1082,7 +1122,6 @@
   \relax\ \ }%
 \def\section{\@startsection{section}%
   {1}{\z@}%
-  %{-3mm plus -2mm minus -2mm}%
   {-1\baselineskip plus -2mm minus -2mm}%
   {.5\baselineskip plus .25\baselineskip minus .125\baselineskip}%
   {\sec@font}}%
@@ -1142,36 +1181,15 @@
 \setcounter{tocdepth}{-2}
 \newcommand*{\emisa@abbrv}[1]{#1\@\xspace}
 \newcommand*{\emisaabbrv}[2]{\gdef#1{\emisa@abbrv{#2}}}
-\newcommand*{\ie}{\emisa@abbrv{i.\,e.}}
-\newcommand*{\eg}{\emisa@abbrv{e.\,g.}}
+\newcommand*{\emisa@vabbrv}[1]{\textsc{#1}\xspace}
+\newcommand*{\ie}{\emisa@abbrv{i.e.,}}
+\newcommand*{\eg}{\emisa@abbrv{e.g.,}}
 \newcommand*{\cf}{\emisa@abbrv{cf.}}
 \newcommand*{\etal}{\emisa@abbrv{et~al.}}
-\newcommand*{\emisa@vabbrv}[1]{\textsc{#1}\xspace}
 \newcommand*{\OMG}{\emisa@vabbrv{omg}}
 \newcommand*{\BPM}{\emisa@vabbrv{bpm}}
 \newcommand*{\BPMN}{\emisa@vabbrv{bpmn}}
 \newcommand*{\UML}{\emisa@vabbrv{uml}}
-%\AtBeginDocument{%
-%    \lstdefinestyle{myJava}{language=java,basicstyle=\ttfamily\small,backgroundcolor={\color{lightgray!50}},numbers=left,numberstyle=\tiny,morekeywords=\@morejava}
-%}
-\lstdefinestyle{java}{%
-    language=java,%
-    basicstyle=\ttfamily\small,%
-    backgroundcolor={\color{lightgray!50}},%
-    numbers=left,%
-    numberstyle=\tiny}
-\lstnewenvironment{javacode}[1][]
-{\lstset{style=java,#1}
- \lstset{,morekeywords=\protect\userdefinedjava}}
-{}
-\def\userdefinedjava{}
-\newcommand{\morejava}[1]{
-    \ifx\userdefinedjava\@empty
-        \protected@edef\userdefinedjava{#1}
-    \else
-        \protected@eappto\userdefinedjava{,#1}
-    \fi%
-}
 \def\@tempa#1\do\addbibresource#2\nil{%
     \ifx\relax#2\relax
     \else
@@ -1180,12 +1198,10 @@
     \fi
 }
 \expandafter\@tempa\@preamblecmds\do\addbibresource\nil
-
 \AfterEndPreamble{%
-  \DeclareRobustCommand{\bibliography}[1]{%
- \addbibresource{#1}}}
-%\newdimen\bibindent
-%\setlength{\bibindent}{4mm}%
+   \DeclareRobustCommand{\bibliography}[1]{%
+      \addbibresource{#1}}%
+}%
 \tolerance 1414
 \hbadness 1414
 \emergencystretch 1.5em
@@ -1196,17 +1212,6 @@
 \interfootnotelinepenalty=9999
 \brokenpenalty=2000
 \vfuzz \hfuzz
-\if@main@cfg
-\InputIfFileExists{emisa.cfg}%
- {\ClassInfo{emisa}{Reading emisa.cfg}}%
- {\ClassInfo{emisa}{emisa.cfg not found, using class defaults}}%
- %{\ClassWarning{emisa}{Couldn't find emisa.cfg, using class defaults}}%
-\fi
-%\if@local@cfg
-%\InputIfFileExists{\jobname.cfg}%
-% {\ClassInfo{emisa}{Reading \jobname.cfg}}%
-% {\ClassWarning{emisa}{Couldn't find \jobname.cfg}}%
-%\fi
 \endinput
 %%
 %% End of file `emisa.cls'.

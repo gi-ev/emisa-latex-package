@@ -1,0 +1,111 @@
+%%
+%% This is file `emisa-issue-template.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% emisa.dtx  (with options: `template,issue')
+%% 
+%% This is a template for a document to be used with emisa.cls.
+%% Just copy (not move) this file to your work space, and rename and use
+%% it as you see fit.
+%% ------------------------------------------------------------------------
+%% 
+\documentclass[final,cover]{emisa}
+%% The following package imports are recommended, but not obligatory;
+%% you might want take a look into their respective manuals if you
+%% don't know what they do.
+\usepackage{amsmath,amssymb,mathtools}
+%% Additional package imports go here:
+%% Insert here issue data:
+\volume{}% Volume No.
+\issue{}{}% Issue No. and Issue Date
+%% If there are any bibliography data bases to be used globally
+%% please indicate here:
+\bibliography{}
+%% Insert here any (relative or absolute) path to be searched for
+%% graphics files:
+\graphicspath{{./figs_base/},{}}
+%% Here you can alter the cover pages; e.g. this:
+%% \coverII{\AtPageDeadCenter{Something}}
+%% typesets the word "Something" centered on the inner side of the
+%% front sheet.
+%% You can also delete any cover pages at all by defining them empty,
+%% see below:
+\coverII{}
+%% This outputs the SIG-MOBIS page on the inner side of the back
+%% sheet:
+\coverIII{\AtPageCenter{\sigmobispage}}
+%% Here, the normal text begins.
+\begin{document}
+\tableofcontents
+
+\begin{editorial}
+%% Please insert editorial text here.
+
+\end{editorial}
+\begin{article}{%
+%% Please declare the title elements of your article here.  Unused
+%% elements can either be deleted or commented out, or else just let
+%% empty.  In either case they are not typeset.
+%% If the option referee is given, all author tags, address and email
+%% will be likewise omitted.
+  \title{}
+  \subtitle{}
+  \author*{<Name>}{<Email address>}
+  \address{address line 1\\address line 2}
+  \author{Name}
+  \address[a]{}
+  \abstract{}
+  \keywords{Keyword 1 \and keyword 2\and keyword 3}
+  \authornote{This article extends an earlier conference paper, see ...}
+  \editor{My self}
+  \received{24 Octover 2014}
+  \accepted[2]{1 November 2015}
+  \doi{10.5073/EMISA.2011.11.1}
+  \acknowledgements{}
+%% Please declare here the bibliography data base(s) you want to use
+%% in this article:
+  \bibliography{}
+  }
+%% Please insert your article text here.
+
+%% This directive typesets the bibliography.  To achieve this, one has
+%% to run the BibTeX program on the corresponding auxiliary file
+%% generated in the previous LaTeX run; its name starts with the job
+%% name (the name of this file without ".tex") and ends with "1-blx.aux".
+\printbibliography
+\end{article}
+
+%% Please insert as much article environments here as are needed.
+\begin{article}{%
+   \title{}
+   \subtitle{}
+   \author*{<Name>}{<Email address>}
+   \address{address line 1\\address line 2}
+   \author{Name}
+   \address[a]{}
+   \abstract{}
+   \keywords{Keyword 1 \and keyword 2\and keyword 3}
+   \authornote{This article extends an earlier conference paper, see ...}
+   \editor{My self}
+   \received{24 Octover 2014}
+   \accepted[2]{1 November 2015}
+   \doi{10.5073/EMISA.2011.11.1}
+   \bibliography{}
+  }
+
+\printbibliography
+\end{article}
+
+\begin{cfp}
+%% Please insert your Call for papers here.
+\end{cfp}
+
+\imprint
+\editorialboard
+\guidelines
+\end{document}
+\endinput
+%%
+%% End of file `emisa-issue-template.tex'.

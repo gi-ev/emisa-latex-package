@@ -10,10 +10,9 @@
 %% See there for more information.
 %% ------------------------------------------------------------------------
 %% 
-\ProvidesFile{emisa.bbx}[2010/09/24 0.3d EMISA bibliography style]
+\ProvidesFile{emisa.bbx}[2012/12/21 0.4 EMISA bibliography style]
 \RequireBibliographyStyle{authoryear}
 \newcommand*{\bibitemlabel}[1]{%
-  %\hspace\labelsep
   \normalfont #1}
 \defbibenvironment{bibliography}
  {\list{}%
@@ -22,7 +21,6 @@
     \setlength{\itemindent}{-\leftmargin}%
     \setlength{\itemsep}{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}%
     \setlength{\parsep}{\bibparsep}%
-    %%%\defcounter{maxnames}{999}%
     }%
     \let\makelabel\bibitemlabel
     \tolerance 9999
