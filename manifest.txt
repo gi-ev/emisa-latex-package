@@ -24,7 +24,7 @@ precisely, it explains how the locutions "Work" and "Compiled Work",
 used in the LaTeX Project Public License, are to be interpreted
 in the case of this work.
 
-January 11, 2016 (vers. 2.0)
+January 20, 2016 (vers. 2.0)
 
 
 
@@ -32,15 +32,12 @@ MEANING OF THE TERM "Work"
 ==========================
 
 In the case of the EMISA Bundle, the "Work" is the collection of the 
-following 7 files:
+following 4 files:
 
 README.md     --  start by reading this file
 manifest.txt  --  the file you are reading now
 emisa.dtx     --  main source file
 emisa.ins     --  installation script
-bitmap.jpg    --  graphic file used for the documentation
-figure.pdf    --  graphic file used for the documentation
-vector.pdf    --  graphic file used for the documentation
 
 If you have received the 7 files listed above, you possess an integral copy 
 of the EMISA Bundle.
@@ -59,14 +56,13 @@ manifest.txt
 
 
 AND
-b) the following 6 files:
+b) the following 5 files:
 
 emisa.cls                 --  LaTeX document class
 emisa.bbx                 --  biblatex bibliography style
 emisa.cbx                 --  biblatex citation style
 emisa.pdf                 --  class documentation
 emisa-author-template.tex --  template for authors
-emisa-issue-template.tex  --  template for editors
 
 The file `emisa.pdf' is obtained by submitting to the 
 program pdflatex the file `emisa.dtx', following the same steps as 
@@ -79,5 +75,5 @@ COMMENT
 =======
 
 Please remember that, in order to distribute a LPPL-compliant copy of the 
-EMISA Bundle, it suffices to distribute only the 7 files that constitute 
+EMISA Bundle, it suffices to distribute only the 4 files that constitute 
 the "Work".

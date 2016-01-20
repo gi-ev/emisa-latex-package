@@ -170,7 +170,7 @@ This work consists of all files listed in manifest.txt.
 \usepackage{listings,lstautogobble}
 \lstset{%
   extendedchars,
-  language=[latex]tex,
+  language=[LaTeX]TeX,
   basicstyle=\MacroFont,
   commentstyle={\color{black!50}\bfseries},
   keywordstyle={},
@@ -178,6 +178,9 @@ This work consists of all files listed in manifest.txt.
   emptylines=1,
   gobble=2
   }
+\lstnewenvironment{examplecode}
+{}
+{}  
 \usepackage[onehalfspacing]{setspace}
 \usepackage[dvipsnames]{xcolor}
 %\usepackage{hologo}
@@ -1079,17 +1082,272 @@ This work consists of all files listed in manifest.txt.
 % \section{Tables}
 % \DescribeEnv{tabularx}
 %
-%
-%
-%
-%
 % \section{Source code listings}
 % \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \pkg{EMISA} class uses the \pkg{lstlistings} package (see the package documentation for further information), and provides two customised \LaTeX{} environments: \cs{sourcecode} and \cs{java} XXX Hier kenne ich die Befehle zur Erstellung der Befehlsform nicht, \verb|\env| gibt es nicht XXX. The java environment should be used to format source code listings in the Java programming language, and the sourcecode environment should be used to format source code in any other programming language. Note that the source code in either case is typset verbatim, i.\,e.,\ the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. An example illustrates the use of both environments:
 %
 % XXX enter two examples here XXX
 % \section{Pseudocode and algorithms}
 % \DescribeEnv{algorithm}\DescribeEnv{algorithmcx}\pkg{EMISA} offers some environments for a comfortable integration of source code examples.
-%\StopEventually{^^A
+%
+% \section{Example file}
+% \begin{examplecode}
+% \documentclass[british]{emisa}
+%
+% \usepackage{blindtext}
+% \usepackage{booktabs}
+%
+% \begin{document}
+% \lstset{language=TeX}
+% \begin{article}{%
+% % Enter your bibliography database file here. Make sure to use UTF-8 character encoding!
+% \bibliography{emisa.bib}
+% \title[Insert shorttitle for headlines here]{Enter full title here}
+% \subtitle{Enter subtitle here, or leave empty}
+% \author*{FirstName LastName}{email@address.org}
+% \address{Enter affiliation of first and corresponding author here.  Note that only the starred version of author* accepts a second argument providing an email address for the corresponding author.}
+% \author{FirstName LastName}
+% \address{Enter affiliation of second author here. Add further authors following the source code scheme.}
+%
+% \abstract{Enter abstract here} 
+% \keywords{Enter at a minimum three keywords here. Keyword1 \and Keyword2 \and Keyword3}
+% \acknowledgements{Enter acknowledgements here.}
+% \authornote{If your submission is based on a prior publication and revises / extends the prior work, enter a note on all prior publications with full citation.}
+% %, \eg this article extends an earlier conference publication published in the conference proceedings, see \cite{}.}
+% }
+%
+%
+% \section{Introduction}
+% \label{intro}
+% Enter your text here \parencite{Mittelbach.2004}. Remember to use \texttt{biber} instead of \texttt{bibtex} for processing the bibliography (.bib) file(s). \textcite{Mittelbach.2004} provide an introduction to \LaTeX{} which should be complemented by more recent readings (\ie certain parts of \cite{Mittelbach.2004} are probably outdated). Note the differences when using \verb|\parencite{}| or \verb|\textcite{}| or \verb|\cite{}| in the examples above. See Sec.~\ref{sec:bib} for advice on how to enter bibliographic data in the .bib file.
+%
+%
+% \section{Floating objects ('floats')}\label{sec:1}
+% Enter your text here. 
+%
+% \subsection{Subsection title}\label{sec:2}
+% Provide a unique label for each section, table, figure, listing and algorithm for referencing purposes (see, \eg, Sec.~\ref{sec:3} and Tab.~\ref{enter-a-unique-label-here}). 
+%
+%
+%
+%
+% \subsection{Figures}\label{sec:3}
+% \begin{figure}[htbp]
+% \centering
+% \includegraphics[width=\columnwidth]{figure.pdf}
+% \caption{Enter your single-column figure caption here.}
+% \label{default}
+% \end{figure}
+%
+% \begin{figure*}[htb]
+% \centering
+% \includegraphics[width=\textwidth]{figure.pdf}
+% \caption{Enter your double-column figure caption here.}
+% \label{default}
+% \end{figure*}
+%
+% \blindtext
+%
+%
+%
+% \subsection{Tables}\label{sec:tables}
+% Typeset tables as floats in double-columns using \verb|\begin{table*}|, see Tab.~\ref{tab:unique-label} for an example.
+%
+% \begin{table*}[tb]
+% \centering
+% \caption{Enter your table caption above the table here.}
+% \begin{tabular}{llllll}
+% \toprule
+% column head1 & column head2 & column head3 & column head4 & column head5 & column head6\\
+% \midrule
+% cell1 & cell2 & cell3 & cell4 & cell5 & cell6\\
+% cell1 & cell2 & cell3 & cell4 & cell5 & cell6\\
+% cell1 & cell2 & cell3 & cell4 & cell5 & cell6\\
+% cell1 & cell2 & cell3 & cell4 & cell5 & cell6\\
+% cell1 & cell2 & cell3 & cell4 & cell5 & cell6\\
+% \bottomrule
+% \end{tabular}
+% \label{tab:unique-label}
+% \end{table*}
+%
+% %\blindtext[2]\ Lorem ipsum hoc nunc.\footnote{Use footnotes only when absolutely necessary.}
+%
+%
+% %\blindtext[1]
+%
+%
+%
+% \section{Formatting the bibliography}\label{sec:bib}
+%
+% Please make sure to properly enter all data for each entry in the bibliographic database (.bib). Pay special attention to formatting names and page numbers, see Listing~\ref{lst:1} for an example (\cite{key1}) formatted properly in the references section (use \verb|--| between page numbers and \verb|{}| around multiple word surnames!). 
+%
+% \begin{lstlisting}[float,caption={Enter your single-column listing caption here.},label={lst:1}]
+% @ARTICLE{key1,
+%   author = {{van der Aalst}, W. M. P. 
+%   and {van Hee}, K. M. 
+%   and {van Werf}, J. M. 
+%   and Verdonk, M.},
+%   title = {{Auditing 2.0: Using 
+%   Process Mining to Support 
+%   Tomorrow's Auditor}},
+%   journal = {Computer},
+%   year = {2010},
+%   volume = {43},
+%   pages = {90--93},
+%   number = {3}
+% }
+% \end{lstlisting}
+%
+%
+%
+% \section{Source code listings}\label{sec:listings}
+%
+% For typesetting source code listings, use the \verb|sourcecode|, \verb|java| or \verb|pseudocode| environments provided by the document class. All three environments are customized from the lstlistings package. 
+%
+% See Listing~\ref{lst:2} for an example of a double-column listing.
+%
+% \begin{lstlisting}[float=*htbp,caption={Enter your double-column listing caption here. Note that the listing width is too wide. Correct by entering a newline before, \eg, 'Tomorrow'.},label={lst:2}]
+% @ARTICLE{key1,
+%   author = {{van der Aalst}, W. M. P. and {van Hee}, K. M. and 
+%   {van Werf}, J. M. and Verdonk, M.},
+%   title = {{Auditing 2.0: Using Process Mining to Support Tomorrow's Auditor}},
+%   journal = {Computer},
+%   year = {2010},
+%   volume = {43},
+%   pages = {90--93},
+%   number = {3}
+% }
+% \end{lstlisting}
+%
+% %\blindtext[3]
+%
+%
+% \section{Formatting pseudocode}\label{sec:algorithm}
+% XXX Nutzung von algorithm-Umgebung illustrieren XXX 
+%
+% \printbibliography
+% \end{article}
+% \end{document}
+% \end{examplecode}
+% \clearpage
+% \begin{thebibliography}{0}
+% 
+%   \bibitem{textcomp-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/textcomp}
+%      {Package \pkg{textcomp}:    \LaTeX\  support for the Text Companion fonts}.
+% 
+% 
+%   \bibitem{microtype-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/microtype}
+%      {Package \pkg{microtype}:    An interface to the micro-typographic features of pdf\TeX}.
+% 
+% 
+%   \bibitem{babel-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/babel}
+%      {Package \pkg{babel}:    Multilingual support for Plain \TeX\ or \LaTeX}.
+% 
+% 
+%   \bibitem{float-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/float}
+%      {Package \pkg{float}: 	Improved interface for floating objects}.
+% 
+% 
+%   \bibitem{caption-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/caption}
+%      {Package \pkg{caption}: Customising captions in floating environments}.
+% 
+% 
+%   \bibitem{graphicx-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/graphicx}
+%      {Package \pkg{graphicx}:    Enhanced support for graphics}.
+% 
+% 
+%   \bibitem{xcolor-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/xcolor}
+%      {Package \pkg{xcolor}: 	Driver-independent color extensions for \LaTeX\  and pdf\LaTeX}.
+% 
+% 
+%   \bibitem{biblatex-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/biblatex}
+%      {Package \pkg{biblatex}: Bibliographies in \LaTeX\ using \BibTeX\ for sorting only}.
+%  
+% 
+%   \bibitem{csquotes-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/csquotes}
+%      {Package \pkg{csquotes}: 	Context sensitive quotation facilities}.
+% 
+% 
+%   \bibitem{twoopt-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/twoopt}
+%      {Package \pkg{twoopt}: Definitions with two optional arguments}.
+% 
+% 
+%   \bibitem{environ-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/environ}
+%      {Package \pkg{environ}: 	A new interface for environments in \LaTeX}.
+% 
+% 
+%   \bibitem{paralist-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/paralist}
+%      {Package \pkg{paralist}: 	Enumerate and itemize within paragraphs}.
+% 
+% 
+%   \bibitem{afterpage-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/afterpage}
+%      {Package \pkg{afterpage}: 	Execute command after the next page break}.
+% 
+% 
+%   \bibitem{xspace-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/xspace}
+%      {Package \pkg{xspace}:     Define commands that appear not to eat spaces}.
+% 
+% 
+%   \bibitem{calc-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/calc}
+%      {Package \pkg{calc}:    Simple arithmetic in \LaTeX\  commands}.
+% 
+% 
+%   \bibitem{geometry-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/geometry}
+%      {Package \pkg{geometry}:    Flexible and complete interface to document dimensions}.
+% 
+% 
+%   \bibitem{eso-pic-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/eso-pic}
+%      {Package \pkg{eso-pic}:    Add picture commands (or backgrounds) to every page}.
+% 
+% 
+%   \bibitem{hyperref-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/hyperref}
+%      {Package \pkg{hyperref}:    Extensive support for hypertext in \LaTeX}.
+% 
+% 
+%   \bibitem{source2e-pdf}
+%     \href
+%      {http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/base/source2e.pdf}
+%      {The \LaTeXe\ Sources}.
+%
+% \end{thebibliography}
+% \clearpage
+% 
+% \StopEventually{^^A
 %  \PrintChanges
 %  \PrintIndex
 %}
@@ -1217,7 +1475,7 @@ This work consists of all files listed in manifest.txt.
 % 
 % This loads font definitions for text and mathematics. 
 % The package allows the user to select font encodings, and for each
-% encoding provides an interface to ‚font-encoding-specific' commands
+% encoding provides an interface to `font-encoding-specific' commands
 % for each font.  Its most powerful effect is to enable hyphenation to
 % operate on texts containing any character in the font.
 % It is distributed as part of the \LaTeXe{}
@@ -1248,7 +1506,10 @@ This work consists of all files listed in manifest.txt.
 \if@microtype
    \RequirePackage{microtype}%
 \else
-   \ClassWarning{emisa}{Package `microtype` not loaded!\MessageBreak Output will differ from final result in the journal!\MessageBreak Please consult the documentation, if you\MessageBreak get an error when loading microtype}
+   \ClassWarning{emisa}{Package `microtype` not loaded!%
+      \MessageBreak Output will differ from final result in the journal!%
+      \MessageBreak Please consult the documentation, if you%
+      \MessageBreak get an error when loading microtype}
 \fi%   
 %    \end{macrocode}
 % 
@@ -3994,8 +4255,7 @@ This work consists of all files listed in manifest.txt.
 % \label{sec:code:bib:formatting-misc}
 % 
 % This subsection introduces \pkg{biblatex} commands and utility macros used to
-% define the formatting directives required by the data commands,
-% see~p.\,\pageref{sec:code:bib:data-commands}.
+% define the formatting directives required by the data commands.
 %     
 % The following list shows a few frequently used ones; those more rarely used
 % are described below.  

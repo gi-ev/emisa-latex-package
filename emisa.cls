@@ -69,7 +69,10 @@
 \if@microtype
    \RequirePackage{microtype}%
 \else
-   \ClassWarning{emisa}{Package `microtype` not loaded!\MessageBreak Output will differ from final result in the journal!\MessageBreak Please consult the documentation, if you\MessageBreak get an error when loading microtype}
+   \ClassWarning{emisa}{Package `microtype` not loaded!%
+      \MessageBreak Output will differ from final result in the journal!%
+      \MessageBreak Please consult the documentation, if you%
+      \MessageBreak get an error when loading microtype}
 \fi%
 \RequirePackage{babel}%
 \RequirePackage{float}
