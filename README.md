@@ -3,6 +3,7 @@
 emisa -- A LaTeX class for preparing documents for the journal EMISA
 (c) 2016    Enterprise Modelling and Information Systems Architectures -
             An International Electronic Journal (EMISA)
+Version:    2.0        
 Maintainer: Stefan Strecker and Martin Sievers
 E-mail:     stefan.strecker@fernuni-hagen.de
             martin.sievers@schoenerpublizieren.de
