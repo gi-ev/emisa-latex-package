@@ -12,7 +12,7 @@
 %% Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig
 %% <mwl@moss.in-berlin.de>
 %% Copyright (C) 2015,2016 by Enterprise Modelling and Information
-%% Systems Architectures - An International Electronic Journal (EMISA)
+%% Systems Architectures - An International Journal (EMISA)
 %% ------------------------------------------------------------------------
 %% 
 %% This work may be distributed and/or modified under the

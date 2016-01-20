@@ -4,7 +4,7 @@
 % Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig 
 % <mwl@moss.in-berlin.de>
 % Copyright (C) 2015,2016 by Enterprise Modelling and Information 
-% Systems Architectures - An International Electronic Journal (EMISA)
+% Systems Architectures - An International Journal (EMISA)
 % --------------------------------------------------------------------
 %
 % This work may be distributed and/or modified under the
@@ -90,7 +90,7 @@ do so in \jobname.dtx (after altering the name, of course!).
 Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig 
 <mwl@moss.in-berlin.de>
 Copyright (C) 2015,2016 by Enterprise Modelling and Information 
-Systems Architectures - An International Electronic Journal (EMISA)
+Systems Architectures - An International Journal (EMISA)
 ------------------------------------------------------------------------
 
 This work may be distributed and/or modified under the
@@ -952,16 +952,16 @@ This work consists of all files listed in manifest.txt.
 %
 % \section{Installation}
 % The \pkg{EMISA} \LaTeX{} package consists of the \pkg{EMISA} \LaTeX{} class \texttt{emisa.cls}, the \pkg{biblatex} bibliography style \texttt{emisa.bbx} and the \pkg{biblatex} citation style \texttt{emisa.cbx}. 
-% The package also includes the present instructions and guidelines for authors on formatting the source files of the manuscript to achieve a pleasing and typographically consistent visual appearance of the reviewed as well as the published document.
-% Note that the package will (soon) be available from the \textsc{Comprehensive \TeX{} Archive Network} (CTAN, \url{https://ctan.org}) and should then be available for installation through the respective \TeX{} distribution’s package installer. In the meantime, a manual installation is required. For a manual installation, run \verb|pdflatex emisa.ins| and \verb|pdflatex emisa.dtx| twice, and copy the resulting files to the same folder / directory in which the source files for the manuscript will be maintained. 
+% The package also includes the present instructions and guidelines for authors on formatting the source files of the manuscript to achieve a pleasing and typographically consistent visual appearance of the manuscript.
+% The package is available from the \textsc{Comprehensive \TeX{} Archive Network} (CTAN, \url{https://ctan.org}) and should be available for installation through the respective \TeX{} distribution’s package installer. For a manual installation, run \verb|pdflatex emisa.ins| and \verb|pdflatex emisa.dtx| twice, and copy the resulting files to the same directory (folder) in which the source files for the manuscript will be maintained. 
 %
 %
 % \section{Instructions and guidelines}
-% This document provides instructions and guidelines for authors for manuscript preparation for \pkg{EMISA}. 
-% It covers all major aspects of scholarly writing (e.\,g.\ citations, references, figures, tables, source code and pseudocode listings).
+% This document provides instructions and style guidelines for authors. 
+% The instructions and guidelines address main aspects of scholarly writing (e.\,g.\ citations, references, figures, tables, source code and pseudocode listings).
 % Follow the instructions and guidelines in the present document to set up your files, to type in your text, to format figures, tables, source code listings and algorithms, and to obtain a consistent appearance in accordance with the journal's style specifications. 
 %
-% It is recommended to use these instructions as a checklist before submitting your manuscript to the journal's online submission system at \url{http://emisa-journal.org}.
+% It is recommended to use these instructions and guidelines as a checklist before submitting your manuscript to the journal's online submission system at \url{http://emisa-journal.org}.
 % Note that these instructions are \emph{not} intended as a general introduction to \LaTeX2e{} and corresponding tools (see, for example, \url{https://www.ctan.org/tex-archive/info/lshort/english/} for ‘The not so Short Introduction to \LaTeX{}’). 
 %
 %
@@ -970,7 +970,7 @@ This work consists of all files listed in manifest.txt.
 %
 % The \pkg{EMISA} class builds on a number of standard \LaTeX{} packages available in distributions such as \TeX{}Live and Mik\TeX{}. It is highly recommended to install the \emph{full} set of packages for the used distribution to make the required packages available to the \pkg{EMISA} class. Alternatively, missing packages may be installed on-the-fly.
 %
-% The list of required packages for using the \pkg{EMISA} class is rather comprehensive (see \verb|emisa.cls|) but the class implementation has taken care to use only packages commonly included in \TeX\ distributions such as \TeX{}Live and Mik\TeX{}. Among the packages required by the \pkg{EMISA} class are \pkg{geometry}, \pkg{newtxtext}, \pkg{newtxmath}, \pkg{newtxtt}, \pkg{ntheorem}, \pkg{amsthm}, \pkg{booktabs}, \pkg{tabularx}, XXX.
+% The list of required packages for using the \pkg{EMISA} class is rather comprehensive (see \verb|emisa.cls|) but the class implementation has taken care to use only packages commonly included in \TeX\ distributions such as \TeX{}Live and Mik\TeX{}. Among the packages required by the \pkg{EMISA} class are \pkg{geometry}, \pkg{newtxtext}, \pkg{newtxmath}, \pkg{newtxtt}, \pkg{ntheorem}, \pkg{amsthm}, \pkg{booktabs}, \pkg{tabularx} (see emisa.cls for a comprehensive overview).
 %
 % The production process at the EMISA editorial office is based entirely on \LaTeX{}, and runs pdf\LaTeX{} and \verb|biber| to produce the final proof and publication of an article.  
 % The \pkg{biblatex} package is used to typeset citations and references in conjunction with the \verb|biber| tool. Make sure to use \verb|biber| rather than \verb|bibtex| to process the bibliography file(s).
@@ -1074,22 +1074,7 @@ This work consists of all files listed in manifest.txt.
 %
 %
 % \section{Figures}
-% All line-drawings must be provided as vector graphics (\emph{not} bitmap graphics) in PDF format and all other (non-schematic) figures (e.\,g.\ screenshots) must be provided in PDF, JPEG or PNG format in a proper (high) resolution for the intended size of the rendered image.
-% \begin{figure}[htbp]
-% \begin{center}
-% \includegraphics[width=0.5\textwidth]{bitmap}
-% \caption{Example. Non-schematic figure (bitmap graphic in JPEG format).}
-% \label{default}
-% \end{center}
-% \end{figure}
-%
-% \begin{figure}[htbp]
-% \begin{center}
-% \includegraphics[width=0.5\textwidth]{vector}
-% \caption{Example. Line-drawing figure (vector graphic in PDF format).}
-% \label{default}
-% \end{center}
-% \end{figure}
+% All line-drawings must be provided as vector graphics (\emph{not} bitmap graphics) in PDF format and all other (non-schematic) figures (e.\,g.\ screenshots) must be provided in PDF, JPEG or PNG format in a proper (high) resolution for the intended size of the rendered image to avoid pixelation due to low resolution; bitmap graphics shown in full page width in the submission should at least be of a resolution of 3 megapixels or at least 2048 pixels wide.
 %
 %
 % \section{Tables}
