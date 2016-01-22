@@ -3086,10 +3086,12 @@ This work consists of all files listed in manifest.txt.
   \ignorespaces
   }{%
   \end{refsection}%
-  \outputarticleappendix
+  \outputarticleappendix\par%
+  \vspace{\baselineskip}%
+  \noindent\ignorespaces
   \if@licenseset
-     \begin{minipage}{\textwidth}
-     \parbox[t]{\dimexpr .95\textwidth-\doclicense@imagewidth\relax}{\vskip 0pt\doclicenseLongText}%
+     \begin{minipage}{\columnwidth}
+     \parbox[t]{\dimexpr 0.975\columnwidth-\doclicense@imagewidth\relax}{\vskip 0pt\raggedright\fontsize{9pt}{10.8pt}\selectfont\doclicenseLongText}%
      \hfill%
      \parbox[t]{\doclicense@imagewidth}{\vskip 0pt\doclicenseImage}%
      \end{minipage}%
