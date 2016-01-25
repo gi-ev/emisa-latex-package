@@ -1079,7 +1079,7 @@ This work consists of all files listed in manifest.txt.
 %
 % XXX enter two examples here XXX
 % \section{Pseudocode and algorithms}
-% \DescribeEnv{algorithm}\DescribeEnv{algorithmcx}\pkg{EMISA} offers some environments for a comfortable integration of source code examples.
+% \DescribeEnv{algorithm}\DescribeEnv{algorithmicx}\pkg{EMISA} offers some environments for a comfortable integration of source code examples.
 %
 % \section{Example file}
 % \begin{examplecode}
@@ -1096,17 +1096,22 @@ This work consists of all files listed in manifest.txt.
 % \title[Insert shorttitle for headlines here]{Enter full title here}
 % \subtitle{Enter subtitle here, or leave empty}
 % \author*{FirstName LastName}{email@address.org}
-% \address{Enter affiliation of first and corresponding author here.  Note that only the starred version of author* accepts a second argument providing an email address for the corresponding author.}
+% \address{Enter affiliation of first and corresponding author here.  Note that only the starred version of 
+% author* accepts a second argument providing an email address for the corresponding author.}
 % \author{FirstName LastName}
 % \address{Enter affiliation of second author here. Add further authors following the source code scheme.}
 %
 % \abstract{Enter abstract here} 
 % \keywords{Enter at a minimum three keywords here. Keyword1 \and Keyword2 \and Keyword3}
 % \acknowledgements{Enter acknowledgements here.}
-% \authornote{If your submission is based on a prior publication and revises / extends the prior work, enter a note on all prior publications with full citation.}
+% \authornote{If your submission is based on a prior publication and revises / extends the prior work, 
+% enter a note on all prior publications with full citation.}
 % %, \eg this article extends an earlier conference publication published in the conference proceedings, see \cite{}.}
 % }
-%
+% \volume{11}% Volume No.
+% \issue{1}{31~Jan~2016}% Issue No. and Issue Date
+% \specialissuetitleprefix{PRefix}
+% \specialissuetitle{Domain-Specific Modelling Languages}
 %
 % \section{Introduction}
 % \label{intro}
@@ -1125,14 +1130,14 @@ This work consists of all files listed in manifest.txt.
 % \subsection{Figures}\label{sec:3}
 % \begin{figure}[htbp]
 % \centering
-% \includegraphics[width=\columnwidth]{figure.pdf}
+% %\includegraphics[width=\columnwidth]{<filename>}
 % \caption{Enter your single-column figure caption here.}
 % \label{default}
 % \end{figure}
 %
 % \begin{figure*}[htb]
 % \centering
-% \includegraphics[width=\textwidth]{figure.pdf}
+% %\includegraphics[width=\textwidth]{<filename>}
 % \caption{Enter your double-column figure caption here.}
 % \label{default}
 % \end{figure*}
@@ -5672,10 +5677,11 @@ techreport = {},%
 % 
 %    \begin{macrocode}
 %<*example>
-%<article>\documentclass[]{emisa}
+%<article>\documentclass[british]{emisa}
 %<issue>\documentclass[final,cover]{emisa}
 % 
 %% The following package imports are recommended, but not mandatory!
+\usepackage{algorithmicx,algorithm}
 \usepackage{amsmath,amssymb,mathtools}
 %<article|issue>\end{document}
 %</example>
