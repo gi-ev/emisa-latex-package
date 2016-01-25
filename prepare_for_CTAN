@@ -2,4 +2,4 @@
 # Use this file on a unix system to generate the zip archive for CTAN
 # ctanify is part of TeX Live distributions
 #
-ctanify emisa.ins emisa.pdf README.md manifest.txt "emisa-author-template.tex=doc/latex/emisa" "emisa.bbx=tex/latex/emisa" "emisa.cbx=tex/latex/emisa"
+ctanify emisa.ins emisa.pdf README.md manifest.txt "emisa-instructions.pdf=doc/latex/emisa" "emisa-author-template.tex=doc/latex/emisa" "emisa.bbx=tex/latex/emisa" "emisa.cbx=tex/latex/emisa"
