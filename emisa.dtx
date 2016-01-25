@@ -1016,8 +1016,8 @@ This work consists of all files listed in manifest.txt.
 % \item Follow the journal's style specification with respect to predefined text styles:
 % 	\begin{itemize}
 % 	\item Use \textsc{smallcaps} for names of open-source projects, products and companies etc, e.\,g.,\ \verb|\textsc{eclipse}| to produce \textsc{eclipse}. \emph{Pay attention to lower case spelling}.
-% 	\item \DescribeMacro{\meta}\DescribeMacro{\type}Use \texttt{non-proportional font} for language concepts, meta types, meta classes etc., i.\,e.,\ \verb|\texttt{AbstractGoalType}| to produce \texttt{AbstractGoalType}, or use the predefined macro \cs{meta}\marg{metatype}, e.\,g.,\ \verb|\meta{AbstractGoalType}|.
-% 	\item Use the \textsf{sans-serif font face} for type-level concepts etc., e.\,g.,\ \verb|\textsf{Goal}| to produce \textsf{Goal} when referring to a \textsf{Goal} type, or use the predefined macro \cs{type}\marg{type}, e.\,g.,\ \verb|\type{Goal}|.
+% 	\item \DescribeMacro{\meta}Use \texttt{non-proportional font} for language concepts, meta types, meta classes etc., i.\,e.,\ \verb|\texttt{AbstractGoalType}| to produce \texttt{AbstractGoalType}, or use the predefined macro \cs{meta}\marg{metatype}, e.\,g.,\ \verb|\meta{AbstractGoalType}|.
+% 	\item \DescribeMacro{\type}Use the \textsf{sans-serif font face} for type-level concepts etc., e.\,g.,\ \verb|\textsf{Goal}| to produce \textsf{Goal} when referring to a \textsf{Goal} type, or use the predefined macro \cs{type}\marg{type}, e.\,g.,\ \verb|\type{Goal}|.
 % 	\end{itemize}
 % \end{itemize}
 %
@@ -1081,53 +1081,53 @@ This work consists of all files listed in manifest.txt.
 % \section{Pseudocode and algorithms}
 % \DescribeEnv{algorithm}\DescribeEnv{algorithmicx}\pkg{EMISA} offers some environments for a comfortable integration of source code examples.
 %
-% \section{Example file}
+% \section{Example file for both, authors and editorial office}
 % \begin{examplecode}
+% % Use the option [draft] to mark overfull lines.
 % \documentclass[british]{emisa}
-%
-% \usepackage{blindtext}
-% \usepackage{booktabs}
-%
+% % The following package imports are recommended, but not obligatory;
+% % you might want take a look into their respective manuals if you want to how they can be used:
+% \usepackage{amsmath,amssymb,mathtools}
+% \usepackage{algorithmicx,algorithm}
+% % Additional package imports go here:
+% % The document begins here:
 % \begin{document}
-% \lstset{language=TeX}
+% % Optionally, set the style for typesetting source code listings (see listings package).
+% % \lstset{language=Java}
+% % Take note of the following article environment!
 % \begin{article}{%
-% % Enter your bibliography database file here. Make sure to use UTF-8 character encoding!
+% % Enter your bibliography database file here. 
+% % Make sure to use UTF-8 character encoding in the bibliography data bases, 
+% % and add the .bib extension for the biblatex package!
 % \bibliography{emisa.bib}
-% \title[Insert shorttitle for headlines here]{Enter full title here}
+% % Add editorial meta data to appear in the multiline page headline.
+% \editor{Enter corresponding editor here}
+% \received{Enter date of manuscript reception here}
+% \accepted[1]{Enter number of review rounds and date of acceptance here.}
+% \volume{11} % volume number
+% \issue{1}{31~Jan~2016} % issue number and issue date
+% \specialissuetitle{Title of special issue if publication belongs to a special issue}
+% % Enter bibliographic meta data about publication
+% \title[Insert shorttitle for page headline]{Enter full title here}
 % \subtitle{Enter subtitle here, or leave empty}
-% \author*{FirstName LastName}{email@address.org}
-% \address{Enter affiliation of first and corresponding author here.  Note that only the starred version of 
-% author* accepts a second argument providing an email address for the corresponding author.}
+% \author*{FirstName LastName of corresponding author}{email@address.org}
+% \address{Enter affiliation of first (corresponding) author here.  Note that only the starred version of author* accepts a second argument requiring an email address for the corresponding author.}
 % \author{FirstName LastName}
-% \address{Enter affiliation of second author here. Add further authors following the source code scheme.}
-%
+% \address{Enter affiliation of second and further authors here. Add further authors following this scheme.}
+% % Enter abstract, keywords, acknowledgements, authornotes
 % \abstract{Enter abstract here} 
 % \keywords{Enter at a minimum three keywords here. Keyword1 \and Keyword2 \and Keyword3}
 % \acknowledgements{Enter acknowledgements here.}
-% \authornote{If your submission is based on a prior publication and revises / extends the prior work, 
-% enter a note on all prior publications with full citation.}
-% %, \eg this article extends an earlier conference publication published in the conference proceedings, see \cite{}.}
+% \authornote{If your submission is based on a prior publication and revises / extends this work, enter a corresponding note here (This work is based on ...) but DO NOT cite the prior work during the reviewing process. INSTEAD provide full citations of all prior publications to the editors during the submission process (use the text field in the online submission system).}
+% % Take note of the following closing bracket!
 % }
-% \volume{11}% Volume No.
-% \issue{1}{31~Jan~2016}% Issue No. and Issue Date
-% \specialissuetitleprefix{PRefix}
-% \specialissuetitle{Domain-Specific Modelling Languages}
 %
-% \section{Introduction}
-% \label{intro}
-% Enter your text here \parencite{Mittelbach.2004}. Remember to use \texttt{biber} instead of \texttt{bibtex} for processing the bibliography (.bib) file(s). \textcite{Mittelbach.2004} provide an introduction to \LaTeX{} which should be complemented by more recent readings (\ie certain parts of \cite{Mittelbach.2004} are probably outdated). Note the differences when using \verb|\parencite{}| or \verb|\textcite{}| or \verb|\cite{}| in the examples above. See Sec.~\ref{sec:bib} for advice on how to enter bibliographic data in the .bib file.
+% \section{Introduction}\label{sec:introduction}
+% Enter your text here.
 %
+% \subsection{Subsection title}\label{sec:somelabel}
 %
-% \section{Floating objects ('floats')}\label{sec:1}
-% Enter your text here. 
-%
-% \subsection{Subsection title}\label{sec:2}
-% Provide a unique label for each section, table, figure, listing and algorithm for referencing purposes (see, \eg, Sec.~\ref{sec:3} and Tab.~\ref{enter-a-unique-label-here}). 
-%
-%
-%
-%
-% \subsection{Figures}\label{sec:3}
+% % Example of a single-column figure (spanning only a single column)
 % \begin{figure}[htbp]
 % \centering
 % %\includegraphics[width=\columnwidth]{<filename>}
@@ -1135,6 +1135,7 @@ This work consists of all files listed in manifest.txt.
 % \label{default}
 % \end{figure}
 %
+% % Example of a double-column figure (spanning both columns)
 % \begin{figure*}[htb]
 % \centering
 % %\includegraphics[width=\textwidth]{<filename>}
@@ -1142,13 +1143,9 @@ This work consists of all files listed in manifest.txt.
 % \label{default}
 % \end{figure*}
 %
-% \blindtext
-%
-%
-%
-% \subsection{Tables}\label{sec:tables}
-% Typeset tables as floats in double-columns using \verb|\begin{table*}|, see Tab.~\ref{tab:unique-label} for an example.
-%
+% % Example of a double-column table. Tables should NOT be typeset in a single column! 
+% % Note the use of \toprule, \midrule, and \bottomrule!
+% % DO NOT use vertical rules in tables!
 % \begin{table*}[tb]
 % \centering
 % \caption{Enter your table caption above the table here.}
@@ -1166,61 +1163,52 @@ This work consists of all files listed in manifest.txt.
 % \label{tab:unique-label}
 % \end{table*}
 %
-% %\blindtext[2]\ Lorem ipsum hoc nunc.\footnote{Use footnotes only when absolutely necessary.}
-%
-%
-% %\blindtext[1]
-%
-%
-%
-% \section{Formatting the bibliography}\label{sec:bib}
-%
-% Please make sure to properly enter all data for each entry in the bibliographic database (.bib). Pay special attention to formatting names and page numbers, see Listing~\ref{lst:1} for an example (\cite{key1}) formatted properly in the references section (use \verb|--| between page numbers and \verb|{}| around multiple word surnames!). 
-%
-% \begin{lstlisting}[float,caption={Enter your single-column listing caption here.},label={lst:1}]
-% @ARTICLE{key1,
-%   author = {{van der Aalst}, W. M. P. 
-%   and {van Hee}, K. M. 
-%   and {van Werf}, J. M. 
-%   and Verdonk, M.},
-%   title = {{Auditing 2.0: Using 
-%   Process Mining to Support 
-%   Tomorrow's Auditor}},
-%   journal = {Computer},
-%   year = {2010},
-%   volume = {43},
-%   pages = {90--93},
-%   number = {3}
+% % Example of a double-column source code listing.
+% \begin{lstlisting}[float=*htbp,%
+% caption={Enter your double-column listing caption here.},%
+% label={lst:helloworld}]
+% /**
+%  * The HelloWorldApp class implements an application that
+%  * simply prints "Hello World!" to standard output.
+%  */
+% class HelloWorldApp {
+%     public static void main(String[] args) {
+%         System.out.println("Hello World!"); // Display the string.
+%    }
 % }
 % \end{lstlisting}
 %
+% % Example of a double-column pseudo code with algorithmicx.
+% \begin{...}
+% while (r > kRadius/2) {
+%                r--;
+%                double a =  Math.sqrt(kernel[0][r])/(kRadius-r);
+%                 if (a < sqrtSlope)
+%                    sqrtSlope = a;
+%                else
+%                    break;
+%            }
+% \end{...}
 %
-%
-% \section{Source code listings}\label{sec:listings}
-%
-% For typesetting source code listings, use the \verb|sourcecode|, \verb|java| or \verb|pseudocode| environments provided by the document class. All three environments are customized from the lstlistings package. 
-%
-% See Listing~\ref{lst:2} for an example of a double-column listing.
-%
-% \begin{lstlisting}[float=*htbp,caption={Enter your double-column listing caption here. Note that the listing width is too wide. Correct by entering a newline before, \eg, 'Tomorrow'.},label={lst:2}]
-% @ARTICLE{key1,
-%   author = {{van der Aalst}, W. M. P. and {van Hee}, K. M. and 
-%   {van Werf}, J. M. and Verdonk, M.},
-%   title = {{Auditing 2.0: Using Process Mining to Support Tomorrow's Auditor}},
-%   journal = {Computer},
-%   year = {2010},
-%   volume = {43},
-%   pages = {90--93},
-%   number = {3}
-% }
-% \end{lstlisting}
-%
-% %\blindtext[3]
-%
-%
-% \section{Formatting pseudocode}\label{sec:algorithm}
-% XXX Nutzung von algorithm-Umgebung illustrieren XXX 
-%
+% % Formatting the bibliographic data base:
+% % Please make sure to properly enter all data for each entry 
+% % in the bibliographic database (.bib). 
+% % Pay special attention to formatting names and page numbers, 
+% % see the following example:
+% %@ARTICLE{key1,
+% %  author = {{van der Aalst}, W. M. P. 
+% %  and {van Hee}, K. M. 
+% %  and {van Werf}, J. M. 
+% %  and Verdonk, M.},
+% %  title = {{Auditing 2.0: Using 
+% %  Process Mining to Support 
+% %  Tomorrow's Auditor}},
+% %  journal = {Computer},
+% %  year = {2010},
+% %  volume = {43},
+% %  pages = {90--93},
+% %  number = {3}
+% %}
 % \printbibliography
 % \end{article}
 % \end{document}
@@ -5786,9 +5774,10 @@ techreport = {},%
   \bibliography{}
   }
 %% Please insert your article text here.
-
-  
-  
+\section{Introduction}
+\subsection{The research problem}
+%% Remember to provide a unique label for each section, table, figure, listing and algorithm for referencing purposes. 
+%%
 %% This directive typesets the bibliography.  To achieve this, one has
 %% to run the biber program on the corresponding auxiliary file
 %% generated in the previous LaTeX run; you can just use the job name
