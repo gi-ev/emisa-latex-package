@@ -2620,7 +2620,7 @@ This work consists of all files listed in manifest.txt.
 % These macros are used to assemble the page head, \ldots
 %    \begin{macrocode}
 \newcommand{\theheadvolume}{%
-  \begingroup\hypersetup{urlcolor=headtextcolor}\textcolor{headtextcolor}{Vol.\,\@volume, No.\,\@issue\ (\@issuedate).\ifx\@doi\@empty\else\ \outdoi{\@doi}\fi\ifx\@specialissuetitle\relax\else\ (\@specialissuetitle)\fi}\endgroup}%
+  \begingroup\hypersetup{urlcolor=headtextcolor}\textcolor{headtextcolor}{Vol.\,\@volume, No.\,\@issue\ (\@issuedate).\ifx\@doi\@empty\else\ \outdoi{\@doi}\fi\ifx\@specialissuetitle\relax\else\ \@specialissuetitle.\fi}\endgroup}%
 \newlength{\headpageoffset}%
 \setlength{\headpageoffset}{10mm}%
 \def\theoddheadpage{%
