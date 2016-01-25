@@ -333,7 +333,11 @@
    \@esphack}%
 \newcommand{\authornote}[1]{
    \@bsphack
-   \def\@authornote{#1}%
+   \if@referee
+      \def\@authornote{}%
+   \else
+      \def\@authornote{#1}%
+   \fi%
    \@esphack}%
 \newcommand{\editor}[1]{
    \@bsphack
