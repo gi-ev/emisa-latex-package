@@ -505,7 +505,7 @@
   \egroup
 }%
 \newcommand{\theheadvolume}{%
-  \begingroup\hypersetup{urlcolor=headtextcolor}\textcolor{headtextcolor}{Vol.\,\@volume, No.\,\@issue\ (\@issuedate).\ifx\@doi\@empty\else\ \outdoi{\@doi}\fi\ifx\@specialissuetitle\relax\else\ (\@specialissuetitle)\fi}\endgroup}%
+  \begingroup\hypersetup{urlcolor=headtextcolor}\textcolor{headtextcolor}{Vol.\,\@volume, No.\,\@issue\ (\@issuedate).\ifx\@doi\@empty\else\ \outdoi{\@doi}\fi\ifx\@specialissuetitle\relax\else\ \@specialissuetitle.\fi}\endgroup}%
 \newlength{\headpageoffset}%
 \setlength{\headpageoffset}{10mm}%
 \def\theoddheadpage{%
@@ -1195,6 +1195,8 @@
 \newcommand*{\BPM}{\emisa@vabbrv{bpm}}
 \newcommand*{\BPMN}{\emisa@vabbrv{bpmn}}
 \newcommand*{\UML}{\emisa@vabbrv{uml}}
+\newcommand{\meta}[1]{{\ttfamily\small #1}} % designate a meta type (meta class)
+\newcommand{\type}[1]{\textsf{#1}} % designate a type (class)
 \def\@tempa#1\do\addbibresource#2\nil{%
     \ifx\relax#2\relax
     \else
