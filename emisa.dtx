@@ -1351,12 +1351,55 @@ This work consists of all files listed in manifest.txt.
 % 
 % \subsection{Options}
 % \label{sec:code:opt}
-% 
-% \begin{option}{british}
+% \begin{macro}{\@clearglobaloption}
+% We need a macro to remove options from the global to avoid side-effects
 %    \begin{macrocode}
-\PassOptionsToPackage{british}{babel}
+\def\@clearglobaloption#1{%
+  \def\@tempa{#1}%
+  \def\@tempb{\@gobble}%
+  \@for\next:=\@classoptionslist\do
+    {\ifx\next\@tempa
+       \message{Cleared  option \next\space from global list}%
+     \else
+       \edef\@tempb{\@tempb,\next}%
+     \fi}%
+  \let\@classoptionslist\@tempb
+  \expandafter\ifx\@tempb\@gobble
+    \let\@classoptionslist\@empty
+  \fi}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{option}{british}
+% \begin{option}{UKenglish}
+%    \begin{macrocode}
+\DeclareOption{british}{%
+   \PassOptionsToPackage{british}{babel}
+   \PassOptionsToPackage{english=british}{csquotes}
+   \@clearglobaloption{british}}
+\DeclareOption{UKenglish}{%
+   \PassOptionsToPackage{british}{babel}
+   \PassOptionsToPackage{english=british}{csquotes}
+   \@clearglobaloption{british}}   
 %    \end{macrocode}
 % \end{option}
+% \end{option}
+%
+% \begin{option}{american}
+% \begin{option}{USenglish}
+%    \begin{macrocode}
+\DeclareOption{american}{%
+   \PassOptionsToPackage{american}{babel}
+   \PassOptionsToPackage{english=american}{csquotes}
+   \@clearglobaloption{american}}   
+\DeclareOption{USenglish}{%
+   \PassOptionsToPackage{american}{babel}
+   \PassOptionsToPackage{english=american}{csquotes}
+   \@clearglobaloption{american}}   
+%    \end{macrocode}
+% \end{option}
+% \end{option}
+%
 % \begin{option}{draft}
 % \begin{option}{final}
 % \begin{switch}{@draft}
@@ -1433,7 +1476,7 @@ This work consists of all files listed in manifest.txt.
 %    \begin{macrocode}
 \PassOptionsToClass{a4paper,twoside,11pt}{article}%
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}%
-\ExecuteOptions{final,noreferee,nocover,oneside,openany}%
+\ExecuteOptions{british,final,noreferee,nocover,oneside,openany}%
 \ProcessOptions*\relax%
 %    \end{macrocode}
 % 
@@ -1659,7 +1702,7 @@ This work consists of all files listed in manifest.txt.
 % social sciences.  All quote styles as well as the optional active
 % quotes are freely configurable.
 %    \begin{macrocode}
-\RequirePackage[babel=once,english=british]{csquotes}
+\RequirePackage[autostyle=once]{csquotes}
 %    \end{macrocode}
 % 
 % 
