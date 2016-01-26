@@ -32,7 +32,35 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
 [2016/01/12 2.0BETA LaTeX class EMISA]
-\PassOptionsToPackage{british}{babel}
+\def\@clearglobaloption#1{%
+  \def\@tempa{#1}%
+  \def\@tempb{\@gobble}%
+  \@for\next:=\@classoptionslist\do
+    {\ifx\next\@tempa
+       \message{Cleared  option \next\space from global list}%
+     \else
+       \edef\@tempb{\@tempb,\next}%
+     \fi}%
+  \let\@classoptionslist\@tempb
+  \expandafter\ifx\@tempb\@gobble
+    \let\@classoptionslist\@empty
+  \fi}
+\DeclareOption{british}{%
+   \PassOptionsToPackage{british}{babel}
+   \PassOptionsToPackage{english=british}{csquotes}
+   \@clearglobaloption{british}}
+\DeclareOption{UKenglish}{%
+   \PassOptionsToPackage{british}{babel}
+   \PassOptionsToPackage{english=british}{csquotes}
+   \@clearglobaloption{british}}
+\DeclareOption{american}{%
+   \PassOptionsToPackage{american}{babel}
+   \PassOptionsToPackage{english=american}{csquotes}
+   \@clearglobaloption{american}}
+\DeclareOption{USenglish}{%
+   \PassOptionsToPackage{american}{babel}
+   \PassOptionsToPackage{english=american}{csquotes}
+   \@clearglobaloption{american}}
 \newif\if@draft
 \DeclareOption{draft}{%
   \@drafttrue
@@ -57,7 +85,7 @@
 \DeclareOption{nomicrotype}{\@microtypefalse}
 \PassOptionsToClass{a4paper,twoside,11pt}{article}%
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}%
-\ExecuteOptions{final,noreferee,nocover,oneside,openany}%
+\ExecuteOptions{british,final,noreferee,nocover,oneside,openany}%
 \ProcessOptions*\relax%
 \IfFileExists{latexrelease.sty}%
    {\RequirePackage[latest]{latexrelease}}%
@@ -98,7 +126,7 @@
    sorting=anyt,%
    hyperref=true%
 }%
-\RequirePackage[babel=once,english=british]{csquotes}
+\RequirePackage[autostyle=once]{csquotes}
 \RequirePackage{twoopt}%
 \RequirePackage{environ}%
 \RequirePackage[neveradjust,defblank,flushright]{paralist}%
