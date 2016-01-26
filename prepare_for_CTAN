@@ -1,5 +1,7 @@
 #!/bin/bash
 # Use this file on a unix system to generate the zip archive for CTAN
-# ctanify is part of TeX Live distributions
+# ctanify is part of TeX Live and MiKTEX distributions
+# Please note, that version <=1.8 do not use the -y option for zipping.
+# Thus symbolic links are not stored correctly.
 #
 ctanify emisa.ins emisa.pdf README.md manifest.txt "emisa-instructions.pdf=doc/latex/emisa" "emisa-author-template.tex=doc/latex/emisa" "emisa.bbx=tex/latex/emisa" "emisa.cbx=tex/latex/emisa"
