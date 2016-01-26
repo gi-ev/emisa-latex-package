@@ -1088,6 +1088,25 @@ This work consists of all files listed in manifest.txt.
 % \section{Pseudocode and algorithms}
 % \DescribeEnv{algorithm}\DescribeEnv{algorithmicx}\pkg{EMISA} offers some environments for a comfortable integration of source code examples.
 %
+% \section{Commands for use by the editorial office only}
+% \DescribeMacro{editor}Enter the corresponding editor (editorial board member) for the article, in the format 'first letter of the first name fullstop tilde last name'. Example: \verb|\editor{A.~Smith}|
+%
+% \DescribeMacro{received}Enter the date of initial reception of the manuscript by the editorial office in the following format. Example: \verb|\received{31~March 2014}|
+%
+% \DescribeMacro{accepted}Enter the date of acceptance decision of the manuscript and the number of review rounds in the following format. Example: \verb|\accepted[3]{10~January 2016}|
+%
+% \DescribeMacro{volume}Enter the volume number of the article. Example: \verb|\volume{11}|
+%
+% \DescribeMacro{issue}Enter the issue number and issue date of the article. Format example: \verb|\issue{1}{31~January 2016}|
+%
+% \DescribeMacro{specialissuetitle}Enter the title of the Special Issue to which the article belongs if any. Note that the prefix 'Special Issue on' is added automatically. Example: \verb|\specialissuetitle{Multilevel Modelling}|
+%
+% \emph{Note that volume, issue number and issue date and, optionally, the title of the special issue appear in the multiline page headline.}
+%
+% \DescribeMacro{CCBYNCSAFour}\DescribeMacro{CCBYNCSAThree}If an article is licensed under a Creative Commons BY-NC-SA 4.0 (\cs{CCBYNCSAFour}) or 3.0 (\cs{CCBYNCSAThree}) license, the reference to the license should be displayed at the end of the article. Read the license text at https://creativecommons.org/licenses/by-nc-sa/4.0/ (for version 4.0; likewise for version 3.0).
+%
+% \DescribeMacro{license}\DescribeMacro{licence}Alternatively, enter a license text by \cs{license} (or \cs{licence}).\\ Example: \verb|\license{This work is licensed under LPPL 1.3c.}|
+%
 % \section{Example file for both, authors and editorial office}
 % \begin{examplecode}
 % % Use the option [draft] to mark overfull lines.
@@ -1107,6 +1126,9 @@ This work consists of all files listed in manifest.txt.
 % % Make sure to use UTF-8 character encoding in the bibliography data bases, 
 % % and add the .bib extension for the biblatex package!
 % \bibliography{emisa.bib}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % For editorial office only: Start
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % Add editorial meta data to appear in the multiline page headline.
 % \editor{Enter corresponding editor here}
 % \received{Enter date of manuscript reception here}
@@ -1114,6 +1136,12 @@ This work consists of all files listed in manifest.txt.
 % \volume{11} % volume number
 % \issue{1}{31~Jan~2016} % issue number and issue date
 % \specialissuetitle{Title of special issue if publication belongs to a special issue}
+% % Add license information at end of article, either
+% \CCBYNCSAFour % or \CCBYNCSAThree or \license
+% \license{Enter your license text here}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % For editorial office only: End
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % % Enter bibliographic meta data about publication
 % \title[Insert shorttitle for page headline]{Enter full title here}
 % \subtitle{Enter subtitle here, or leave empty}
@@ -1133,7 +1161,6 @@ This work consists of all files listed in manifest.txt.
 % Enter your text here.
 %
 % \subsection{Subsection title}\label{sec:somelabel}
-%
 % % Example of a single-column figure (spanning only a single column)
 % \begin{figure}[htbp]
 % \centering
