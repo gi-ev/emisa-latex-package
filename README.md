@@ -1,7 +1,7 @@
 # emisa-latex-package
 ```
 -----------------------------------------------------------------------
-emisa --    A LaTeX class for preparing manuscripts for the journal EMISA
+emisa --    A LaTeX package for preparing manuscripts for the journal EMISA
 (c) 2016    Enterprise Modelling and Information Systems Architectures -
             An International Journal (EMISA)
 Version:    2.0        
