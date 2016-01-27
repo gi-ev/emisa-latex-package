@@ -1,6 +1,6 @@
 # emisa-latex-package
 ```
------------------------------------------------------------------------
+----------------------------------------------------------------------------
 emisa --    A LaTeX package for preparing manuscripts for the journal EMISA
 (c) 2016    Enterprise Modelling and Information Systems Architectures -
             An International Journal (EMISA)
@@ -10,7 +10,7 @@ E-mail:     stefan.strecker@fernuni-hagen.de
             martin.sievers@schoenerpublizieren.de
 License:    Released under the LaTeX Project Public License v1.3c or later
 See:        http://www.latex-project.org/lppl.txt
------------------------------------------------------------------------
+----------------------------------------------------------------------------
 
 Developing and documentating the 'official' LaTeX package for preparing 
 manuscripts for the journal EMISA (Enterprise Modelling and Information 
