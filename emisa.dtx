@@ -4,13 +4,13 @@
 % Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig 
 % <mwl@moss.in-berlin.de>
 % Copyright (C) 2015,2016 by Enterprise Modelling and Information 
-% Systems Architectures - An International Journal (EMISA)
+% Systems Architectures -- An International Journal (EMISA)
 % --------------------------------------------------------------------
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License (LPPL), either
 % version 1.3c of this license or (at your option) any later
-% version.  The latest version of this license is in the file:
+% version. The latest version of this license is in the file:
 %
 % http://www.latex-project.org/lppl.txt
 %
@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/01/12 2.0BETA LaTeX class EMISA]
+[2016/01/27 2.0BETA LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -90,13 +90,13 @@ do so in \jobname.dtx (after altering the name, of course!).
 Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig 
 <mwl@moss.in-berlin.de>
 Copyright (C) 2015,2016 by Enterprise Modelling and Information 
-Systems Architectures - An International Journal (EMISA)
+Systems Architectures -- An International Journal (EMISA)
 ------------------------------------------------------------------------
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License (LPPL), either
 version 1.3c of this license or (at your option) any later
-version.  The latest version of this license is in the file:
+version. The latest version of this license is in the file:
 
 http://www.latex-project.org/lppl.txt
 
@@ -124,7 +124,7 @@ This work consists of all files listed in manifest.txt.
 \Msg{**********************************************************************}
 \Msg{*}
 \Msg{* To finish the installation you have to move the following}
-\Msg{* file(s) into a directory searched by TeX.  In the following,}
+\Msg{* file(s) into a directory searched by TeX. In the following,}
 \Msg{* TEXMF stands for any of the texmf trees in your system,}
 \Msg{* probably the system-local or the user-local one.}
 \Msg{*}
@@ -161,7 +161,7 @@ This work consists of all files listed in manifest.txt.
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{newtxtext}
-\usepackage[strict]{csquotes}
+\usepackage[autostyle=once,english=british,strict]{csquotes}
 \usepackage{amssymb}
 \usepackage{xspace}
 \usepackage{fancyvrb}
@@ -257,7 +257,7 @@ This work consists of all files listed in manifest.txt.
 % 
 \hfuzz200pt
 % 
-\parskip = 0.5\baselineskip plus  0.5\baselineskip
+\parskip = 0.5\baselineskip plus 0.5\baselineskip
 \setlength{\parindent}{0em}
 % 
 \renewcommand*\textfraction{0.01}%
@@ -284,6 +284,9 @@ This work consists of all files listed in manifest.txt.
 \DeclareRobustCommand{\cls}[1]{{\normalfont\fontfamily\sfdefault\upshape #1}}
 \DeclareRobustCommand{\file}[1]{{\fontfamily\ttdefault\itshape #1}}
 % 
+\newcommand{\eg}{e.\,g.\@\xspace}
+\newcommand{\ie}{i.\,e.\@\xspace}
+%
 \newenvironment{syntax}[1][]
  {\par%
   \bgroup
@@ -936,7 +939,7 @@ This work consists of all files listed in manifest.txt.
 %^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % \author{Stefan Strecker (stefan.strecker@fernuni-hagen.de) \and Martin Sievers (martin.sievers@schoenerpublizieren.de)}
-% \title{A \LaTeX{} package for preparing manuscripts for submissions to the OA  journal ‘Enterprise Modelling and Information Systems Architectures – An International Journal’ (EMISA)}
+% \title{A \LaTeX{} package for preparing manuscripts for submissions to the OA  journal \enquote{Enterprise Modelling and Information Systems Architectures – An International Journal} (EMISA)}
 % \maketitle
 %
 %\changes{v2.0}{2015/12/21}{}
@@ -945,45 +948,49 @@ This work consists of all files listed in manifest.txt.
 %
 % \section{Introduction}
 % Enterprise Modelling and Information Systems Architectures --~An International Journal (EMISA) is a publisher-independent, peer-reviewed  open access journal (\url{https://emisa-journal.org}). 
-% EMISA is published by the German Informatics Society (GI) and is a publication of its Special Interest Group (SIG) on Modelling Business Information Systems (SIG MoBIS) and its SIG on Design Methods for Information Systems (SIG EMISA). SIG~MoBIS has sponsored the development of the \pkg{EMISA} \LaTeX{} package currently maintained by Stefan Strecker (\href{mailto:stefan.strecker@fernuni-hagen.de}{stefan.strecker@fernuni-hagen.de}) and Martin Sievers (\href{mailto:martin.sievers@schoenerpublizieren.de}{martin.sievers@schoenerpublizieren.de}).
+% EMISA is published by the German Informatics Society (GI) and is a publication of its Special Interest Group (SIG) on Modelling Business Information Systems (SIG MoBIS) and its SIG on Design Methods for Information Systems (SIG EMISA). SIG~MoBIS has sponsored the development of the \DTXclassname \LaTeX{} package currently maintained by Stefan Strecker (\href{mailto:stefan.strecker@fernuni-hagen.de}{stefan.strecker@fernuni-hagen.de}) and Martin Sievers (\href{mailto:martin.sievers@schoenerpublizieren.de}{martin.sievers@schoenerpublizieren.de}).
 %
-% The \pkg{EMISA} \LaTeX{} package is provided for preparing manuscripts for submission to EMISA, and for preparing accepted submissions for publication as well as for typesetting the final document by the editorial office. Articles in EMISA are published online at \url{https://emisa-journal.org} (in the Portable Document Format or PDF format).
+% The \DTXclassname \LaTeX{} package is provided for preparing manuscripts for submission to EMISA, and for preparing accepted submissions for publication as well as for typesetting the final document by the editorial office. Articles in EMISA are published online at \url{https://emisa-journal.org} (in the Portable Document Format or PDF format).
 % The EMISA editorial office is run (alongside many other tasks and projects) by the two Editors-in-Chief assisted by doctoral students. Editorial work at EMISA is best described as a volunteer effort for the scientific community.
 % You can assist us by preparing your manuscript following the instructions and style guidelines described in this document: Your work will be published quicker with less (typographical) glitches and will have a professional appearance.
 %
 %
 % \section{Installation}
-% The \pkg{EMISA} \LaTeX{} package consists of the \pkg{EMISA} \LaTeX{} document class \texttt{emisa.cls}, the \pkg{biblatex} bibliography style \texttt{emisa.bbx} and the \pkg{biblatex} citation style \texttt{emisa.cbx}. 
-% The package also includes a quick-start template for authors \texttt{emisa-author-template.tex} and the present instructions \texttt{emisa.pdf}.
-% The package is available from the \textsc{Comprehensive \TeX{} Archive Network} (CTAN, \url{https://ctan.org}) and should be available for installation through the respective \TeX{} distribution’s package installer (e.\,g.\ \TeX{}Live's \TeX Live Utility). For a manual installation, run \verb|pdflatex emisa.ins| and \verb|pdflatex emisa.dtx| twice, and copy the resulting files to the same directory (folder) in which the source files for the manuscript will be maintained. 
+% The \DTXclassname \LaTeX{} package consists of the document class \DTXname, the \pkg{biblatex} bibliography style \texttt{emisa.bbx} and the \pkg{biblatex} citation style \texttt{emisa.cbx}.
+% 
+% The package also includes a quick-start template for authors \file{emisa-author-template.tex} and the present instructions \file{emisa.pdf}.
+%
+% The package is available from the \textsc{Comprehensive \TeX{} Archive Network} (CTAN, \url{https://ctan.org}) and should be available for installation through the respective \TeX{} distribution's package installer (\eg \TeX{}~Live's \TeX{}~Live Utility). This type of installation is recommended in order to always get the latest version automatically. If you prefer a manual installation, please run \verb|pdflatex emisa.dtx| twice, and copy the resulting files to the same directory (folder) in which the source files for the manuscript will be maintained. 
 %
 %
 % \section{Instructions and guidelines}
 % This document provides instructions and style guidelines for authors. 
-% Follow the instructions and guidelines in the present document to set up your files, to type in your text, to format figures, tables, source code listings and algorithms, and to obtain a consistent visual appearance in accordance with the journal's style specifications. Before submitting your manuscript online to the journal's online submission system at \url{http://emisa-journal.org}, use these instructions and guidelines as a checklist. Note that these instructions are \emph{not} intended as a general introduction to \LaTeX2e\ and corresponding tools (see, for example, \url{https://www.ctan.org/tex-archive/info/lshort/english/} for ‘The Not So Short Introduction to \LaTeX2e{}---Or \LaTeX2e\ in 157 minutes’). 
+% Follow the instructions and guidelines in the present document to set up your files, to type in your text, to format figures, tables, source code listings and algorithms, and to obtain a consistent visual appearance in accordance with the journal's style specifications. Before submitting your manuscript online to the journal's online submission system at \url{http://emisa-journal.org}, use these instructions and guidelines as a checklist. Note that these instructions are \emph{not} intended as a general introduction to \LaTeX2e{} and corresponding tools (see, for example, \url{http://mirror.ctan.org/info/lshort/english/} for\enquote{The Not So Short Introduction to \LaTeX2e{}---Or \LaTeX2e{} in 157 minutes}). 
 %
 %
 % \section{Preliminary remarks}
 % The \pkg{EMISA} document class is derived from the standard \LaTeX{} article class, and produces a customised two-column layout with bibliographic information about the manuscript in a multi-line page headline (including the name of the journal, volume and issue number, date of publication, short title as well as author names) on A4-sized paper.
 %
-% The \pkg{EMISA} class builds on a number of standard \LaTeX{} packages available in distributions such as \TeX{}Live and Mik\TeX{}. It is highly recommended to install the \emph{full} set of packages to make the required packages available to the \pkg{EMISA} package. Alternatively, missing packages may be installed on-the-fly. The list of required packages for using the \pkg{EMISA} package is rather comprehensive (see \verb|emisa.cls|) but the implementation has taken care to use only packages commonly included in \TeX\ distributions such as \TeX{}Live and Mik\TeX{}. Among the packages required by the \pkg{EMISA} class are \pkg{geometry}, \pkg{newtxtext}, \pkg{newtxmath}, \pkg{newtxtt}, \pkg{ntheorem}, \pkg{amsthm}, \pkg{booktabs}, \pkg{tabularx} (see \verb|emisa.cls| for a comprehensive overview).
+% The \DTXclassname class builds on a number of standard \LaTeX{} packages available in distributions such as \TeX{}~Live and Mik\TeX{}. It is highly recommended to install the \emph{full} set of packages to make the required packages available to the \DTXclassname package. Alternatively, missing packages may be installed on-the-fly or via the distributions package manager. The list of required packages for using the \DTXclassname package is rather comprehensive (see \verb|emisa.cls|), but the implementation has taken care to use only packages commonly included in the widely used \TeX{} distributions \TeX{}~Live and Mik\TeX{}. Among the required packages are \pkg{geometry}, \pkg{newtxtext}, \pkg{newtxmath}, \pkg{newtxtt}, \pkg{ntheorem}, \pkg{amsthm}, \pkg{booktabs}, \pkg{tabularx} (see \verb|emisa.cls| for a comprehensive overview).
 %
-% The production process at the EMISA editorial office is based entirely on \LaTeX{}, and runs pdf\LaTeX{} and \verb|biber| to produce the final proof and publication-ready PDF of an article.  
+% The production process at the EMISA editorial office is based entirely on \LaTeX{}, and runs pdf\LaTeX{} and \verb|biber| to produce the final proof and publication-ready PDF of an article.
+%  
 % The \pkg{biblatex} package is used to typeset citations and references in conjunction with the \verb|biber| tool. Make sure to use \verb|biber| rather than \verb|bibtex| to process your bibliography data base file(s).
+%
 % The production tool chain at the editorial office requires that all text files of an article are provided in \emph{UTF-8 file encoding}\DescribeOption{UTF-8}.   
 %  
 %
 % \section{Class Options}
-% \DescribeOption{british} British English is the language of choice for publishing in EMISA. The class option `british' is preloaded by default to obtain the correct hyphenation for British English (as provided by the \pkg{babel} package). The class option \emph{may be} used with the \pkg{EMISA} class to exemplify the use of British English. Example: \verb|\documentclass[british]{emisa}|. This is the standard option. Note that the \cs{csquotes} package is loaded with settings to produce proper quotation marks in British English (see below).
+% \DescribeOption{british, UKenglish} British English is the language of choice for publishing in EMISA. The class option \opt{british} is loaded by default to obtain the correct hyphenation for British English (as provided by the \pkg{babel} package). The class option \emph{may be} used with the \DTXclassname class to exemplify the use of British English. Example: \verb|\documentclass[british]{emisa}|. This is the standard option. Note that the \cs{csquotes} package is loaded with settings to produce proper quotation marks in British English (see below).
 %
-% \DescribeOption{referee, review} By default, a final version of the manuscript is typeset for online publication including the names and affiliations of authors. For reviewing purposes, the names and affiliations of the authors are omitted using the document option \verb|referee| or \verb|review| to allow for the anonymous (i.\,e.\ double blind) peer-review process of EMISA. Example: \verb|\documentclass[referee]{emisa}|.  Make sure to use the document option \verb|referee| or \verb|review| before typesetting the final PDF intended for submission to the journal. 
+% \DescribeOption{referee, review} By default, a final version of the manuscript is typeset for online publication including the names and affiliations of authors. For reviewing purposes, the names and affiliations of the authors are omitted using the document option \verb|referee| or \verb|review| to allow for the anonymous (\ie double blind) peer-review process of EMISA. Example: \verb|\documentclass[referee]{emisa}|.  Make sure to use the document option \verb|referee| or \verb|review| before typesetting the final PDF intended for submission to the journal. 
 %
 %
 % \section{Author information}
 % \DescribeMacro{\author}\DescribeMacro{\address}%
-% Each author is added using the macro \cs{author}\marg{author name} followed by the corresponding address \cs{address}\marg{author's address (line 1)\textbackslash\textbackslash\ \ldots (line 2)\textbackslash\textbackslash\ \ldots}. If you have multiple authors with the same address, please use \cs{address}\marg{author's address} only for the first one of those and \cs{address}\oarg{letter of address}\marg{} for all others. See \texttt{emisa-author-template.tex} for details.
+% Each author is added using the macro \cs{author}\marg{author name} followed by the corresponding address \cs{address}\marg{author's address (line 1)\textbackslash\textbackslash\ \ldots (line 2)\textbackslash\textbackslash\ \ldots}. If you have multiple authors with the same address, please use \cs{address}\marg{author's address} only for the first one and \cs{address}\oarg{letter of address}\marg{} for all others. See \file{emisa-author-template.tex} for details.
 %
-% \DescribeMacro{\author*}Exactly one author must be declared as  corresponding author stated by using the starred version of the \cs{author} command: \cs{author*}\marg{author's name}\marg{email address}.
+% \DescribeMacro{\author*}There always has to be declared exactly one author as the corresponding author. This is indicated by using the starred version of the \cs{author} command: \cs{author*}\marg{author's name}\marg{email address}.
 %
 %
 % \section{Title, subtitle, abstract, and keywords}
@@ -994,37 +1001,36 @@ This work consists of all files listed in manifest.txt.
 % Keywords describing the manuscript are typeset using \cs{keywords}\marg{keywords} and are concatenated using the \cs{and} command. For example, \verb|\keywords{keyword1 \and keyword2}|. At least three keywords should be provided.
 %
 %
-%
 % \section{Additional information on the first (title) page}
 % \DescribeMacro{\acknowledgements}%
-% Acknowledgements, for example, of collaborators, funding agencies etc.\ may be added using \cs{acknowledgements}\marg{acknowledgements}. The acknowledgements are typset in a footnote on the first page below the corresponding author’s email address.
+% Acknowledgements, for example, of collaborators, funding agencies etc.\ may be added using \cs{acknowledgements}\marg{acknowledgements}. The acknowledgements are typeset in a footnote on the first page below the corresponding author’s email address.
 %
 % \DescribeMacro{\authornote}%
-% Additional information for reviewers and readers may be added in a footnote on the titlepage using \cs{authornote}\marg{author note}. This is typically used for stating earlier publications (e.\,g.\ in conference proceedings) on which the present manuscript is based.
+% Additional information for reviewers and readers may be added in a footnote on the titlepage using \cs{authornote}\marg{author note}. This is typically used for stating earlier publications (\eg in conference proceedings) on which the present manuscript is based.
 %
 %
 %
 % \section{Style guidelines for regular text}
 %
 % \begin{itemize}
-% \item Manuscripts should \emph{not} make use of outdated \LaTeX{} commands such as \verb|\em| but rather use the \LaTeX2e\ commands (e.g.\ \verb|\emph|, \verb|\texttt|). 
+% \item Manuscripts should \emph{not} make use of outdated \LaTeX{} commands such as \verb|\em|, but rather use the \LaTeX2e\ commands (\eg \verb|\emph|, \verb|\texttt|). 
 % \item Do \emph{not} make use of bold face (\cs{textbf}). Use \cs{emph} instead to typeset an important word in italics!
-% \item Always use the tilde \verb|~| to connect before \cs{ref}\marg{label}, e.\,g.,\ \verb|Sec.~\ref{label}| rather than the problematic: \verb|Sec. \ref{label}|.
-% \item Do \emph{not} write abbreviations such as \verb|e.g.| but use the macros provided by the \pkg{EMISA} class (see below). Add punctuation when necessary, for example, write \verb|, \ie,| to achive the correct punctuation for ‘id est’ (i.\,e.) rather than \verb|, i.e.,| which introduces two problems: A missing spacing after the first full stop and a wrong spacing after the second full stop.
+% \item Always use the tilde \verb|~| to connect before \cs{ref}\marg{label}, \eg,\ \verb|Sec.~\ref{label}| rather than the problematic: \verb|Sec. \ref{label}|.
+% \item Do \emph{not} write abbreviations such as \verb|e.g.| but use the macros provided by the \pkg{EMISA} class (see below). Add punctuation when necessary, for example, write \verb|, \ie,| to achive the correct punctuation for \enquote{id est} (i.\,e.) rather than \verb|, i.e.,| which introduces two problems: A missing spacing after the first full stop and a wrong spacing after the second full stop.
 %
 %
 % \item Follow the journal's style specification with respect to predefined text styles:
 % 	\begin{itemize}
-% 	\item Use \textsc{smallcaps} for names of open-source projects, products and companies etc, e.\,g.,\ \verb|\textsc{eclipse}| to produce \textsc{eclipse}. \emph{Pay attention to lower case spelling}.
-% 	\item \DescribeMacro{\meta}Use \texttt{non-proportional font} for language concepts, meta types, meta classes etc., i.\,e.,\ \verb|\texttt{AbstractGoalType}| to produce \texttt{AbstractGoalType}, or use the predefined macro \cs{meta}\marg{metatype}, e.\,g.,\ \verb|\meta{AbstractGoalType}|.
-% 	\item \DescribeMacro{\type}Use the \textsf{sans-serif font face} for type-level concepts etc., e.\,g.,\ \verb|\textsf{Goal}| to produce \textsf{Goal} when referring to a \textsf{Goal} type, or use the predefined macro \cs{type}\marg{type}, e.\,g.,\ \verb|\type{Goal}|.
+% 	\item Use \textsc{smallcaps} for names of open-source projects, products and companies etc, \eg,\ \verb|\textsc{eclipse}| to produce \textsc{eclipse}. \emph{Pay attention to lower case spelling}.
+% 	\item \DescribeMacro{\meta}Use \texttt{non-proportional font} for language concepts, meta types, meta classes etc., \ie,\ \verb|\texttt{AbstractGoalType}| to produce \texttt{AbstractGoalType}, or use the predefined macro \cs{meta}\marg{metatype}, \eg,\ \verb|\meta{AbstractGoalType}|.
+% 	\item \DescribeMacro{\type}Use the \textsf{sans-serif font face} for type-level concepts etc., \eg,\ \verb|\textsf{Goal}| to produce \textsf{Goal} when referring to a \textsf{Goal} type, or use the predefined macro \cs{type}\marg{type}, \eg,\ \verb|\type{Goal}|.
 % 	\end{itemize}
 % \end{itemize}
 %
 %
 % \section{Abbreviations and initialisms}
 % \DescribeMacro{\eg}\DescribeMacro{\ie}\DescribeMacro{\cf}\DescribeMacro{\etal}%
-% To achieve consistent typesetting of common abbreviations, macros are predefined by the \pkg{EMISA} class. These macros should \emph{consistently} being used instead of writing the plain version. For example use \verb|\eg| rather than ‘\verb|e.g.|’. The macros take care of spacing within and after the abbreviations. 
+% To achieve consistent typesetting of common abbreviations, macros are predefined by the \DTXclassname class. These macros should \emph{consistently} being used instead of writing the plain version. For example use \verb|\eg| rather than {\verb|e.g.|}. The macros take care of spacing within and after the abbreviations. 
 % \begin{itemize}
 % \item \cs{eg} for e.\,g.
 % \item \cs{ie} for i.\,e.
@@ -1032,6 +1038,7 @@ This work consists of all files listed in manifest.txt.
 % \item \cs{etal} for et~al.
 % \end{itemize}
 %
+% If you miss any frequently used abbreviation for your article, you can easily add it using \cs{emisaabbrv\marg{abbreviation}\marg{text}} in the preamble of your article.
 %
 % \DescribeMacro{\OMG}\DescribeMacro{\BPM}\DescribeMacro{\BPMN}\DescribeMacro{\UML}%
 % In addition to common abbreviations, further initialisms are provided by the class for convenience and for a consistent visual appearance. Note that the class uses \textsc{smallcaps} for typesetting initialisms. The list of predefined initialisms comprises:
@@ -1043,13 +1050,15 @@ This work consists of all files listed in manifest.txt.
 % \item \cs{UML} for \textsc{uml} (Unified Modeling Language).
 % \end{itemize}
 %
-% For proper spacing, add either angle brackets such as \cs{command}\verb|{}| or append a backslash plus a space such as \cs{command}\verb|\ | (e.\,g.\ at the end of a sentence before the full stop use \cs{OMG}\verb|{}|.).
+%%% You can add your own initialisms by stating \cs{} in the preamble.
+% 
+% For proper spacing, add either angle brackets such as \cs{command}\verb|{}| or append a backslash plus a space such as \cs{command}\verb|\ | (\eg at the end of a sentence before the full stop use \cs{OMG}\verb|{}|.).
 %
 %
 % \section{Quotation marks}
 % \DescribeMacro{\enquote}%
 % It is \emph{highly recommended} to use the \cs{enquote}\marg{quotation} command to produce correct quotation marks. Note that the command can be nested and will produce correct primary and secondary quotation marks in British English, for example \verb|\enquote{A quote \enquote{within a quote}}|.
-% Alternatively (but not recommended), the correct Unicode characters can be used, i.\,e.,\ Unicode 2018 and Unicode 2019 for the primary quotation marks, and Unicode 201C as well as Unicode 201D for the secondary quotation marks.
+% Alternatively (but not recommended), the correct Unicode characters can be used, \ie,\ Unicode 2018 and Unicode 2019 for the primary quotation marks, and Unicode 201C as well as Unicode 201D for the secondary quotation marks.
 % % or \LaTeX{} command \verb|\lq| for the opening primary quotation mark, and Unicode 2019 or \LaTeX{} command \verb|\rq| for the closing primary quotation mark.   
 %
 %
@@ -1059,27 +1068,29 @@ This work consists of all files listed in manifest.txt.
 %  It is important to use the citation commands properly to follow the journal's style specifications.
 %
 % \begin{itemize}
-% \item \cs{parencite} is used for citing in parentheses (usually at the end of a sentence). In most cases, page numbers should be provided. Example: \verb|\ldots\ is known \parencite[5]{Knuth1986}| produces ‘\ldots\ is known (Knuth 1986, p.~5)’. Also use \cs{parencite} to produce a prefix within parentheses, e.\,g.\ ‘\verb|\ldots\ is known \parencite[for a justification, see][5]{Knuth1986}|’ produces ‘\ldots\ is known (for a justification, see Knuth 1986, p.~5)’. 
+% \item \cs{parencite} is used for citing in parentheses (usually at the end of a sentence). In most cases, page numbers should be provided. Example: \verb|\ldots\ is known \parencite[5]{Knuth1986}| produces \enquote{\ldots\ is known (Knuth 1986, p.~5)}. Also use \cs{parencite} to produce a prefix within parentheses, e.\,g.\ \verb|\ldots\ is known \parencite[for a justification, see][5]{Knuth1986}| produces \enquote{\ldots\ is known (for a justification, see Knuth 1986, p.~5)}. 
 %
-% \item \cs{textcite} allows for using the cited work as a subject in the grammatical structure of a sentence. Example: \verb|\textcite{Knuth1986} states that ...| produces ‘Knuth (1986) states that \ldots’. Additionally, page numbers and further information can be provided, see the \pkg{biblatex} package documentation.
+% \item \cs{textcite} allows for using the cited work as a subject in the grammatical structure of a sentence. Example: \verb|\textcite{Knuth1986} states that ...| produces \enquote{Knuth (1986) states that \ldots}. Additionally, page numbers and further information can be provided, see the \pkg{biblatex} package documentation.
 %
-% \item \cs{cite} is used for typesetting the citation without parentheses, and is typically used within parentheses. Example: \verb|(see \cite{Knuth1986})| produces ‘(see Knuth 1986)’. This variant is the least used and should be used with care.
+% \item \cs{cite} is used for typesetting the citation without parentheses, and is typically used within parentheses. Example: \verb|(see \cite{Knuth1986})| produces \enquote{(see Knuth 1986)}. This variant is the least used and should be used with care.
 % \end{itemize}
 %
+% For more information on additional macros, \eg for lists of citations, see the \pkg{biblatex} documentation \cite[]{biblatex} 
 %
 % \section{Figures}
-% All line-drawings must be provided as vector graphics (\emph{not} bitmap graphics) in PDF format and all other (non-schematic) figures (e.\,g.\ screenshots) must be provided in PDF, JPEG or PNG format in a proper (high) resolution for the intended size of the rendered image to avoid pixelation due to low resolution; bitmap graphics shown in full page width in the submission should at least be of a resolution of two (2) megapixels or at least 1920 pixels wide.
+% All line-drawings must be provided as vector graphics (\emph{not} bitmap graphics) in PDF format and all other (non-schematic) figures (\eg screenshots) must be provided in PDF, JPEG or PNG format in a proper (high) resolution for the intended size of the rendered image to avoid pixelation due to low resolution; bitmap graphics shown in full page width in the submission should at least be of a resolution of two (2) megapixels or at least 1920 pixels wide.
 %
 %
 % \section{Tables}
+% 
 % \DescribeEnv{tabularx}XXX Add instructions for author here XXX
 %
 % \section{Source code listings}
-% \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \pkg{EMISA} class uses the \pkg{lstlistings} package (see the package documentation for further information), and provides two customised \LaTeX{} environments: \cs{sourcecode} and \cs{java} XXX Hier kenne ich die Befehle zur Erstellung der Befehlsform nicht, \verb|\env| gibt es nicht XXX. The java environment should be used to format source code listings in the Java programming language, and the sourcecode environment should be used to format source code in any other programming language. Note that the source code in either case is typset verbatim, i.\,e.,\ the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. An example illustrates the use of both environments:
+% \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \DTXclassname class uses the \pkg{lstlistings} package (see the package documentation for further information), and provides two customised \LaTeX{} environments: \env{sourcecode} and \env{java}. The java environment should be used to format source code listings in the Java programming language, and the sourcecode environment should be used to format source code in any other programming language. Note that the source code in either case is typset verbatim, \ie,\ the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. An example illustrates the use of both environments:
 %
 % XXX enter two examples here XXX
 % \section{Pseudocode and algorithms}
-% \DescribeEnv{algorithm}\DescribeEnv{algorithmicx}\pkg{EMISA} offers some environments for a comfortable integration of source code examples.
+% \DescribeEnv{algorithm}\DescribeEnv{algorithmicx}\DTXclassname offers some environments for a comfortable integration of source code examples.
 %
 % \section{Example file for both, authors and editorial office}
 % \begin{examplecode}
@@ -1534,7 +1545,7 @@ This work consists of all files listed in manifest.txt.
 \if@microtype
    \RequirePackage{microtype}%
 \else
-   \ClassWarning{emisa}{Package `microtype` not loaded!%
+   \ClassWarning{emisa}{Package `microtype' not loaded!%
       \MessageBreak Output will differ from final result in the journal!%
       \MessageBreak Please consult the documentation, if you%
       \MessageBreak get an error when loading microtype}
@@ -1568,9 +1579,9 @@ This work consists of all files listed in manifest.txt.
 % other packages (like the \pkg{longtable} or \pkg{supertabular} package)~\cite{caption-pdf}.
 % 
 % For more information on that see the
-% \href{http://ctan.tug.org/tex-archive/macros/latex/contrib/caption/caption-eng.pdf}{english},
-% \href{http://ctan.tug.org/tex-archive/macros/latex/contrib/caption/caption-rus.pdf}{russian}, or
-% \href{http://dante.ctan.org/tex-archive/macros/latex/contrib/caption/caption-deu.pdf}{german} user documentation.
+% \href{http://mirror.ctan.org/macros/latex/contrib/caption/caption-eng.pdf}{english},
+% \href{http://mirror.ctan.org/macros/latex/contrib/caption/caption-rus.pdf}{russian}, or
+% \href{http://mirror.ctan.org/macros/latex/contrib/caption/caption-deu.pdf}{german} user documentation.
 %
 %    \begin{macrocode}
 \RequirePackage[font={small}]{caption}
@@ -1648,7 +1659,7 @@ This work consists of all files listed in manifest.txt.
 %   \item{\opt{natbib=true}} enables the use of \pkg{natbib} citation 
 %   commands with \pkg{biblatex}.
 %   \item{\opt{maxcitenames=3}} Author lists with more than two entries are 
-%   abbreviated with ``et al.''.  Note that in the bibliography 
+%   abbreviated with \enquote{et al.}.  Note that in the bibliography 
 %   listing  author lists won't be shortened at all.\footnote{That is, 
 %   they \emph{will} be shortened if there are more than 999 
 %   authors.  That should occur not that often, though.}

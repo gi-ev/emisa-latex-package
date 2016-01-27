@@ -12,13 +12,13 @@
 %% Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig
 %% <mwl@moss.in-berlin.de>
 %% Copyright (C) 2015,2016 by Enterprise Modelling and Information
-%% Systems Architectures - An International Journal (EMISA)
+%% Systems Architectures -- An International Journal (EMISA)
 %% ------------------------------------------------------------------------
 %% 
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License (LPPL), either
 %% version 1.3c of this license or (at your option) any later
-%% version.  The latest version of this license is in the file:
+%% version. The latest version of this license is in the file:
 %% 
 %% http://www.latex-project.org/lppl.txt
 %% 
@@ -31,7 +31,8 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2016/01/12 2.0BETA LaTeX class EMISA]
+[2016/01/27 2.0BETA LaTeX class EMISA]
+%%% You can add your own initialisms by stating \cs{} in the preamble.
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
@@ -97,7 +98,7 @@
 \if@microtype
    \RequirePackage{microtype}%
 \else
-   \ClassWarning{emisa}{Package `microtype` not loaded!%
+   \ClassWarning{emisa}{Package `microtype' not loaded!%
       \MessageBreak Output will differ from final result in the journal!%
       \MessageBreak Please consult the documentation, if you%
       \MessageBreak get an error when loading microtype}
