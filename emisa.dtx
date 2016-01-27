@@ -1048,10 +1048,8 @@ This work consists of all files listed in manifest.txt.
 %
 % \section{Quotation marks}
 % \DescribeMacro{\enquote}%
-% It is \emph{highly recommended} to use the \cs{enquote}\marg{quotation} command to produce correct quotation marks. Note that the command can be nested and will produce correct primary and secondary quotation marks in British English, for example \verb|\enquote{A quote \enquote{within a quote}}|.
-% Alternatively (but not recommended), the correct Unicode characters can be used, i.\,e.,\ Unicode 2018 and Unicode 2019 for the primary quotation marks, and Unicode 201C as well as Unicode 201D for the secondary quotation marks.
-% % or \LaTeX{} command \verb|\lq| for the opening primary quotation mark, and Unicode 2019 or \LaTeX{} command \verb|\rq| for the closing primary quotation mark.   
-%
+% It is \emph{highly recommended} to use the \cs{enquote}\marg{quotation} command to produce correct quotation marks. Note that the command can be nested and will produce correct primary and secondary quotation marks in British English (or American English---depending on the chosen class option), for example \verb|\enquote{A quote \enquote{within a quote}}|.
+% Alternatively (but not recommended), the correct Unicode characters for the quotation marks in British (American) English can be used. See Wikipedia's entry for 'quotation mark' for further information.  
 %
 % \section{Citations and references}
 % \DescribeMacro{\parencite}\DescribeMacro{\textcite}\DescribeMacro{\cite}%
@@ -1066,13 +1064,13 @@ This work consists of all files listed in manifest.txt.
 % \item \cs{cite} is used for typesetting the citation without parentheses, and is typically used within parentheses. Example: \verb|(see \cite{Knuth1986})| produces ‘(see Knuth 1986)’. This variant is the least used and should be used with care.
 % \end{itemize}
 %
-% \emph{Make sure to format the bibliographic entries consistently!} \emph{DO NOT} mix abbreviated first names with unabbreviated first names, as for example
+% \emph{Make sure to format the bibliographic entries consistently!} Do not mix abbreviated first names with unabbreviated first names, as for example
 %
 % \verb|@ARTICLE{key1, author = {{van der Weiden}, J. W. P.} ...|  
 % 
 % \verb|@ARTICLE{key2, author = {{van der Weiden}, Jan W. P.} ...|
 % 
-% if both entries refer to the same author. This will lead to unexpected results with respect to the label generation of the citation. \emph{MAKE SURE TO ALWAYS} abbreviate author first names and to always use use curly brackets around multi-word lastnames, e.\,g.\ \verb|{van der Weiden}, J. W. P.| in the bibentries.
+% if both entries refer to the same author. This will lead to unexpected results with respect to the label generation of the citation. Make sure to always abbreviate author first names and to always use use curly brackets around multi-word lastnames, e.\,g.\ \verb|{van der Weiden}, J. W. P.| in the bibentries.
 %
 % \section{Figures}
 % All line-drawings must be provided as vector graphics (\emph{not} bitmap graphics) in PDF format and all other (non-schematic) figures (e.\,g.\ screenshots) must be provided in PDF, JPEG or PNG format in a proper (high) resolution for the intended size of the rendered image to avoid pixelation due to low resolution; bitmap graphics shown in full page width in the submission should at least be of a resolution of two (2) megapixels or at least 1920 pixels wide.
