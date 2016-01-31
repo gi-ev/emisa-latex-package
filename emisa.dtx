@@ -173,13 +173,18 @@ This work consists of all files listed in manifest.txt.
 \usepackage{listings,lstautogobble}
 \lstset{%
   extendedchars,
+  frame=tblr,
+  backgroundcolor={\color{yellow!30}},
   language=[LaTeX]TeX,
   basicstyle=\MacroFont,
-  commentstyle={\color{black!50}\bfseries},
   keywordstyle={},
+  %%% keywordstyle=\MacroFont\bfseries\color{blue},
+  morekeywords={editor,received,accepted,volume,issue,specialissuetitle,CCBYNCSAFour,CCBYNCSAThree,license,address,subtitle,acknowledgements,authornote,author*,abstract,keywords,subsection},
+  commentstyle={\color{black!50}\bfseries},
   breaklines,
   emptylines=1,
-  gobble=2
+  gobble=2,
+  %%% texcsstyle=*{\footnotesize\ttfamily\color{Blue}},%
   }
 \lstnewenvironment{examplecode}
 {}
@@ -208,8 +213,8 @@ This work consists of all files listed in manifest.txt.
 \colorlet{filecolor}{linkcolor}
 \colorlet{urlcolor}{blue!80!black}
 \usepackage[%
-   pdftitle={},
-   pdfauthor={},
+   pdftitle={A LaTeX package for preparing manuscripts for submissions to the OA journal ‘Enterprise Modelling and Information Systems Architectures – An International Journal’ (EMISA)},
+   pdfauthor={Stefan Strecker and Martin Sievers},
    breaklinks,
    pagebackref,
    backref,
@@ -1092,8 +1097,53 @@ This work consists of all files listed in manifest.txt.
 %
 %
 % \section{Tables}
-% 
-% \DescribeEnv{tabularx}XXX Add instructions for author here XXX
+% Tables can be added using the standard notation, \ie using \env{tabular} inside the floating environment \env{table} (see Listing~\ref{lst:tabular}). However, the standard column parameters \opt{p}, \opt{l}, \opt{c} and \opt{r} are often not sufficient to provide a table with an exact width, \eg the text width.
+% \begin{lstlisting}[caption={An example for a standard table using \env{tabular}},label{lst:tabular}]
+% \begin{table}
+% \small % or \footnotesize if needed at all
+% \centering % if needed
+% \caption{Add the caption here}
+% %\label{tab:unique-label} % alternatively after \end{tabular}
+% \begin{tabular}{p{3cm}lcr}
+% A column 3cm wide and with possible line breaks &
+% A column set flush-left with no line breaks &
+% A column set centered  with no line breaks &
+% A column set flush right with no line breaks \\
+% \end{tabular}
+% \label{tab:unique-label}
+% \end{table}
+% \end{lstlisting}
+%
+% \DescribeEnv{tabularx} Therefore the \DTXclassname class loads the package \pkg{tabularx} by default. It defines an additional column parameter \opt{X}, which has to be used for at least one column. In addition the standard \env{tabular} environment is substituted by \env{tabularx} which has two mandatory arguments, namely the total width of the table and the definition for the columns.
+%
+% Listing~\ref{lst:tabularx} shows two typical examples for the application of \env{tabularx}. If you just mark one column with the parameter~\opt{X}, all other columns (\ie columns with parameters \opt{p}, \opt{l}, \opt{c} or \opt{r}) are set the usual way. The remaining width (width given as first argument to \env{tabularx} minus used width of all \enquote{non-X-columns}) is then assigned to the \opt{X}~column. To get a table two columns wide, please use \cs{textwidth} as the table's width.
+% \begin{lstlisting}[caption={An example for a table using the package \pkg{tabularx} for exactly one \opt{X} column},label={lst:tabularx}]
+% ...
+% \begin{tabularx}{\textwidth}{Xll}
+% This a column with possibly long text passages, 
+% so that line breaking is necessary and automatically 
+% applied by the X column & This column is set ragged right and gets as wide as its contents &
+% Another column \\
+% ...
+% \end{tabularx}
+% ...
+% \end{lstlisting}
+%
+% A second frequently used scenario is the need for equal-widthed columns without having to measure it out. For a much more comfortable solution one get assign the \opt{X} parameter to all such columns.
+% \begin{lstlisting}[escapechar=§,caption={An example for a table using the package \pkg{tabularx} and more than one \opt{X} column},label={lst:tabularx}]
+% ...
+% \begin{tabularx}{\textwidth}{p{3cm}XXX}
+% This a column with possibly long text passages, 
+% so that line breaking is necessary and automatically 
+% applied to get a box 3cm wide &
+% This column and the remaining two all have the same width, namely
+% (\textwidth-3cm)/3. & 
+% ...
+% \end{tabularx}
+% ...
+% \end{lstlisting}
+%
+% Additional information can be obtained from the package's documentation \cite{tabularx-pdf}.
 %
 % \section{Source code listings}
 % \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \DTXclassname class uses the \pkg{lstlistings} package (see the package documentation for further information), and provides two customised \LaTeX{} environments: \env{sourcecode} and \env{java}. The java environment should be used to format source code listings in the Java programming language, and the sourcecode environment should be used to format source code in any other programming language. Note that the source code in either case is typset verbatim, \ie,\ the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. An example illustrates the use of both environments:
@@ -1175,20 +1225,22 @@ This work consists of all files listed in manifest.txt.
 % Enter your text here.
 %
 % \subsection{Subsection title}\label{sec:somelabel}
-% % Example of a single-column figure (spanning only a single column)
-% \begin{figure}[htbp]
+% % Example of a single-column figure (spanning only a single column).
+% % You can add an optional argument to inluence the float placement, 
+% % which is htbp by default.
+% \begin{figure}
 % \centering
-% %\includegraphics[width=\columnwidth]{<filename>}
+% \includegraphics[width=\columnwidth]{<filename>}
 % \caption{Enter your single-column figure caption here.}
-% \label{default}
+% \label{fig:unique-label}
 % \end{figure}
 %
 % % Example of a double-column figure (spanning both columns)
 % \begin{figure*}[htb]
 % \centering
-% %\includegraphics[width=\textwidth]{<filename>}
+% \includegraphics[width=\textwidth]{<filename>}
 % \caption{Enter your double-column figure caption here.}
-% \label{default}
+% \label{fig:unique-label}
 % \end{figure*}
 %
 % % Example of a double-column table. Tables should NOT be typeset in a single column! 
@@ -1316,8 +1368,14 @@ This work consists of all files listed in manifest.txt.
 %     \href
 %      {http://www.ctan.org/pkg/csquotes}
 %      {Package \pkg{csquotes}: 	Context sensitive quotation facilities}.
+%
+%
+%   \bibitem{tabularx-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/tabularx}
+%      {Package \pkg{tabularx}:    Tabulars with adjustable-width columns}. 
 % 
-% 
+%
 %   \bibitem{twoopt-pdf}
 %     \href
 %      {http://www.ctan.org/pkg/twoopt}
@@ -1370,8 +1428,7 @@ This work consists of all files listed in manifest.txt.
 %     \href
 %      {http://www.ctan.org/pkg/hyperref}
 %      {Package \pkg{hyperref}:    Extensive support for hypertext in \LaTeX}.
-% 
-% 
+%
 %   \bibitem{source2e-pdf}
 %     \href
 %      {http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/base/source2e.pdf}
@@ -4052,6 +4109,8 @@ This work consists of all files listed in manifest.txt.
 %
 %
 %    \begin{macrocode}
+\renewcommand{\fps@figure}{htbp}
+\renewcommand{\fps@table}{htbp}
 \tolerance 1414
 \hbadness 1414
 \emergencystretch 1.5em
