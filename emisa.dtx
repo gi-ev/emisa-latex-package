@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/01/27 2.0BETA LaTeX class EMISA]
+[2016/01/31 2.0BETA LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -161,6 +161,9 @@ This work consists of all files listed in manifest.txt.
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{newtxtext}
+\usepackage[zerostyle=b,straightquotes]{newtxtt}
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 \usepackage[autostyle=once,english=british,strict]{csquotes}
 \usepackage{amssymb}
 \usepackage{xspace}
@@ -956,7 +959,7 @@ This work consists of all files listed in manifest.txt.
 %
 %
 % \section{Installation}
-% The \DTXclassname \LaTeX{} package consists of the document class \DTXname, the \pkg{biblatex} bibliography style \texttt{emisa.bbx} and the \pkg{biblatex} citation style \texttt{emisa.cbx}.
+% The \DTXclassname \LaTeX{} package consists of the document class \DTXname, the \pkg{biblatex} bibliography style \texttt{emisa.bbx} and the \pkg{biblatex} citation style \file{emisa.cbx}.
 % 
 % The package also includes a quick-start template for authors \file{emisa-author-template.tex} and the present instructions \file{emisa.pdf}.
 %
@@ -1061,7 +1064,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \section{Citations and references}
 % \DescribeMacro{\parencite}\DescribeMacro{\textcite}\DescribeMacro{\cite}%
-% The EMISA journal uses its own author-year citation style predefined for the \pkg{biblatex} package (\verb|emisa.cbx|), and its own style for formatting entries in the list of references (\verb|emisa.bbx|). Consult the  \pkg{biblatex} package documentation for an introduction to the citation commands.
+% The EMISA journal uses its own author-year citation style predefined for the \pkg{biblatex} package (\verb|emisa.cbx|), and its own style for formatting entries in the list of references (\verb|emisa.bbx|). Consult the \pkg{biblatex} package documentation \cite{biblatex-pdf} for an introduction to the citation commands.
 %  It is important to use the citation commands properly to follow the journal's style specifications.
 %
 % \begin{itemize}
@@ -1071,8 +1074,6 @@ This work consists of all files listed in manifest.txt.
 %
 % \item \cs{cite} is used for typesetting the citation without parentheses, and is typically used within parentheses. Example: \verb|(see \cite{Knuth1986})| produces \enquote{(see Knuth 1986)}. This variant is the least used and should be used with care.
 % \end{itemize}
-%
-% For more information on additional macros, \eg for lists of citations, see the \pkg{biblatex} documentation \cite[]{biblatex} 
 %
 % \emph{Make sure to format the bibliographic entries consistently!} Do not mix abbreviated first names with unabbreviated first names, as for example
 %
@@ -4341,6 +4342,7 @@ This work consists of all files listed in manifest.txt.
 % 
 % This subsection introduces \pkg{biblatex} commands and utility macros used to
 % define the formatting directives required by the data commands.
+% ^^A see~p.\,\pageref{sec:code:bib:data-commands}.
 %     
 % The following list shows a few frequently used ones; those more rarely used
 % are described below.  

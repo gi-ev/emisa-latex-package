@@ -31,7 +31,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2016/01/27 2.0BETA LaTeX class EMISA]
+[2016/01/31 2.0BETA LaTeX class EMISA]
 %%% You can add your own initialisms by stating \cs{} in the preamble.
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
