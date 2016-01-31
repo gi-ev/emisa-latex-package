@@ -1242,6 +1242,8 @@
    \DeclareRobustCommand{\bibliography}[1]{%
       \addbibresource{#1}}%
 }%
+\renewcommand{\fps@figure}{htbp}
+\renewcommand{\fps@table}{htbp}
 \tolerance 1414
 \hbadness 1414
 \emergencystretch 1.5em
