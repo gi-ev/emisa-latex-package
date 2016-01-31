@@ -32,7 +32,6 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
 [2016/01/31 2.0BETA LaTeX class EMISA]
-%%% You can add your own initialisms by stating \cs{} in the preamble.
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
@@ -1219,15 +1218,16 @@
 \setcounter{tocdepth}{-2}
 \newcommand*{\emisa@abbrv}[1]{#1\@\xspace}
 \newcommand*{\emisaabbrv}[2]{\gdef#1{\emisa@abbrv{#2}}}
-\newcommand*{\emisa@vabbrv}[1]{\textsc{#1}\xspace}
+\newcommand*{\emisa@initialism}[1]{\textsc{#1}\xspace}
+\newcommand*{\emisainitialism}[2]{\gdef#1{\emisa@initialism{#2}}}
 \newcommand*{\ie}{\emisa@abbrv{i.e.,}}
 \newcommand*{\eg}{\emisa@abbrv{e.g.,}}
 \newcommand*{\cf}{\emisa@abbrv{cf.}}
 \newcommand*{\etal}{\emisa@abbrv{et~al.}}
-\newcommand*{\OMG}{\emisa@vabbrv{omg}}
-\newcommand*{\BPM}{\emisa@vabbrv{bpm}}
-\newcommand*{\BPMN}{\emisa@vabbrv{bpmn}}
-\newcommand*{\UML}{\emisa@vabbrv{uml}}
+\newcommand*{\OMG}{\emisa@initialism{omg}}
+\newcommand*{\BPM}{\emisa@initialism{bpm}}
+\newcommand*{\BPMN}{\emisa@initialism{bpmn}}
+\newcommand*{\UML}{\emisa@initialism{uml}}
 \newcommand{\meta}[1]{{\ttfamily\small #1}} % designate a meta type (meta class)
 \newcommand{\type}[1]{\textsf{#1}} % designate a type (class)
 \def\@tempa#1\do\addbibresource#2\nil{%

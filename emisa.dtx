@@ -1043,7 +1043,7 @@ This work consists of all files listed in manifest.txt.
 % \item \cs{etal} for et~al.
 % \end{itemize}
 %
-% If you miss any frequently used abbreviation for your article, you can easily add it using \cs{emisaabbrv\marg{abbreviation}\marg{text}} in the preamble of your article.
+% \DescribeMacro{\emisaabbrv} If you miss any frequently used abbreviation for your article, you can easily add it using \cs{emisaabbrv\marg{\textbackslash abbreviation\_macro}\marg{text}} in the preamble of your article.
 %
 % \DescribeMacro{\OMG}\DescribeMacro{\BPM}\DescribeMacro{\BPMN}\DescribeMacro{\UML}%
 % In addition to common abbreviations, further initialisms are provided by the class for convenience and for a consistent visual appearance. Note that the class uses \textsc{smallcaps} for typesetting initialisms. The list of predefined initialisms comprises:
@@ -1055,13 +1055,15 @@ This work consists of all files listed in manifest.txt.
 % \item \cs{UML} for \textsc{uml} (Unified Modeling Language).
 % \end{itemize}
 %
-%%% You can add your own initialisms by stating \cs{} in the preamble.
+% \DescribeMacro{\emisainitialism} You can add your own initialisms by stating \cs{emisainitialism\marg{\textbackslash initialism\_macro}\marg{text}} in the preamble.
 % 
-% For proper spacing, add either angle brackets such as \cs{command}\verb|{}| or append a backslash plus a space such as \cs{command}\verb|\ | (\eg at the end of a sentence before the full stop use \cs{OMG}\verb|{}|.).
+%^^A For proper spacing, add either angle brackets such as \cs{command}\verb|{}| or append a backslash plus a space such as \cs{command}\verb|\ | (\eg at the end of a sentence before the full stop use \cs{OMG}\verb|{}|.).
 %
 % \section{Quotation marks}
 % \DescribeMacro{\enquote}%
 % It is \emph{highly recommended} to use the \cs{enquote}\marg{quotation} command to produce correct quotation marks. Note that the command can be nested and will produce correct primary and secondary quotation marks in British English (or American English -- depending on the chosen class option), for example \verb|\enquote{A quote \enquote{within a quote}}|.
+% For other quotation macros and environment please consult the \pkg{csquotes} documentation \cite{csquotes-pdf}.
+%
 % Alternatively (but not recommended), the correct Unicode characters for the quotation marks in British (American) English can be used. See Wikipedia's entry for \enquote{quotation mark} for further information.  
 %
 % \section{Citations and references}
@@ -3952,7 +3954,8 @@ This work consists of all files listed in manifest.txt.
 % \begin{macro}{\etal}
 % \begin{macro}{\emisa@abbrv}
 % \begin{macro}{\emisaabbrv}
-% \begin{macro}{\emisa@vabbrv}
+% \begin{macro}{\emisa@initialism}
+% \begin{macro}{\emisainitialism}
 % \begin{macro}{\OMG}
 % \begin{macro}{\BPM}
 % \begin{macro}{\BPMN}
@@ -3961,16 +3964,18 @@ This work consists of all files listed in manifest.txt.
 %    \begin{macrocode}
 \newcommand*{\emisa@abbrv}[1]{#1\@\xspace}
 \newcommand*{\emisaabbrv}[2]{\gdef#1{\emisa@abbrv{#2}}}
-\newcommand*{\emisa@vabbrv}[1]{\textsc{#1}\xspace}
+\newcommand*{\emisa@initialism}[1]{\textsc{#1}\xspace}
+\newcommand*{\emisainitialism}[2]{\gdef#1{\emisa@initialism{#2}}}
 \newcommand*{\ie}{\emisa@abbrv{i.e.,}}
 \newcommand*{\eg}{\emisa@abbrv{e.g.,}}
 \newcommand*{\cf}{\emisa@abbrv{cf.}}
 \newcommand*{\etal}{\emisa@abbrv{et~al.}}
-\newcommand*{\OMG}{\emisa@vabbrv{omg}}
-\newcommand*{\BPM}{\emisa@vabbrv{bpm}}
-\newcommand*{\BPMN}{\emisa@vabbrv{bpmn}}
-\newcommand*{\UML}{\emisa@vabbrv{uml}}
+\newcommand*{\OMG}{\emisa@initialism{omg}}
+\newcommand*{\BPM}{\emisa@initialism{bpm}}
+\newcommand*{\BPMN}{\emisa@initialism{bpmn}}
+\newcommand*{\UML}{\emisa@initialism{uml}}
 %    \end{macrocode}
+% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
