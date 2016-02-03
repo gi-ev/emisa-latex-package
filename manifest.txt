@@ -24,7 +24,7 @@ precisely, it explains how the locutions "Work" and "Compiled Work",
 used in the LaTeX Project Public License, are to be interpreted
 in the case of this work.
 
-January 20, 2016 (vers. 2.0)
+February 02, 2016 (version 2.0)
 
 
 
@@ -39,7 +39,7 @@ manifest.txt  --  the file you are reading now
 emisa.dtx     --  main source file
 emisa.ins     --  installation script
 
-If you have received the 7 files listed above, you possess an integral copy 
+If you have received the 4 files listed above, you possess an integral copy 
 of the EMISA Bundle.
 
 
@@ -69,6 +69,10 @@ program pdflatex the file `emisa.dtx', following the same steps as
 those explained in `README.md' under the title "How to generate the 
 documentation".
 
+
+CTAN-Release
+============
+For a more convenient access a symbolic link to emisa.pdf called emisa-instructions.pdf is added to the archive for CTAN.
 
 
 COMMENT

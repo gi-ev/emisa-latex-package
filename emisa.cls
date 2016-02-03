@@ -31,7 +31,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2016/01/31 2.0BETA LaTeX class EMISA]
+[2016/02/02 2.0BETA LaTeX class EMISA]
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
@@ -156,6 +156,18 @@
    \RequirePackage{booktabs}
    \RequirePackage{listings}
    \lstset{basicstyle=\ttfamily\small}
+   \lstnewenvironment{java}[1][]
+      {\lstset{language=Java,float=*htbp,#1}}
+      {}
+   \lstnewenvironment{java*}[1][]
+      {\lstset{language=Java,float=htbp,#1}}
+      {}
+   \lstnewenvironment{sourcecode}[1][]
+      {\lstset{float=*htbp,#1}}
+      {}
+   \lstnewenvironment{sourcecode*}[1][]
+      {\lstset{float=htbp,#1}}
+      {}
    \RequirePackage{amsmath}
    \RequirePackage[amsmath,standard,hyperref]{ntheorem}
 \RequirePackage{url}

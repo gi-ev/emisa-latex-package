@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/01/31 2.0BETA LaTeX class EMISA]
+[2016/02/02 2.0BETA LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -188,7 +188,8 @@ This work consists of all files listed in manifest.txt.
   }
 \lstnewenvironment{examplecode}
 {}
-{}  
+{}
+\usepackage{algorithm,algorithmic} 
 \usepackage[onehalfspacing]{setspace}
 \usepackage[dvipsnames]{xcolor}
 %\usepackage{hologo}
@@ -1098,7 +1099,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \section{Tables}
 % Tables can be added using the standard notation, \ie using \env{tabular} inside the floating environment \env{table} (see Listing~\ref{lst:tabular}). However, the standard column parameters \opt{p}, \opt{l}, \opt{c} and \opt{r} are often not sufficient to provide a table with an exact width, \eg the text width.
-% \begin{lstlisting}[caption={An example for a standard table using \env{tabular}},label{lst:tabular}]
+% \begin{lstlisting}[caption={An example for a standard table using \env{tabular}},label={lst:tabular}]
 % \begin{table}
 % \small % or \footnotesize if needed at all
 % \centering % if needed
@@ -1146,14 +1147,85 @@ This work consists of all files listed in manifest.txt.
 % Additional information can be obtained from the package's documentation \cite{tabularx-pdf}.
 %
 % \section{Source code listings}
-% \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \DTXclassname class uses the \pkg{lstlistings} package (see the package documentation for further information), and provides two customised \LaTeX{} environments: \env{sourcecode} and \env{java}. The java environment should be used to format source code listings in the Java programming language, and the sourcecode environment should be used to format source code in any other programming language. Note that the source code in either case is typset verbatim, \ie,\ the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. An example illustrates the use of both environments:
+% \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \DTXclassname class uses the \pkg{lstlistings} package (see the package documentation \cite{listings-pdf} for further information), and provides two customised \LaTeX{} environments: \env{sourcecode} and \env{java}. The \env{java} environment should be used to format source code listings in the Java programming language, and the sourcecode environment should be used to format source code in any other programming language. You can add the name of the programming language and other parameters known to \pkg{listings} like \opt{caption} or \opt{label} as an optional argument.
 %
-% XXX enter two examples here XXX
-% \section{Pseudocode and algorithms}
-% \DescribeEnv{algorithm}\DescribeEnv{algorithmicx}\DTXclassname offers some environments for a comfortable integration of source code examples.
+% Note that the source code in either case is typset verbatim, \ie, the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. An example illustrates the use of both environments:
+% \begin{examplecode}
+% \begin{java}[caption={A hello world example},label={hw-java}] 
+% public class HelloWorld 
+% {
+%   
+%    public static void main (String[] args)
+%    {
+%       // Ausgabe Hello World!
+%       System.out.println("Hello World!");
+%    }
+% }
+% \end{java}
+%
+% \begin{sourcecode}[language=R]
+%   hello <- function( name ) {
+%      
+%      sprintf( "Hello, %s", name );
+%      
+%   }
+% \end{sourcecode} 
+% \end{examplecode}
+%
+% \section{Pseudo-code and algorithms}
+% \DescribeEnv{algorithm}\DescribeEnv{algorithmic}Apart from source code you might want to add pseudo code examples or algorithms. In contrast to the source code examples above \DTXclassname does not define its own environments. Instead we recommend using the bundle \pkg{algorithms} consisting of the two packages \pkg{algorithm} and \pkg{algorithmic}.
+%
+% Typical parts like loops, if-clauses or statements all have their own macro:
+% \begin{examplecode}
+% \begin{algorithmic}[1]
+% \REQUIRE $n \geq 0$
+% \ENSURE $y = x^n$
+% \STATE $y \leftarrow 1$
+% \STATE $X \leftarrow x$
+% \STATE $N \leftarrow n$
+% \WHILE{$N \neq 0$}
+% \IF{$N$ is even}
+% \STATE $X \leftarrow X \times X$
+% \STATE $N \leftarrow N / 2$
+% \ELSE[$N$ is odd]
+% \STATE $y \leftarrow y\times X$
+% \STATE $N \leftarrow N - 1$
+% \ENDIF
+% \ENDWHILE
+% \end{algorithmic}
+% \end{examplecode}
+% results in
+% \begin{algorithmic}[1]
+% \REQUIRE $n \geq 0$
+% \ENSURE $y = x^n$
+% \STATE $y \leftarrow 1$
+% \STATE $X \leftarrow x$
+% \STATE $N \leftarrow n$
+% \WHILE{$N \neq 0$}
+% \IF{$N$ is even}
+% \STATE $X \leftarrow X \times X$
+% \STATE $N \leftarrow N / 2$
+% \ELSE[$N$ is odd]
+% \STATE $y \leftarrow y\times X$
+% \STATE $N \leftarrow N - 1$
+% \ENDIF
+% \ENDWHILE
+% \end{algorithmic}
+%        
+% If you want your algorithm to be a floating object, you can surround it with \env{algorithm}:
+% \begin{examplecode}
+% \begin{algorithm}
+% \caption{Calculate $y = x^n$}
+% \label{alg1}
+% \begin{algorithmic}
+% ...
+% \end{algorithmic}
+% \end{algorithm}          
+%
+% For more details, please have a look at the documentation \cite{algorithms}.
 %
 % \section{Commands for use by the editorial office staff only}
-% \DescribeMacro{editor}Enter the corresponding editor (or editorial board member) for the article, in the format 'first letter of the first name fullstop tilde last name'. Example: \verb|\editor{A.~Smith}|
+% \DescribeMacro{editor}Enter the corresponding editor (or editorial board member) for the article, in the format \enquote{first letter of the first name fullstop tilde last name}. Example: \verb|\editor{A.~Smith}|
 %
 % \DescribeMacro{received}Enter the date of initial reception of the manuscript by the editorial office in the following format. Example: \verb|\received{31~March 2014}|
 %
@@ -1178,7 +1250,7 @@ This work consists of all files listed in manifest.txt.
 % % The following package imports are recommended, but not obligatory;
 % % you might want take a look into their respective manuals if you want to how they can be used:
 % \usepackage{amsmath,amssymb,mathtools}
-% \usepackage{algorithmicx,algorithm}
+% \usepackage{algorithmic,algorithm}
 % % Additional package imports go here:
 % % The document begins here:
 % \begin{document}
@@ -1264,9 +1336,8 @@ This work consists of all files listed in manifest.txt.
 % \end{table*}
 %
 % % Example of a double-column source code listing.
-% \begin{lstlisting}[float=*htbp,%
-% caption={Enter your double-column listing caption here.},%
-% label={lst:helloworld}]
+% \begin{java}[caption={Enter your double-column listing caption here.},%
+%                    label={lst:helloworld}]
 % /**
 %  * The HelloWorldApp class implements an application that
 %  * simply prints "Hello World!" to standard output.
@@ -1276,19 +1347,20 @@ This work consists of all files listed in manifest.txt.
 %         System.out.println("Hello World!"); // Display the string.
 %    }
 % }
-% \end{lstlisting}
+% \end{java}
 %
-% % Example of a double-column pseudo code with algorithmicx.
-% \begin{...}
-% while (r > kRadius/2) {
-%                r--;
-%                double a =  Math.sqrt(kernel[0][r])/(kRadius-r);
-%                 if (a < sqrtSlope)
-%                    sqrtSlope = a;
-%                else
-%                    break;
-%            }
-% \end{...}
+% % Example of a pseudo-code with algorithmic.
+% \begin{algorithmic}
+% \WHILE{$r > kRadius/2$}
+% \STATE $r \leftarrow r-1$
+% \STATE $a \leftarrow \sqrt{kernel[0][r]}/(kRadius-r)$;
+% \IF{$a < sqrtSlope$}
+% \STATE $sqrtSlope \leftarrow a$
+% \ELSE
+% \STATE break
+% \ENDIF
+% \ENDWHILE
+% \end{algorithmic}
 %
 % % Formatting the bibliographic data base:
 % % Please make sure to properly enter all data for each entry 
@@ -1434,6 +1506,15 @@ This work consists of all files listed in manifest.txt.
 %      {http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/base/source2e.pdf}
 %      {The \LaTeXe\ Sources}.
 %
+%   \bibitem{listings-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/listings}
+%      {Typeset source code listings using LaTeX}.
+%
+%   \bibitem{algorithms-pdf}
+%     \href
+%      {https://www.ctan.org/pkg/algorithms}
+%      {A suite of tools for typesetting algorithms in pseudo-code}.
 % \end{thebibliography}
 % \clearpage
 % 
@@ -1955,6 +2036,18 @@ This work consists of all files listed in manifest.txt.
    \RequirePackage{booktabs}
    \RequirePackage{listings}
    \lstset{basicstyle=\ttfamily\small}
+   \lstnewenvironment{java}[1][]
+      {\lstset{language=Java,float=*htbp,#1}}
+      {}
+   \lstnewenvironment{java*}[1][]
+      {\lstset{language=Java,float=htbp,#1}}
+      {}
+   \lstnewenvironment{sourcecode}[1][]
+      {\lstset{float=*htbp,#1}}
+      {}
+   \lstnewenvironment{sourcecode*}[1][]
+      {\lstset{float=htbp,#1}}
+      {}
    \RequirePackage{amsmath}
    \RequirePackage[amsmath,standard,hyperref]{ntheorem}
 %    \end{macrocode} 
@@ -5827,7 +5920,7 @@ techreport = {},%
 %<issue>\documentclass[final,cover]{emisa}
 % 
 %% The following package imports are recommended, but not mandatory!
-\usepackage{algorithmicx,algorithm}
+\usepackage{algorithmic,algorithm}
 \usepackage{amsmath,amssymb,mathtools}
 %<article|issue>\end{document}
 %</example>
@@ -5862,7 +5955,7 @@ techreport = {},%
 %% you might want take a look into their respective manuals if you
 %% don't know what they do.
 \usepackage{amsmath,amssymb,mathtools}
-\usepackage{algorithmicx,algorithm}
+\usepackage{algorithmic,algorithm}
 %% Additional package imports go here:
 %</article|issue>
 %<*issue>
