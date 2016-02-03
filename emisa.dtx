@@ -5946,8 +5946,11 @@ techreport = {},%
 %<*template>
 %<*article>
 \documentclass[british]{emisa}
-%% You can use this additional option (e.g.,"[english,draft]"):
-%% draft -- this marks overfull lines
+%% You can use the following additional class options:
+%% referee, review -- Use for submission to peer-review process. 
+%% draft -- mark overfull lines
+%% british, UKenglish -- British English hyphenation and quotation marks
+%% american, USenglish -- US English hyphenation and quotation marks
 %</article>
 %<issue>\documentclass[final,cover]{emisa}
 %<*article|issue>
@@ -6005,7 +6008,11 @@ techreport = {},%
   \author{Name}
   \address[a]{}
   \abstract{}
-  \keywords{Keyword 1 \and keyword 2\and keyword 3}
+  \keywords{Keyword 1 \and keyword 2 \and keyword 3}
+%% Note: Remember to completely anonymise the submission if 
+%% intended for the double-blind review process!
+%% Among others, remove identifying references to your earlier work
+%% in the following author note and remove the acknowledgements!
   \authornote{This article extends an earlier conference paper, see ...}
 %</article|issue>
 %<*issue>
