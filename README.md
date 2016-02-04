@@ -6,21 +6,21 @@ emisa --    A LaTeX package for preparing manuscripts for the journal EMISA
             An International Journal (EMISA)
 Version:    2.0        
 Maintainer: Stefan Strecker and Martin Sievers
-E-mail:     stefan.strecker@fernuni-hagen.de
+Email:      stefan.strecker@fernuni-hagen.de
             martin.sievers@schoenerpublizieren.de
 License:    Released under the LaTeX Project Public License v1.3c or later
 See:        http://www.latex-project.org/lppl.txt
 ----------------------------------------------------------------------------
 
-Developing and documentating the 'official' LaTeX package for preparing 
+Developing and documenting the `official' LaTeX package for preparing 
 manuscripts for the journal EMISA (Enterprise Modelling and Information 
 Systems Architectures): https://emisa-journal.org
 
-The release of the LaTeX package will appear on CTAN (https://ctan.org)
-and should shortly afterwards be available to the TeX distributions'
-package managers (e.g. TeX Live Utility of the TeXLive distribution.).
-
-Please note that the current state of the package is 'prerelease'.
+Each release of the EMISA LaTeX package will be available on Github 
+(https://github.com/sstrecker/emisa-latex-package) and shortly afterwards on 
+CTAN (https://www.ctan.org/pkg/emisa). From there it will make its way to 
+package managers of recent TeX distributions (e.g. the `tlmgr' of the 
+TeX Live distribution).
 
 Read emisa.pdf for author instructions and style guidelines.
-
+```
