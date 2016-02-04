@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/02/02 2.0BETA LaTeX class EMISA]
+[2016/02/04 2.0 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -1868,7 +1868,8 @@ This work consists of all files listed in manifest.txt.
    dashed=false,%
    bibencoding=inputenc,%
    sorting=anyt,%
-   hyperref=true%
+   hyperref=true,%
+   uniquename=minfull%%
 }%
 %    \end{macrocode}
 % 
@@ -4116,8 +4117,8 @@ This work consists of all files listed in manifest.txt.
 \newcommand*{\emisaabbrv}[2]{\gdef#1{\emisa@abbrv{#2}}}
 \newcommand*{\emisa@initialism}[1]{\textsc{#1}\xspace}
 \newcommand*{\emisainitialism}[2]{\gdef#1{\emisa@initialism{#2}}}
-\newcommand*{\ie}{\emisa@abbrv{i.e.,}}
-\newcommand*{\eg}{\emisa@abbrv{e.g.,}}
+\newcommand*{\ie}{\@ifnextchar,{\emisa@abbrv{i.e.}}{\emisa@abbrv{i.e.,}}}
+\newcommand*{\eg}{\@ifnextchar,{\emisa@abbrv{e.g.}}{\emisa@abbrv{e.g.,}}}
 \newcommand*{\cf}{\emisa@abbrv{cf.}}
 \newcommand*{\etal}{\emisa@abbrv{et~al.}}
 \newcommand*{\OMG}{\emisa@initialism{omg}}
