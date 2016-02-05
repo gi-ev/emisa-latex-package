@@ -948,10 +948,10 @@ This work consists of all files listed in manifest.txt.
 %^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % \author{Stefan Strecker (stefan.strecker@fernuni-hagen.de) \and Martin Sievers (martin.sievers@schoenerpublizieren.de)}
-% \title{A \LaTeX{} package for preparing manuscripts for submissions to the OA  journal \enquote{Enterprise Modelling and Information Systems Architectures – An International Journal} (EMISA)}
+% \title{A \LaTeX{} package for preparing manuscripts for submissions to the OA  journal \enquote{Enterprise Modelling and Information Systems Architectures – An International Journal} (\DTXclassname)}
 % \maketitle
 %
-%\changes{v2.0}{2016/02/05}{First official release on Github and CTAN}
+%\changes{v2.0}{2016/02/05}{First official release on GitHub and CTAN}
 %
 %
 %
@@ -982,12 +982,12 @@ This work consists of all files listed in manifest.txt.
 %
 % The \DTXclassname class builds on a number of standard \LaTeX{} packages available in distributions such as \TeX{}~Live and MiK\TeX{}. It is highly recommended to install the \emph{full} set of packages to make the required packages available to the \DTXclassname package. Alternatively, missing packages may be installed on-the-fly or via the distribution's package manager. The list of required packages for using the \DTXclassname package is rather comprehensive (see \file{emisa.cls}), but the implementation has taken care to use only packages commonly included in the widely used \TeX{} distributions \TeX{}~Live and MiK\TeX{}. Among the required packages are \pkg{geometry}, \pkg{newtxtext}, \pkg{newtxmath}, \pkg{newtxtt}, \pkg{ntheorem}, \pkg{amsthm}, \pkg{booktabs}, \pkg{tabularx}.
 %
-% The production process at the \DTXclassname editorial office is based entirely on \LaTeX{}, and runs pdf\LaTeX{} and \verb|biber| to produce the final proof and publication-ready PDF of an article.
+% The production process at the \DTXclassname editorial office is based entirely on \LaTeX{}, and runs pdf\LaTeX{} and \verb|biber| to produce the final proof and publication-ready PDF of an article. \pkg{biblatex} package is used to typeset citations and references in conjunction with the \verb|biber| tool. Make sure to use \verb|biber| rather than \verb|bibtex| to process your bibliography data base file(s). The production tool chain at the editorial office requires that all text files of an article are provided in \emph{UTF-8 file encoding}\DescribeOption{UTF-8}.   
 %  
 % The \pkg{biblatex} package is used to typeset citations and references in conjunction with the \verb|biber| tool. Make sure to use \verb|biber| rather than \verb|bibtex| to process your bibliography data base file(s). Most \TeX{} editors have an option to easily switch to \verb|biber|.
 %
-% The production tool chain at the editorial office requires that all text files of an article are provided in \emph{UTF-8 file encoding}\DescribeOption{UTF-8}.   
-%  
+% \DescribeOption{Author template}The file \file{emisa-author-template.tex} provides a good starting point for manuscript preparation (if the \DTXclassname package is available trough your \TeX{} distribution, the file will be at \texttt{/doc/latex/emisa/} inside your \TeX{} installation folder/directory. Just copy it to your working directory). It is also recommended to review the example of an article typeset with \file{emisa.cls} provided in Sec.~\ref{sec:example}. 
+%
 %
 % \section{Class Options}
 % \DescribeOption{british, UKenglish} British English is the language of choice for publishing in \DTXclassname. The class option \opt{british} is loaded by default to obtain the correct hyphenation for British English (as provided by the \pkg{babel} package). The  option \emph{may be} explicitly used with the \DTXclassname class to exemplify the use of British English. Example: \verb|\documentclass[british]{emisa}|. This is the standard option. Note that the \pkg{csquotes} package is loaded with settings to produce proper quotation marks in British English (see below).
@@ -1098,7 +1098,7 @@ This work consists of all files listed in manifest.txt.
 %
 %
 % \section{Tables}
-% Tables can be added using the standard notation, \ie using \env{tabular} inside the floating environment \env{table} (see Listing~\ref{lst:tabular}). However, the standard column parameters \opt{p}, \opt{l}, \opt{c} and \opt{r} are often not sufficient to provide a table with an exact width, \eg the text width.
+% \DescribeEnv{tabular}Tables can be added using the standard notation, \ie using \env{tabular} inside the floating environment \env{table} (see Listing~\ref{lst:tabular}). However, the standard column parameters \opt{p}, \opt{l}, \opt{c} and \opt{r} are often not sufficient to provide a table with an exact width, \eg the text width.
 % \begin{lstlisting}[caption={An example for a standard table using \env{tabular}},label={lst:tabular}]
 % \begin{table}
 % \small % or \footnotesize if needed at all
@@ -1106,10 +1106,13 @@ This work consists of all files listed in manifest.txt.
 % \caption{Add the caption here}
 % %\label{tab:unique-label} % alternatively after \end{tabular}
 % \begin{tabular}{p{3cm}lcr}
+% \toprule
 % A column 3cm wide and with possible line breaks &
+% \midrule
 % A column set flush-left with no line breaks &
 % A column set centered  with no line breaks &
 % A column set flush right with no line breaks \\
+% \bottomrule
 % \end{tabular}
 % \label{tab:unique-label}
 % \end{table}
@@ -1246,7 +1249,7 @@ This work consists of all files listed in manifest.txt.
 % For more details, please have a look at the documentation \cite{algorithms-pdf}.
 %
 % \section{Commands for use by the editorial office staff only}
-% \DescribeMacro{editor}Enter the corresponding editor (or editorial board member) for the article, in the format \enquote{first letter of the first name fullstop tilde last name}. Example: \verb|\editor{A.~Smith}|
+% \DescribeMacro{editor}Enter the corresponding editor (or editorial board member) for the article, in the format \enquote{first letter of the first name fullstop tilde last name}. Example: \verb|\editor{A.~Smith}| , \verb|\editor{A.~Smith and B.~Meyer}|
 %
 % \DescribeMacro{received}Enter the date of initial reception of the manuscript by the editorial office in the following format. Example: \verb|\received{31~March 2014}|
 %
@@ -1254,17 +1257,17 @@ This work consists of all files listed in manifest.txt.
 %
 % \DescribeMacro{volume}Enter the number of the volume in which the article is published. Example: \verb|\volume{11}|
 %
-% \DescribeMacro{issue}Enter the issue number and issue date of the article. Format example: \verb|\issue{1}{31~January 2016}|
+% \DescribeMacro{issue}Enter the issue number and issue year of the article. Format example: \verb|\issue{1}{2016}|
 %
 % \DescribeMacro{specialissuetitle}Enter the title of the Special Issue to which the article belongs if any. Note that the prefix 'Special Issue on' is added automatically. Example: \verb|\specialissuetitle{Multilevel Modelling}|
 %
-% \emph{Note that volume, issue number and issue date and, optionally, the title of the special issue appear in the multiline page headline of the article.}
+% Note that volume, issue number and issue date and, optionally, the title of the special issue appear in the multiline page headline of the article.
 %
-% \DescribeMacro{CCBYNCSAFour}\DescribeMacro{CCBYNCSAThree}If an article is licensed under a Creative Commons BY-NC-SA 4.0 or 3.0 license, the reference to the license can be automatically displayed at the end of the article by adding \cs{CCBYNCSAFour} and \cs{CCBYNCSAThree} resp. Read the license text at \url{https://creativecommons.org/licenses/by-nc-sa/4.0/} (for version 4.0; likewise for version 3.0).
+% \DescribeMacro{CCBYNCSAFour}\DescribeMacro{CCBYNCSAThree}If an article is licensed under a Creative Commons BY-NC-SA 4.0 or 3.0 licence, the reference to the licence can be automatically displayed at the end of the article by adding \cs{CCBYNCSAFour} and \cs{CCBYNCSAThree}, respectively. Read the licence text at \url{https://creativecommons.org/licenses/by-nc-sa/4.0/} (for version 4.0; likewise for version 3.0).
 %
 % \DescribeMacro{license, licence}Alternatively, enter a license text by \cs{license} (or \cs{licence}).\\ Example: \verb|\license{This work is licensed under LPPL 1.3c.}|
 %
-% \section{Example file for both, authors and editorial office}
+% \section{Example file for both, authors and editorial office}\label{sec:example}
 % \begin{examplecode}
 % % Use the option [draft] to mark overfull lines.
 % \documentclass[british]{emisa}
@@ -6014,6 +6017,9 @@ techreport = {},%
 %</issue>
 %<*article|issue>
 \begin{article}{%
+%% Please declare here the bibliography data base(s) you want to use 
+%% in this article (make sure to add the file extension, e.g. .bib):  
+  \bibliography{}
 %% Please declare the title elements of your article here.  Unused
 %% elements can either be deleted or commented out, or else just let 
 %% empty.  In either case they are not typeset.
@@ -6049,10 +6055,6 @@ techreport = {},%
   \CCBYNCSAFour
 %</issue>
 %<*article|issue>
-%% Please declare here the bibliography data base(s) you want to use 
-%% in this article (make sure to add the file extension, e.g. .bib):  
-  \bibliography{}
-  }
 %% Please insert your article text here.
 \section{Introduction}
 \subsection{The research problem}
