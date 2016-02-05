@@ -951,16 +951,16 @@ This work consists of all files listed in manifest.txt.
 % \title{A \LaTeX{} package for preparing manuscripts for submissions to the OA  journal \enquote{Enterprise Modelling and Information Systems Architectures – An International Journal} (EMISA)}
 % \maketitle
 %
-%\changes{v2.0}{2015/12/21}{}
+%\changes{v2.0}{2016/02/05}{First official release on Github and CTAN}
 %
 %
 %
 % \section{Introduction}
-% Enterprise Modelling and Information Systems Architectures --~An International Journal (EMISA) is a publisher-independent, peer-reviewed  open access journal (\url{https://emisa-journal.org}). 
-% EMISA is published by the German Informatics Society (GI) and is a publication of its Special Interest Group (SIG) on Modelling Business Information Systems (SIG MoBIS) and its SIG on Design Methods for Information Systems (SIG EMISA). SIG~MoBIS has sponsored the development of the \DTXclassname \LaTeX{} package currently maintained by Stefan Strecker (\href{mailto:stefan.strecker@fernuni-hagen.de}{stefan.strecker@fernuni-hagen.de}) and Martin Sievers (\href{mailto:martin.sievers@schoenerpublizieren.de}{martin.sievers@schoenerpublizieren.de}).
+% Enterprise Modelling and Information Systems Architectures --~An International Journal (\DTXclassname) is a publisher-independent, peer-reviewed  open access journal (\url{https://emisa-journal.org}). 
+% \DTXclassname is published by the German Informatics Society (GI) and is a publication of its Special Interest Group (SIG) on Modelling Business Information Systems (SIG MoBIS) and its SIG on Design Methods for Information Systems (SIG \DTXclassname). SIG~MoBIS has sponsored the development of the \DTXclassname \LaTeX{} package currently maintained by Stefan Strecker (\href{mailto:stefan.strecker@fernuni-hagen.de}{stefan.strecker@fernuni-hagen.de}) and Martin Sievers (\href{mailto:martin.sievers@schoenerpublizieren.de}{martin.sievers@schoenerpublizieren.de}).
 %
-% The \DTXclassname \LaTeX{} package is provided for preparing manuscripts for submission to EMISA, and for preparing accepted submissions for publication as well as for typesetting the final document by the editorial office. Articles in EMISA are published online at \url{https://emisa-journal.org} (in the Portable Document Format or PDF format).
-% The EMISA editorial office is run (alongside many other tasks and projects) by the two Editors-in-Chief assisted by doctoral students. Editorial work at EMISA is best described as a volunteer effort for the scientific community.
+% The \DTXclassname \LaTeX{} package is provided for preparing manuscripts for submission to \DTXclassname, and for preparing accepted submissions for publication as well as for typesetting the final document by the editorial office. Articles in \DTXclassname are published online at \url{https://emisa-journal.org} (in the Portable Document Format or PDF format).
+% The \DTXclassname editorial office is run (alongside many other tasks and projects) by the two Editors-in-Chief assisted by doctoral students. Editorial work at \DTXclassname is best described as a volunteer effort for the scientific community.
 % You can assist us by preparing your manuscript following the instructions and style guidelines described in this document: Your work will be published quicker with less (typographical) glitches and will have a professional appearance.
 %
 %
@@ -969,20 +969,20 @@ This work consists of all files listed in manifest.txt.
 % 
 % The package also includes a quick-start template for authors \file{emisa-author-template.tex} and the present instructions \file{emisa.pdf}.
 %
-% The package is available from the \textsc{Comprehensive \TeX{} Archive Network} (CTAN, \url{https://ctan.org}) and should be available for installation through the respective \TeX{} distribution's package installer (\eg \TeX{}~Live's \TeX{}~Live Utility). This type of installation is recommended in order to always get the latest version automatically. If you prefer a manual installation, please run \verb|pdflatex emisa.dtx| twice, and copy the resulting files to the same directory (folder) in which the source files for the manuscript will be maintained. 
+% The package is available from the correspondig GitHub website (\url{https://github.com/sstrecker/emisa-latex-package}) and the \textsc{Comprehensive \TeX{} Archive Network} (CTAN, \url{https://ctan.org}). It will be available for installation through the respective \TeX{} distribution's package installer (\eg \TeX{}~Live's \TeX{}~Live Utility). This type of installation is recommended in order to always get the latest version automatically. If you prefer a manual installation, please run \verb|pdflatex emisa.dtx| twice, and copy the resulting files to the same directory (folder) in which the source files for the manuscript will be maintained. 
 %
 %
 % \section{Instructions and guidelines}
 % This document provides instructions and style guidelines for authors. 
-% Follow the instructions and guidelines in the present document to set up your files, to type in your text, to format figures, tables, source code listings and algorithms, and to obtain a consistent visual appearance in accordance with the journal's style specifications. Before submitting your manuscript online to the journal's online submission system at \url{http://emisa-journal.org}, use these instructions and guidelines as a checklist. Note that these instructions are \emph{not} intended as a general introduction to \LaTeX2e{} and corresponding tools (see, for example, \url{http://mirror.ctan.org/info/lshort/english/} for\enquote{The Not So Short Introduction to \LaTeX2e{}---Or \LaTeX2e{} in 157 minutes}). 
+% Follow the instructions and guidelines in the present document to set up your files, to type in your text, to format figures, tables, source code listings and algorithms, and to obtain a consistent visual appearance in accordance with the journal's style specifications. Before submitting your manuscript online to the journal's online submission system at \url{http://emisa-journal.org}, use these instructions and guidelines as a checklist. Note that these instructions are \emph{not} intended as a general introduction to \LaTeX2e{} and corresponding tools (see, for example, \url{http://mirror.ctan.org/info/lshort/english/} for \enquote{The Not So Short Introduction to \LaTeX2e{}---Or \LaTeX2e{} in 157 minutes}). 
 %
 %
 % \section{Preliminary remarks}
-% The \pkg{EMISA} document class is derived from the standard \LaTeX{} article class, and produces a customised two-column layout with bibliographic information about the manuscript in a multi-line page headline (including the name of the journal, volume and issue number, date of publication, short title as well as author names) on A4-sized paper.
+% The \DTXclassname document class is derived from the standard \LaTeX{} article class, and produces a customised two-column layout with bibliographic information about the manuscript in a multi-line page headline (including the name of the journal, volume and issue number, date of publication, short title as well as author names) on A4-sized paper.
 %
 % The \DTXclassname class builds on a number of standard \LaTeX{} packages available in distributions such as \TeX{}~Live and Mik\TeX{}. It is highly recommended to install the \emph{full} set of packages to make the required packages available to the \DTXclassname package. Alternatively, missing packages may be installed on-the-fly or via the distributions package manager. The list of required packages for using the \DTXclassname package is rather comprehensive (see \verb|emisa.cls|), but the implementation has taken care to use only packages commonly included in the widely used \TeX{} distributions \TeX{}~Live and Mik\TeX{}. Among the required packages are \pkg{geometry}, \pkg{newtxtext}, \pkg{newtxmath}, \pkg{newtxtt}, \pkg{ntheorem}, \pkg{amsthm}, \pkg{booktabs}, \pkg{tabularx} (see \verb|emisa.cls| for a comprehensive overview).
 %
-% The production process at the EMISA editorial office is based entirely on \LaTeX{}, and runs pdf\LaTeX{} and \verb|biber| to produce the final proof and publication-ready PDF of an article.
+% The production process at the \DTXclassname editorial office is based entirely on \LaTeX{}, and runs pdf\LaTeX{} and \verb|biber| to produce the final proof and publication-ready PDF of an article.
 %  
 % The \pkg{biblatex} package is used to typeset citations and references in conjunction with the \verb|biber| tool. Make sure to use \verb|biber| rather than \verb|bibtex| to process your bibliography data base file(s).
 %
@@ -994,12 +994,12 @@ This work consists of all files listed in manifest.txt.
 %
 % \DescribeOption{american, USenglish} If you want to use American English instead, you can use the option \opt{american} or \opt{USenglish}. The hyphenation patterns and quotation marks will be changed accordingly.
 %
-% \DescribeOption{referee, review} By default, a final version of the manuscript is typeset for online publication including the names and affiliations of authors. For reviewing purposes, the names and affiliations of the authors are omitted using the document option \verb|referee| or \verb|review| to allow for the anonymous (\ie double blind) peer-review process of EMISA. Example: \verb|\documentclass[referee]{emisa}|.  Make sure to use the document option \verb|referee| or \verb|review| before typesetting the final PDF intended for submission to the journal. 
+% \DescribeOption{referee, review} By default, a final version of the manuscript is typeset for online publication including the names and affiliations of authors. For reviewing purposes, the names and affiliations of the authors are omitted using the document option \verb|referee| or \verb|review| to allow for the anonymous (\ie double blind) peer-review process of \DTXclassname. Example: \verb|\documentclass[referee]{emisa}|.  Make sure to use the document option \verb|referee| or \verb|review| before typesetting the final PDF intended for submission to the journal. 
 %
 %
 % \section{Author information}
 % \DescribeMacro{\author}\DescribeMacro{\address}%
-% Each author is added using the macro \cs{author}\marg{author name} followed by the corresponding address \cs{address}\marg{author's address (line 1)\textbackslash\textbackslash\ \ldots (line 2)\textbackslash\textbackslash\ \ldots}. If you have multiple authors with the same address, please use \cs{address}\marg{author's address} only for the first one and \cs{address}\oarg{letter of address}\marg{} for all others. See \file{emisa-author-template.tex} for details.
+% Each author is added using the macro \cs{author}\marg{author name} followed by the corresponding address \cs{address}\marg{author's address (line 1)\textbackslash\textbackslash\ \ldots (line 2)\textbackslash\textbackslash\ \ldots}. If you have multiple authors with the same address, please use \cs{address}\marg{author's address} only for the first one and \cs{address}\oarg{letter of address}\texttt{\{\}} for all others. See \file{emisa-author-template.tex} for details.
 %
 % \DescribeMacro{\author*}There always has to be declared exactly one author as the corresponding author. This is indicated by using the starred version of the \cs{author} command: \cs{author*}\marg{author's name}\marg{email address}.
 %
@@ -1027,7 +1027,7 @@ This work consists of all files listed in manifest.txt.
 % \item Manuscripts should \emph{not} make use of outdated \LaTeX{} commands such as \verb|\em|, but rather use the \LaTeX2e\ commands (\eg \verb|\emph|, \verb|\texttt|). 
 % \item Do \emph{not} make use of bold face (\cs{textbf}). Use \cs{emph} instead to typeset an important word in italics!
 % \item Always use the tilde \verb|~| to connect before \cs{ref}\marg{label}, \eg,\ \verb|Sec.~\ref{label}| rather than the problematic: \verb|Sec. \ref{label}|.
-% \item Do \emph{not} write abbreviations such as \verb|e.g.| but use the macros provided by the \pkg{EMISA} class (see below). Add punctuation when necessary, for example, write \verb|, \ie,| to achive the correct punctuation for \enquote{id est} (i.\,e.) rather than \verb|, i.e.,| which introduces two problems: A missing spacing after the first full stop and a wrong spacing after the second full stop.
+% \item Do \emph{not} write abbreviations such as \verb|e.g.| but use the macros provided by the \DTXclassname class (see below). Add punctuation when necessary, for example, write \verb|, \ie,| to achive the correct punctuation for \enquote{id est} (i.\,e.) rather than \verb|, i.e.,| which introduces two problems: A missing spacing after the first full stop and a wrong spacing after the second full stop.
 %
 %
 % \item Follow the journal's style specification with respect to predefined text styles:
@@ -1041,15 +1041,15 @@ This work consists of all files listed in manifest.txt.
 %
 % \section{Abbreviations and initialisms}
 % \DescribeMacro{\eg}\DescribeMacro{\ie}\DescribeMacro{\cf}\DescribeMacro{\etal}%
-% To achieve consistent typesetting of common abbreviations, macros are predefined by the \DTXclassname class. These macros should \emph{consistently} being used instead of writing the plain version. For example use \verb|\eg| rather than {\verb|e.g.|}. The macros take care of spacing within and after the abbreviations. 
+% To achieve consistent typesetting of common abbreviations, macros are predefined by the \DTXclassname class. These macros should \emph{consistently} being used instead of writing the plain version. For example use \verb|\eg| rather than {\verb|e.g.,|}. The macros take care of spacing within and after the abbreviations. 
 % \begin{itemize}
-% \item \cs{eg} for e.\,g.
-% \item \cs{ie} for i.\,e.
+% \item \cs{eg} for e.\,g.,
+% \item \cs{ie} for i.\,e.,
 % \item \cs{cf} for cf.
 % \item \cs{etal} for et~al.
 % \end{itemize}
 %
-% \DescribeMacro{\emisaabbrv} If you miss any frequently used abbreviation for your article, you can easily add it using \cs{emisaabbrv\marg{\textbackslash abbreviation\_macro}\marg{text}} in the preamble of your article.
+% \DescribeMacro{\emisaabbrv} If you miss any frequently used abbreviation for your article, you can easily add it using \cs{emisaabbrv\marg{\cs{abbreviation\_macro}}\marg{text}} in the preamble of your article.
 %
 % \DescribeMacro{\OMG}\DescribeMacro{\BPM}\DescribeMacro{\BPMN}\DescribeMacro{\UML}%
 % In addition to common abbreviations, further initialisms are provided by the class for convenience and for a consistent visual appearance. Note that the class uses \textsc{smallcaps} for typesetting initialisms. The list of predefined initialisms comprises:
@@ -1063,7 +1063,6 @@ This work consists of all files listed in manifest.txt.
 %
 % \DescribeMacro{\emisainitialism} You can add your own initialisms by stating \cs{emisainitialism\marg{\textbackslash initialism\_macro}\marg{text}} in the preamble.
 % 
-%^^A For proper spacing, add either angle brackets such as \cs{command}\verb|{}| or append a backslash plus a space such as \cs{command}\verb|\ | (\eg at the end of a sentence before the full stop use \cs{OMG}\verb|{}|.).
 %
 % \section{Quotation marks}
 % \DescribeMacro{\enquote}%
@@ -1074,7 +1073,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \section{Citations and references}
 % \DescribeMacro{\parencite}\DescribeMacro{\textcite}\DescribeMacro{\cite}%
-% The EMISA journal uses its own author-year citation style predefined for the \pkg{biblatex} package (\verb|emisa.cbx|), and its own style for formatting entries in the list of references (\verb|emisa.bbx|). Consult the \pkg{biblatex} package documentation \cite{biblatex-pdf} for an introduction to the citation commands.
+% The \DTXclassname journal uses its own author-year citation style predefined for the \pkg{biblatex} package (\verb|emisa.cbx|), and its own style for formatting entries in the list of references (\verb|emisa.bbx|). Consult the \pkg{biblatex} package documentation \cite{biblatex-pdf} for an introduction to the citation commands.
 %  It is important to use the citation commands properly to follow the journal's style specifications.
 %
 % \begin{itemize}
@@ -1086,7 +1085,7 @@ This work consists of all files listed in manifest.txt.
 % \end{itemize}
 %
 % \emph{Make sure to format the bibliographic entries consistently!} Do not mix abbreviated first names with unabbreviated first names, as for example
-%
+%		
 % \verb|@ARTICLE{key1, author = {{van der Weiden}, J. W. P.} ...|  
 % 
 % \verb|@ARTICLE{key2, author = {{van der Weiden}, Jan W. P.} ...|
@@ -1131,7 +1130,7 @@ This work consists of all files listed in manifest.txt.
 % \end{lstlisting}
 %
 % A second frequently used scenario is the need for equal-widthed columns without having to measure it out. For a much more comfortable solution one get assign the \opt{X} parameter to all such columns.
-% \begin{lstlisting}[escapechar=§,caption={An example for a table using the package \pkg{tabularx} and more than one \opt{X} column},label={lst:tabularx}]
+% \begin{lstlisting}[escapechar=§,caption={An example for a table using the package \pkg{tabularx} and more than one \opt{X} column},label={lst:tabularx-var}]
 % ...
 % \begin{tabularx}{\textwidth}{p{3cm}XXX}
 % This a column with possibly long text passages, 
@@ -1145,6 +1144,26 @@ This work consists of all files listed in manifest.txt.
 % \end{lstlisting}
 %
 % Additional information can be obtained from the package's documentation \cite{tabularx-pdf}.
+%
+% For nicer tables you should get rid of any vertical line between the columns. Instead you can use the macros provided by \pkg{booktabs} (preloaded by \DTXclassname) for horizontal lines of different width. Just replace the first standard \cs{hline} by \cs{toprule}, the last one by \cs{bottomrule} and all other by \cs{midrule}. There is even an alternative for \cs{cline} called \cs{cmidrule}. The example from Table~\ref{lst:tabularx-var} then looks like:
+% \begin{lstlisting}[escapechar=§,caption={An example for a table using the packages \pkg{tabularx} and \pkg{booktabs}},label={lst:tabularx-booktabs}]
+% ...
+% \begin{tabularx}{\textwidth}{p{3cm}XXX}
+% \toprule
+% Table header 1 & table header 2 & table header 3\\
+% \midrule
+% This a column with possibly long text passages, 
+% so that line breaking is necessary and automatically 
+% applied to get a box 3cm wide &
+% This column and the remaining two all have the same width, namely
+% (\textwidth-3cm)/3. & 
+% ...
+% \bottomrule
+% \end{tabularx}
+% ...
+% \end{lstlisting}
+%
+% Have a look at the package's documentation \cite{booktabs-pdf} for more details.
 %
 % \section{Source code listings}
 % \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \DTXclassname class uses the \pkg{lstlistings} package (see the package documentation \cite{listings-pdf} for further information), and provides two customised \LaTeX{} environments: \env{sourcecode} and \env{java}. The \env{java} environment should be used to format source code listings in the Java programming language, and the sourcecode environment should be used to format source code in any other programming language. You can add the name of the programming language and other parameters known to \pkg{listings} like \opt{caption} or \opt{label} as an optional argument.
@@ -1221,8 +1240,9 @@ This work consists of all files listed in manifest.txt.
 % ...
 % \end{algorithmic}
 % \end{algorithm}          
-%
-% For more details, please have a look at the documentation \cite{algorithms}.
+% \end{examplecode}
+%   
+% For more details, please have a look at the documentation \cite{algorithms-pdf}.
 %
 % \section{Commands for use by the editorial office staff only}
 % \DescribeMacro{editor}Enter the corresponding editor (or editorial board member) for the article, in the format \enquote{first letter of the first name fullstop tilde last name}. Example: \verb|\editor{A.~Smith}|
@@ -1239,7 +1259,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \emph{Note that volume, issue number and issue date and, optionally, the title of the special issue appear in the multiline page headline of the article.}
 %
-% \DescribeMacro{CCBYNCSAFour}\DescribeMacro{CCBYNCSAThree}If an article is licensed under a Creative Commons BY-NC-SA 4.0 (\cs{CCBYNCSAFour}) or 3.0 (\cs{CCBYNCSAThree}) license, the reference to the license should be displayed at the end of the article. Read the license text at https://creativecommons.org/licenses/by-nc-sa/4.0/ (for version 4.0; likewise for version 3.0).
+% \DescribeMacro{CCBYNCSAFour}\DescribeMacro{CCBYNCSAThree}If an article is licensed under a Creative Commons BY-NC-SA 4.0 or 3.0 license, the reference to the license can be automatically displayed at the end of the article by adding \cs{CCBYNCSAFour} and \cs{CCBYNCSAThree} resp. Read the license text at \url{https://creativecommons.org/licenses/by-nc-sa/4.0/} (for version 4.0; likewise for version 3.0).
 %
 % \DescribeMacro{license}\DescribeMacro{licence}Alternatively, enter a license text by \cs{license} (or \cs{licence}).\\ Example: \verb|\license{This work is licensed under LPPL 1.3c.}|
 %
@@ -1433,7 +1453,7 @@ This work consists of all files listed in manifest.txt.
 %   \bibitem{biblatex-pdf}
 %     \href
 %      {http://www.ctan.org/pkg/biblatex}
-%      {Package \pkg{biblatex}: Bibliographies in \LaTeX\ using \BibTeX\ for sorting only}.
+%      {Package \pkg{biblatex}: Bibliographies in \LaTeX{} using \BibTeX{} for sorting only}.
 %  
 % 
 %   \bibitem{csquotes-pdf}
@@ -1446,7 +1466,19 @@ This work consists of all files listed in manifest.txt.
 %     \href
 %      {http://www.ctan.org/pkg/tabularx}
 %      {Package \pkg{tabularx}:    Tabulars with adjustable-width columns}. 
+%
+%
+%   \bibitem{booktabs-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/booktabs}
+%      {Package \pkg{booktabs}:    Publication quality tables in LaTeX}. 
 % 
+%
+%   \bibitem{algorithms-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/algorithms}
+%      {Package \pkg{algorithms}: A suite of tools for typesetting algorithms in pseudo-code}.
+%
 %
 %   \bibitem{twoopt-pdf}
 %     \href
@@ -1511,10 +1543,6 @@ This work consists of all files listed in manifest.txt.
 %      {http://www.ctan.org/pkg/listings}
 %      {Typeset source code listings using LaTeX}.
 %
-%   \bibitem{algorithms-pdf}
-%     \href
-%      {https://www.ctan.org/pkg/algorithms}
-%      {A suite of tools for typesetting algorithms in pseudo-code}.
 % \end{thebibliography}
 % \clearpage
 % 
@@ -2554,7 +2582,7 @@ This work consists of all files listed in manifest.txt.
       \@ifempty{#2}{\def\@tocauthor{\@shortauthors}}{\def\@tocauthor{#2}}%
     \fi
     \@esphack
-    \@ifnextchar\bgroup\email{\ClassError{emisa}{Please provide an E-mail address for the corresponding author}{Use the second argument for the E-mail address}}}%
+    \@ifnextchar\bgroup\email{\ClassError{emisa}{Please provide an email address for the corresponding author}{Use the second argument for the email address}}}%
 \newcommand{\keywords}[1]{
    \@bsphack
    \def\and{\unskip\ \textbullet\ }%
@@ -3723,7 +3751,7 @@ This work consists of all files listed in manifest.txt.
    \authorfont\ignorespaces
    \strut\@authors
    \ifx\@email\@empty
-       \ClassError{emisa}{There has to be one corresponding author!}{Please use \string\author* and provide an E-mail address}
+       \ClassError{emisa}{There has to be one corresponding author!}{Please use \string\author* and provide an e-mail address}
    \else
       \ignorespaces\makebox[0pt][l]{\footnote{*~Corresponding author.\newline E-mail.\ \url{\@email}}}%
    \fi%
@@ -4245,7 +4273,7 @@ This work consists of all files listed in manifest.txt.
 %    \end{macrocode}
 % We start by declaring the file name and date.
 %    \begin{macrocode}
-\ProvidesFile{emisa.bbx}[2012/12/21 0.4 EMISA bibliography style]
+\ProvidesFile{emisa.bbx}[2016/02/05 2.0 EMISA bibliography style]
 %    \end{macrocode}
 % The \DTXclassname bibliography style is  built on top of the standard style \file{authoryear.bbx}
 % being loaded here \ldots
@@ -5863,7 +5891,7 @@ techreport = {},%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\ProvidesFile{emisa.cbx}[2010/09/24 0.3 EMISA citation style]
+\ProvidesFile{emisa.cbx}[2016/02/05 2.0 EMISA citation style]
 \RequireCitationStyle{authoryear-comp}
 \renewcommand*{\nameyeardelim}{\addspace}
 %    \end{macrocode}
@@ -5915,22 +5943,6 @@ techreport = {},%
 % editor might produce it.  Both are generated from the following
 % code.
 % 
-%    \begin{macrocode}
-%<*example>
-%<article>\documentclass[british]{emisa}
-%<issue>\documentclass[final,cover]{emisa}
-% 
-%% The following package imports are recommended, but not mandatory!
-\usepackage{algorithmic,algorithm}
-\usepackage{amsmath,amssymb,mathtools}
-%<article|issue>\end{document}
-%</example>
-%    \end{macrocode}
-% 
-% 
-% 
-% 
-% 
 % \fi
 % 
 %^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -5951,7 +5963,7 @@ techreport = {},%
 %% referee, review -- Use for submission to peer-review process. 
 %% draft -- mark overfull lines
 %% british, UKenglish -- British English hyphenation and quotation marks
-%% american, USenglish -- US English hyphenation and quotation marks
+%% american, USenglish -- American English hyphenation and quotation marks
 %</article>
 %<issue>\documentclass[final,cover]{emisa}
 %<*article|issue>
@@ -5961,6 +5973,7 @@ techreport = {},%
 \usepackage{amsmath,amssymb,mathtools}
 \usepackage{algorithmic,algorithm}
 %% Additional package imports go here:
+%% \usepackage{}
 %</article|issue>
 %<*issue>
 %% Insert here issue data:
@@ -6001,29 +6014,37 @@ techreport = {},%
 %% elements can either be deleted or commented out, or else just let 
 %% empty.  In either case they are not typeset.
 %% If the option referee or review is given, all author tags, address, 
-%% email and acknowledgements will be likewise omitted.
-  \title{}
-  \subtitle{}
-  \author*{<Name>}{<Email address>}
-  \address{address line 1\\address line 2}
-  \author{Name}
-  \address[a]{}
-  \abstract{}
-  \keywords{Keyword 1 \and keyword 2 \and keyword 3}
-%% Note: Remember to completely anonymise the submission if 
-%% intended for the double-blind review process!
-%% Among others, remove identifying references to your earlier work
-%% in the following author note and remove the acknowledgements!
-  \authornote{This article extends an earlier conference paper, see ...}
+%% e-mail and acknowledgements will be likewise omitted.
+  \title[Insert shorttitle for page headline]{Enter full title here}
+  \subtitle{Enter subtitle here, or leave empty}
+  \author*{FirstName LastName of corresponding author}{email@address.org}
+  \address{Enter affiliation of first (corresponding) author here.  Note that only the starred version of author* accepts a second argument requiring an email address for the corresponding author.}
+  %% Author with a different address
+  \author{FirstName LastName}
+  \address{Enter affiliation of second and further authors here. Add further authors following this scheme.}
+  %% Author with an already used address
+  \author{FirstName LastName}
+  \address[Letter of already used address]{}
+  %% Enter abstract, keywords, acknowledgements, authornotes
+  \abstract{Enter abstract here} 
+  \keywords{Enter at a minimum three keywords here. Keyword1 \and Keyword2 \and Keyword3}
+  \acknowledgements{Enter acknowledgements here.}
+  \authornote{If your submission is based on a prior publication and revises / extends this work, enter a corresponding note here (This work is based on ...) but DO NOT cite the prior work during the reviewing process. INSTEAD provide full citations of all prior publications to the editors during the submission process (use the text field in the online submission system).}
+  %% Take note of the following closing bracket!
+  }
 %</article|issue>
 %<*issue>
   \editor{My self}
   \received{24 Octover 2014}
   \accepted[2]{1 November 2015}
   \doi{10.5073/EMISA.2011.11.1}
+  \license{License information}
+  %% or
+  \CCBYNCSAThree
+  %% or
+  \CCBYNCSAFour
 %</issue>
 %<*article|issue>
-  \acknowledgements{}
 %% Please declare here the bibliography data base(s) you want to use 
 %% in this article (make sure to add the file extension, e.g. .bib):  
   \bibliography{}
@@ -6049,10 +6070,14 @@ techreport = {},%
    \subtitle{}
    \author*{<Name>}{<Email address>}
    \address{address line 1\\address line 2}
-   \author{Name}
+   % Author with unique address
+   \author{<Name>}
+   \address{address line 1\\address line 2}
+   % Author with the same address as another author
+   \author{<Name>}
    \address[a]{}
-   \abstract{}
-   \keywords{Keyword 1 \and keyword 2\and keyword 3}
+   \abstract{<Insert abstract>}
+   \keywords{Keyword 1 \and keyword 2 \and keyword 3}
    \authornote{This article extends an earlier conference paper, see ...}
    \acknowledgements{}
    \editor{My self}

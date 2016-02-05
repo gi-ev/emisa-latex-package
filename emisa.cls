@@ -31,7 +31,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2016/02/02 2.0BETA LaTeX class EMISA]
+[2016/02/04 2.0 LaTeX class EMISA]
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
@@ -124,7 +124,8 @@
    dashed=false,%
    bibencoding=inputenc,%
    sorting=anyt,%
-   hyperref=true%
+   hyperref=true,%
+   uniquename=minfull%%
 }%
 \RequirePackage[autostyle=once]{csquotes}
 \RequirePackage{twoopt}%
@@ -365,7 +366,7 @@
       \@ifempty{#2}{\def\@tocauthor{\@shortauthors}}{\def\@tocauthor{#2}}%
     \fi
     \@esphack
-    \@ifnextchar\bgroup\email{\ClassError{emisa}{Please provide an E-mail address for the corresponding author}{Use the second argument for the E-mail address}}}%
+    \@ifnextchar\bgroup\email{\ClassError{emisa}{Please provide an email address for the corresponding author}{Use the second argument for the email address}}}%
 \newcommand{\keywords}[1]{
    \@bsphack
    \def\and{\unskip\ \textbullet\ }%
@@ -1047,7 +1048,7 @@
    \authorfont\ignorespaces
    \strut\@authors
    \ifx\@email\@empty
-       \ClassError{emisa}{There has to be one corresponding author!}{Please use \string\author* and provide an E-mail address}
+       \ClassError{emisa}{There has to be one corresponding author!}{Please use \string\author* and provide an e-mail address}
    \else
       \ignorespaces\makebox[0pt][l]{\footnote{*~Corresponding author.\newline E-mail.\ \url{\@email}}}%
    \fi%
