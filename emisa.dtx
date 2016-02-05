@@ -291,7 +291,7 @@ This work consists of all files listed in manifest.txt.
 \DeclareRobustCommand{\env}[1]{{\fontfamily\ttdefault\upshape #1}}
 \DeclareRobustCommand{\pkg}[1]{{\fontfamily\sfdefault\upshape #1}}
 \DeclareRobustCommand{\cls}[1]{{\normalfont\fontfamily\sfdefault\upshape #1}}
-\DeclareRobustCommand{\file}[1]{{\fontfamily\ttdefault\itshape #1}}
+\DeclareRobustCommand{\file}[1]{{\fontfamily\ttdefault\upshape #1}}
 % 
 \newcommand{\eg}{e.\,g.\@\xspace}
 \newcommand{\ie}{i.\,e.\@\xspace}
@@ -957,7 +957,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \section{Introduction}
 % Enterprise Modelling and Information Systems Architectures --~An International Journal (\DTXclassname) is a publisher-independent, peer-reviewed  open access journal (\url{https://emisa-journal.org}). 
-% \DTXclassname is published by the German Informatics Society (GI) and is a publication of its Special Interest Group (SIG) on Modelling Business Information Systems (SIG MoBIS) and its SIG on Design Methods for Information Systems (SIG \DTXclassname). SIG~MoBIS has sponsored the development of the \DTXclassname \LaTeX{} package currently maintained by Stefan Strecker (\href{mailto:stefan.strecker@fernuni-hagen.de}{stefan.strecker@fernuni-hagen.de}) and Martin Sievers (\href{mailto:martin.sievers@schoenerpublizieren.de}{martin.sievers@schoenerpublizieren.de}).
+% \DTXclassname is published by the German Informatics Society (GI) and is a publication of its Special Interest Group (SIG) on Modelling Business Information Systems (SIG MoBIS) and its SIG on Design Methods for Information Systems (SIG \DTXclassname). SIG~MoBIS has sponsored the development of the \DTXclassname \LaTeX{} package currently maintained by Stefan Strecker (\href{mailto:stefan.strecker@fernuni-hagen.de}{stefan.strecker@fernuni-hagen.de}) and Martin Sievers (\href{mailto:martin.sievers@schoenerpublizieren.de}{martin.sievers@schoenerpublizieren.de}). It is based on an earlier funded work by Martin Leidig.
 %
 % The \DTXclassname \LaTeX{} package is provided for preparing manuscripts for submission to \DTXclassname, and for preparing accepted submissions for publication as well as for typesetting the final document by the editorial office. Articles in \DTXclassname are published online at \url{https://emisa-journal.org} (in the Portable Document Format or PDF format).
 % The \DTXclassname editorial office is run (alongside many other tasks and projects) by the two Editors-in-Chief assisted by doctoral students. Editorial work at \DTXclassname is best described as a volunteer effort for the scientific community.
@@ -965,34 +965,34 @@ This work consists of all files listed in manifest.txt.
 %
 %
 % \section{Installation}
-% The \DTXclassname \LaTeX{} package consists of the document class \DTXname, the \pkg{biblatex} bibliography style \texttt{emisa.bbx} and the \pkg{biblatex} citation style \file{emisa.cbx}.
+% The \DTXclassname \LaTeX{} package consists of the document class \file{\DTXname.cls}, the \pkg{biblatex} bibliography style \file{emisa.bbx} and the \pkg{biblatex} citation style \file{emisa.cbx}.
 % 
 % The package also includes a quick-start template for authors \file{emisa-author-template.tex} and the present instructions \file{emisa.pdf}.
 %
-% The package is available from the correspondig GitHub website (\url{https://github.com/sstrecker/emisa-latex-package}) and the \textsc{Comprehensive \TeX{} Archive Network} (CTAN, \url{https://ctan.org}). It will be available for installation through the respective \TeX{} distribution's package installer (\eg \TeX{}~Live's \TeX{}~Live Utility). This type of installation is recommended in order to always get the latest version automatically. If you prefer a manual installation, please run \verb|pdflatex emisa.dtx| twice, and copy the resulting files to the same directory (folder) in which the source files for the manuscript will be maintained. 
+% The package is available from the correspondig GitHub website (\url{https://github.com/sstrecker/emisa-latex-package}) and the \textsc{Comprehensive \TeX{} Archive Network} (CTAN, \url{https://ctan.org}). It will be available for installation through the recent \TeX{} distribution's package installer (\eg \TeX{}~Live's \file{tlmgr}). This type of installation is recommended in order to always get the latest version automatically. If you prefer a manual installation, please run \verb|pdflatex emisa.dtx| twice, and copy the resulting files to the same directory (folder) in which the source files for the manuscript will be maintained. 
 %
 %
 % \section{Instructions and guidelines}
 % This document provides instructions and style guidelines for authors. 
-% Follow the instructions and guidelines in the present document to set up your files, to type in your text, to format figures, tables, source code listings and algorithms, and to obtain a consistent visual appearance in accordance with the journal's style specifications. Before submitting your manuscript online to the journal's online submission system at \url{http://emisa-journal.org}, use these instructions and guidelines as a checklist. Note that these instructions are \emph{not} intended as a general introduction to \LaTeX2e{} and corresponding tools (see, for example, \url{http://mirror.ctan.org/info/lshort/english/} for \enquote{The Not So Short Introduction to \LaTeX2e{}---Or \LaTeX2e{} in 157 minutes}). 
+% Follow the instructions and guidelines in the present document to set up your files, to type in your text, to format figures, tables, source code listings and algorithms, and to obtain a consistent visual appearance in accordance with the journal's style specifications. Before submitting your manuscript online to the journal's online submission system at \url{https://emisa-journal.org}, use these instructions and guidelines as a checklist. Note that these instructions are \emph{not} intended as a general introduction to \LaTeX2e{} and corresponding tools (see, for example, \url{http://mirror.ctan.org/info/lshort/english/} for \enquote{The Not So Short Introduction to \LaTeX2e{}---Or \LaTeX2e{} in 157 minutes}). 
 %
 %
 % \section{Preliminary remarks}
 % The \DTXclassname document class is derived from the standard \LaTeX{} article class, and produces a customised two-column layout with bibliographic information about the manuscript in a multi-line page headline (including the name of the journal, volume and issue number, date of publication, short title as well as author names) on A4-sized paper.
 %
-% The \DTXclassname class builds on a number of standard \LaTeX{} packages available in distributions such as \TeX{}~Live and Mik\TeX{}. It is highly recommended to install the \emph{full} set of packages to make the required packages available to the \DTXclassname package. Alternatively, missing packages may be installed on-the-fly or via the distributions package manager. The list of required packages for using the \DTXclassname package is rather comprehensive (see \verb|emisa.cls|), but the implementation has taken care to use only packages commonly included in the widely used \TeX{} distributions \TeX{}~Live and Mik\TeX{}. Among the required packages are \pkg{geometry}, \pkg{newtxtext}, \pkg{newtxmath}, \pkg{newtxtt}, \pkg{ntheorem}, \pkg{amsthm}, \pkg{booktabs}, \pkg{tabularx} (see \verb|emisa.cls| for a comprehensive overview).
+% The \DTXclassname class builds on a number of standard \LaTeX{} packages available in distributions such as \TeX{}~Live and MiK\TeX{}. It is highly recommended to install the \emph{full} set of packages to make the required packages available to the \DTXclassname package. Alternatively, missing packages may be installed on-the-fly or via the distribution's package manager. The list of required packages for using the \DTXclassname package is rather comprehensive (see \file{emisa.cls}), but the implementation has taken care to use only packages commonly included in the widely used \TeX{} distributions \TeX{}~Live and MiK\TeX{}. Among the required packages are \pkg{geometry}, \pkg{newtxtext}, \pkg{newtxmath}, \pkg{newtxtt}, \pkg{ntheorem}, \pkg{amsthm}, \pkg{booktabs}, \pkg{tabularx}.
 %
 % The production process at the \DTXclassname editorial office is based entirely on \LaTeX{}, and runs pdf\LaTeX{} and \verb|biber| to produce the final proof and publication-ready PDF of an article.
 %  
-% The \pkg{biblatex} package is used to typeset citations and references in conjunction with the \verb|biber| tool. Make sure to use \verb|biber| rather than \verb|bibtex| to process your bibliography data base file(s).
+% The \pkg{biblatex} package is used to typeset citations and references in conjunction with the \verb|biber| tool. Make sure to use \verb|biber| rather than \verb|bibtex| to process your bibliography data base file(s). Most \TeX{} editors have an option to easily switch to \verb|biber|.
 %
 % The production tool chain at the editorial office requires that all text files of an article are provided in \emph{UTF-8 file encoding}\DescribeOption{UTF-8}.   
 %  
 %
 % \section{Class Options}
-% \DescribeOption{british, UKenglish} British English is the language of choice for publishing in \DTXclassname. The class option \opt{british} is loaded by default to obtain the correct hyphenation for British English (as provided by the \pkg{babel} package). The class option \emph{may be} used with the \DTXclassname class to exemplify the use of British English. Example: \verb|\documentclass[british]{emisa}|. This is the standard option. Note that the \cs{csquotes} package is loaded with settings to produce proper quotation marks in British English (see below).
+% \DescribeOption{british, UKenglish} British English is the language of choice for publishing in \DTXclassname. The class option \opt{british} is loaded by default to obtain the correct hyphenation for British English (as provided by the \pkg{babel} package). The  option \emph{may be} explicitly used with the \DTXclassname class to exemplify the use of British English. Example: \verb|\documentclass[british]{emisa}|. This is the standard option. Note that the \pkg{csquotes} package is loaded with settings to produce proper quotation marks in British English (see below).
 %
-% \DescribeOption{american, USenglish} If you want to use American English instead, you can use the option \opt{american} or \opt{USenglish}. The hyphenation patterns and quotation marks will be changed accordingly.
+% \DescribeOption{american, USenglish} If you want to use American English instead, you can use the option \opt{american} or \opt{USenglish}. The hyphenation patterns and quotation marks will be set accordingly.
 %
 % \DescribeOption{referee, review} By default, a final version of the manuscript is typeset for online publication including the names and affiliations of authors. For reviewing purposes, the names and affiliations of the authors are omitted using the document option \verb|referee| or \verb|review| to allow for the anonymous (\ie double blind) peer-review process of \DTXclassname. Example: \verb|\documentclass[referee]{emisa}|.  Make sure to use the document option \verb|referee| or \verb|review| before typesetting the final PDF intended for submission to the journal. 
 %
@@ -1009,7 +1009,7 @@ This work consists of all files listed in manifest.txt.
 % The mandatory title and optional subtitle of a manuscript are typeset using \cs{title}\marg{title} and \cs{subtitle}\marg{subtitle}. Note that the subtitle is indented.
 % \DescribeMacro{\abstract}The abstract of the manuscript is typeset using \cs{abstract}\marg{abstract}. Each manuscript should provide an abstract of about 200--400 words.
 % \DescribeMacro{\keywords}%
-% Keywords describing the manuscript are typeset using \cs{keywords}\marg{keywords} and are concatenated using the \cs{and} command. For example, \verb|\keywords{keyword1 \and keyword2}|. At least three keywords should be provided.
+% Keywords describing the manuscript are typeset using \cs{keywords}\marg{keywords} and are concatenated using the \cs{and} command. At least three keywords should be provided.
 %
 %
 % \section{Additional information on the first (title) page}
@@ -1027,6 +1027,7 @@ This work consists of all files listed in manifest.txt.
 % \item Manuscripts should \emph{not} make use of outdated \LaTeX{} commands such as \verb|\em|, but rather use the \LaTeX2e\ commands (\eg \verb|\emph|, \verb|\texttt|). 
 % \item Do \emph{not} make use of bold face (\cs{textbf}). Use \cs{emph} instead to typeset an important word in italics!
 % \item Always use the tilde \verb|~| to connect before \cs{ref}\marg{label}, \eg,\ \verb|Sec.~\ref{label}| rather than the problematic: \verb|Sec. \ref{label}|.
+% \item Always use the en-dash (\texttt{-{}-}) for ranges -- without spaces --\eg, \texttt{17-{}-34}. The hyphen (\texttt{-}) should only be used for compound words or hypenation. 
 % \item Do \emph{not} write abbreviations such as \verb|e.g.| but use the macros provided by the \DTXclassname class (see below). Add punctuation when necessary, for example, write \verb|, \ie,| to achive the correct punctuation for \enquote{id est} (i.\,e.) rather than \verb|, i.e.,| which introduces two problems: A missing spacing after the first full stop and a wrong spacing after the second full stop.
 %
 %
@@ -1073,11 +1074,11 @@ This work consists of all files listed in manifest.txt.
 %
 % \section{Citations and references}
 % \DescribeMacro{\parencite}\DescribeMacro{\textcite}\DescribeMacro{\cite}%
-% The \DTXclassname journal uses its own author-year citation style predefined for the \pkg{biblatex} package (\verb|emisa.cbx|), and its own style for formatting entries in the list of references (\verb|emisa.bbx|). Consult the \pkg{biblatex} package documentation \cite{biblatex-pdf} for an introduction to the citation commands.
+% The \DTXclassname journal uses its own author-year citation style predefined for the \pkg{biblatex} package (\file{emisa.cbx}), and its own style for formatting entries in the list of references (\file{emisa.bbx}). Consult the \pkg{biblatex} package documentation \cite{biblatex-pdf} for an introduction to the citation commands.
 %  It is important to use the citation commands properly to follow the journal's style specifications.
 %
 % \begin{itemize}
-% \item \cs{parencite} is used for citing in parentheses (usually at the end of a sentence). In most cases, page numbers should be provided. Example: \verb|\ldots\ is known \parencite[5]{Knuth1986}| produces \enquote{\ldots\ is known (Knuth 1986, p.~5)}. Also use \cs{parencite} to produce a prefix within parentheses, e.\,g.\ \verb|\ldots\ is known \parencite[for a justification, see][5]{Knuth1986}| produces \enquote{\ldots\ is known (for a justification, see Knuth 1986, p.~5)}. 
+% \item \cs{parencite} is used for citing in parentheses (usually at the end of a sentence). In most cases, page numbers should be provided. Example: \verb|\ldots{} is known \parencite[5]{Knuth1986}| produces \enquote{\ldots{} is known (Knuth 1986, p.~5)}. Also use \cs{parencite} to produce a prefix within parentheses, e.\,g.\ \verb|\ldots{} is known \parencite[for a justification, see][5]{Knuth1986}| produces \enquote{\ldots{} is known (for a justification, see Knuth 1986, p.~5)}. 
 %
 % \item \cs{textcite} allows for using the cited work as a subject in the grammatical structure of a sentence. Example: \verb|\textcite{Knuth1986} states that ...| produces \enquote{Knuth (1986) states that \ldots}. Additionally, page numbers and further information can be provided, see the \pkg{biblatex} package documentation.
 %
@@ -1129,7 +1130,7 @@ This work consists of all files listed in manifest.txt.
 % ...
 % \end{lstlisting}
 %
-% A second frequently used scenario is the need for equal-widthed columns without having to measure it out. For a much more comfortable solution one get assign the \opt{X} parameter to all such columns.
+% A second frequently used scenario is the need for columns with equal width, but without having to calculate the value manually. For a much more comfortable solution one can assign the \opt{X} parameter to all such columns.
 % \begin{lstlisting}[escapechar=§,caption={An example for a table using the package \pkg{tabularx} and more than one \opt{X} column},label={lst:tabularx-var}]
 % ...
 % \begin{tabularx}{\textwidth}{p{3cm}XXX}
@@ -1145,7 +1146,7 @@ This work consists of all files listed in manifest.txt.
 %
 % Additional information can be obtained from the package's documentation \cite{tabularx-pdf}.
 %
-% For nicer tables you should get rid of any vertical line between the columns. Instead you can use the macros provided by \pkg{booktabs} (preloaded by \DTXclassname) for horizontal lines of different width. Just replace the first standard \cs{hline} by \cs{toprule}, the last one by \cs{bottomrule} and all other by \cs{midrule}. There is even an alternative for \cs{cline} called \cs{cmidrule}. The example from Table~\ref{lst:tabularx-var} then looks like:
+% For nicer tables you should get rid of any vertical lines between the columns. Instead you can use the macros provided by \pkg{booktabs} (preloaded by \DTXclassname) for horizontal lines of different width. Just replace the first standard \cs{hline} by \cs{toprule}, the last one by \cs{bottomrule} and all other by \cs{midrule}. There is even an alternative for \cs{cline} called \cs{cmidrule}. The example from Listing~\ref{lst:tabularx-var} then looks like:
 % \begin{lstlisting}[escapechar=§,caption={An example for a table using the packages \pkg{tabularx} and \pkg{booktabs}},label={lst:tabularx-booktabs}]
 % ...
 % \begin{tabularx}{\textwidth}{p{3cm}XXX}
@@ -1166,7 +1167,7 @@ This work consists of all files listed in manifest.txt.
 % Have a look at the package's documentation \cite{booktabs-pdf} for more details.
 %
 % \section{Source code listings}
-% \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \DTXclassname class uses the \pkg{lstlistings} package (see the package documentation \cite{listings-pdf} for further information), and provides two customised \LaTeX{} environments: \env{sourcecode} and \env{java}. The \env{java} environment should be used to format source code listings in the Java programming language, and the sourcecode environment should be used to format source code in any other programming language. You can add the name of the programming language and other parameters known to \pkg{listings} like \opt{caption} or \opt{label} as an optional argument.
+% \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \DTXclassname class uses the \pkg{listings} package (see the package documentation \cite{listings-pdf} for further information), and provides two customised \LaTeX{} environments: \env{sourcecode} and \env{java}. The \env{java} environment should be used to format source code listings in the Java programming language, and the sourcecode environment should be used to format source code in any other programming language. You can add the name of the programming language and other parameters known to \pkg{listings} like \opt{caption} or \opt{label} as an optional argument.
 %
 % Note that the source code in either case is typset verbatim, \ie, the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. An example illustrates the use of both environments:
 % \begin{examplecode}
@@ -1192,7 +1193,7 @@ This work consists of all files listed in manifest.txt.
 % \end{examplecode}
 %
 % \section{Pseudo-code and algorithms}
-% \DescribeEnv{algorithm}\DescribeEnv{algorithmic}Apart from source code you might want to add pseudo code examples or algorithms. In contrast to the source code examples above \DTXclassname does not define its own environments. Instead we recommend using the bundle \pkg{algorithms} consisting of the two packages \pkg{algorithm} and \pkg{algorithmic}.
+% \DescribeEnv{algorithm}\DescribeEnv{algorithmic}Apart from source code you might want to add pseudo code examples or algorithms. In contrast to the source code examples above \DTXclassname does not define its own environments for that. Instead we recommend using the bundle \pkg{algorithms} consisting of the two packages \pkg{algorithm} and \pkg{algorithmic}.
 %
 % Typical parts like loops, if-clauses or statements all have their own macro:
 % \begin{examplecode}
@@ -1261,7 +1262,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \DescribeMacro{CCBYNCSAFour}\DescribeMacro{CCBYNCSAThree}If an article is licensed under a Creative Commons BY-NC-SA 4.0 or 3.0 license, the reference to the license can be automatically displayed at the end of the article by adding \cs{CCBYNCSAFour} and \cs{CCBYNCSAThree} resp. Read the license text at \url{https://creativecommons.org/licenses/by-nc-sa/4.0/} (for version 4.0; likewise for version 3.0).
 %
-% \DescribeMacro{license}\DescribeMacro{licence}Alternatively, enter a license text by \cs{license} (or \cs{licence}).\\ Example: \verb|\license{This work is licensed under LPPL 1.3c.}|
+% \DescribeMacro{license, licence}Alternatively, enter a license text by \cs{license} (or \cs{licence}).\\ Example: \verb|\license{This work is licensed under LPPL 1.3c.}|
 %
 % \section{Example file for both, authors and editorial office}
 % \begin{examplecode}
@@ -1408,46 +1409,22 @@ This work consists of all files listed in manifest.txt.
 % \clearpage
 % \begin{thebibliography}{0}
 % 
-%   \bibitem{textcomp-pdf}
+%   \bibitem{afterpage-pdf}
 %     \href
-%      {http://www.ctan.org/pkg/textcomp}
-%      {Package \pkg{textcomp}:    \LaTeX\  support for the Text Companion fonts}.
+%      {http://www.ctan.org/pkg/afterpage}
+%      {Package \pkg{afterpage}: 	Execute command after the next page break}.
 % 
 % 
-%   \bibitem{microtype-pdf}
+%   \bibitem{algorithms-pdf}
 %     \href
-%      {http://www.ctan.org/pkg/microtype}
-%      {Package \pkg{microtype}:    An interface to the micro-typographic features of pdf\TeX}.
-% 
-% 
+%      {http://www.ctan.org/pkg/algorithms}
+%      {Package \pkg{algorithms}: A suite of tools for typesetting algorithms in pseudo-code}.
+%
+%
 %   \bibitem{babel-pdf}
 %     \href
 %      {http://www.ctan.org/pkg/babel}
 %      {Package \pkg{babel}:    Multilingual support for Plain \TeX\ or \LaTeX}.
-% 
-% 
-%   \bibitem{float-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/float}
-%      {Package \pkg{float}: 	Improved interface for floating objects}.
-% 
-% 
-%   \bibitem{caption-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/caption}
-%      {Package \pkg{caption}: Customising captions in floating environments}.
-% 
-% 
-%   \bibitem{graphicx-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/graphicx}
-%      {Package \pkg{graphicx}:    Enhanced support for graphics}.
-% 
-% 
-%   \bibitem{xcolor-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/xcolor}
-%      {Package \pkg{xcolor}: 	Driver-independent color extensions for \LaTeX\  and pdf\LaTeX}.
 % 
 % 
 %   \bibitem{biblatex-pdf}
@@ -1456,70 +1433,34 @@ This work consists of all files listed in manifest.txt.
 %      {Package \pkg{biblatex}: Bibliographies in \LaTeX{} using \BibTeX{} for sorting only}.
 %  
 % 
-%   \bibitem{csquotes-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/csquotes}
-%      {Package \pkg{csquotes}: 	Context sensitive quotation facilities}.
-%
-%
-%   \bibitem{tabularx-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/tabularx}
-%      {Package \pkg{tabularx}:    Tabulars with adjustable-width columns}. 
-%
-%
 %   \bibitem{booktabs-pdf}
 %     \href
 %      {http://www.ctan.org/pkg/booktabs}
 %      {Package \pkg{booktabs}:    Publication quality tables in LaTeX}. 
 % 
 %
-%   \bibitem{algorithms-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/algorithms}
-%      {Package \pkg{algorithms}: A suite of tools for typesetting algorithms in pseudo-code}.
-%
-%
-%   \bibitem{twoopt-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/twoopt}
-%      {Package \pkg{twoopt}: Definitions with two optional arguments}.
-% 
-% 
-%   \bibitem{environ-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/environ}
-%      {Package \pkg{environ}: 	A new interface for environments in \LaTeX}.
-% 
-% 
-%   \bibitem{paralist-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/paralist}
-%      {Package \pkg{paralist}: 	Enumerate and itemize within paragraphs}.
-% 
-% 
-%   \bibitem{afterpage-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/afterpage}
-%      {Package \pkg{afterpage}: 	Execute command after the next page break}.
-% 
-% 
-%   \bibitem{xspace-pdf}
-%     \href
-%      {http://www.ctan.org/pkg/xspace}
-%      {Package \pkg{xspace}:     Define commands that appear not to eat spaces}.
-% 
-% 
 %   \bibitem{calc-pdf}
 %     \href
 %      {http://www.ctan.org/pkg/calc}
 %      {Package \pkg{calc}:    Simple arithmetic in \LaTeX\  commands}.
 % 
 % 
-%   \bibitem{geometry-pdf}
+%   \bibitem{caption-pdf}
 %     \href
-%      {http://www.ctan.org/pkg/geometry}
-%      {Package \pkg{geometry}:    Flexible and complete interface to document dimensions}.
+%      {http://www.ctan.org/pkg/caption}
+%      {Package \pkg{caption}: Customising captions in floating environments}.
+% 
+% 
+%   \bibitem{csquotes-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/csquotes}
+%      {Package \pkg{csquotes}: 	Context sensitive quotation facilities}.
+%
+%
+%   \bibitem{environ-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/environ}
+%      {Package \pkg{environ}: 	A new interface for environments in \LaTeX}.
 % 
 % 
 %   \bibitem{eso-pic-pdf}
@@ -1528,21 +1469,84 @@ This work consists of all files listed in manifest.txt.
 %      {Package \pkg{eso-pic}:    Add picture commands (or backgrounds) to every page}.
 % 
 % 
+%   \bibitem{float-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/float}
+%      {Package \pkg{float}: 	Improved interface for floating objects}.
+% 
+% 
+%   \bibitem{geometry-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/geometry}
+%      {Package \pkg{geometry}:    Flexible and complete interface to document dimensions}.
+% 
+% 
+%   \bibitem{graphicx-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/graphicx}
+%      {Package \pkg{graphicx}:    Enhanced support for graphics}.
+% 
+% 
 %   \bibitem{hyperref-pdf}
 %     \href
 %      {http://www.ctan.org/pkg/hyperref}
 %      {Package \pkg{hyperref}:    Extensive support for hypertext in \LaTeX}.
 %
-%   \bibitem{source2e-pdf}
-%     \href
-%      {http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/base/source2e.pdf}
-%      {The \LaTeXe\ Sources}.
 %
 %   \bibitem{listings-pdf}
 %     \href
 %      {http://www.ctan.org/pkg/listings}
 %      {Typeset source code listings using LaTeX}.
 %
+%
+%   \bibitem{microtype-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/microtype}
+%      {Package \pkg{microtype}:    An interface to the micro-typographic features of pdf\TeX}.
+% 
+% 
+%   \bibitem{paralist-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/paralist}
+%      {Package \pkg{paralist}: 	Enumerate and itemize within paragraphs}.
+% 
+% 
+%   \bibitem{source2e-pdf}
+%     \href
+%      {http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/base/source2e.pdf}
+%      {The \LaTeXe\ Sources}.
+%
+%
+%   \bibitem{tabularx-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/tabularx}
+%      {Package \pkg{tabularx}:    Tabulars with adjustable-width columns}. 
+%
+%
+%   \bibitem{textcomp-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/textcomp}
+%      {Package \pkg{textcomp}:    \LaTeX\  support for the Text Companion fonts}.
+% 
+% 
+%   \bibitem{twoopt-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/twoopt}
+%      {Package \pkg{twoopt}: Definitions with two optional arguments}.
+% 
+% 
+%   \bibitem{xcolor-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/xcolor}
+%      {Package \pkg{xcolor}: 	Driver-independent color extensions for \LaTeX\  and pdf\LaTeX}.
+% 
+% 
+%   \bibitem{xspace-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/xspace}
+%      {Package \pkg{xspace}:     Define commands that appear not to eat spaces}.
+% 
+% 
 % \end{thebibliography}
 % \clearpage
 % 
