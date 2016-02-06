@@ -31,7 +31,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2016/02/04 2.0 LaTeX class EMISA]
+[2016/02/06 2.0 LaTeX class EMISA]
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%

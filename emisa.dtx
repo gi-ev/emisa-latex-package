@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/02/04 2.0 LaTeX class EMISA]
+[2016/02/06 2.0 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -951,7 +951,7 @@ This work consists of all files listed in manifest.txt.
 % \title{A \LaTeX{} package for preparing manuscripts for submissions to the OA  journal \enquote{Enterprise Modelling and Information Systems Architectures – An International Journal} (\DTXclassname)}
 % \maketitle
 %
-%\changes{v2.0}{2016/02/05}{First official release on GitHub and CTAN}
+%\changes{v2.0}{2016/02/06}{First official release on GitHub and CTAN}
 %
 %
 %
@@ -986,7 +986,7 @@ This work consists of all files listed in manifest.txt.
 %  
 % The \pkg{biblatex} package is used to typeset citations and references in conjunction with the \verb|biber| tool. Make sure to use \verb|biber| rather than \verb|bibtex| to process your bibliography data base file(s). Most \TeX{} editors have an option to easily switch to \verb|biber|.
 %
-% \DescribeOption{Author template}The file \file{emisa-author-template.tex} provides a good starting point for manuscript preparation (if the \DTXclassname package is available trough your \TeX{} distribution, the file will be at \texttt{/doc/latex/emisa/} inside your \TeX{} installation folder/directory. Just copy it to your working directory). It is also recommended to review the example of an article typeset with \file{emisa.cls} provided in Sec.~\ref{sec:example}. 
+% \DescribeOption{Author template}The file \file{emisa-author-template.tex} provides a good starting point for manuscript preparation (if the \DTXclassname package is available through your \TeX{} distribution, the file is stored at \texttt{/doc/latex/emisa/} inside your \TeX{} installation folder/directory. Just copy it to your working directory). It is also recommended to review the example of an article typeset with \file{emisa.cls} provided in Sec.~\ref{sec:example}. 
 %
 %
 % \section{Class Options}
@@ -1014,7 +1014,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \section{Additional information on the first (title) page}
 % \DescribeMacro{\acknowledgements}%
-% Acknowledgements, for example, of collaborators, funding agencies etc.\ may be added using \cs{acknowledgements}\marg{acknowledgements}. The acknowledgements are typeset in a footnote on the first page below the corresponding author’s email address.
+% Acknowledgements, for example, of collaborators, funding agencies etc.\ may be added using \cs{acknowledgements}\marg{acknowledgements}. The acknowledgements are typeset in a footnote on the first page below the corresponding author's email address.
 %
 % \DescribeMacro{\authornote}%
 % Additional information for reviewers and readers may be added in a footnote on the titlepage using \cs{authornote}\marg{author note}. This is typically used for stating earlier publications (\eg in conference proceedings) on which the present manuscript is based.
@@ -1027,13 +1027,13 @@ This work consists of all files listed in manifest.txt.
 % \item Manuscripts should \emph{not} make use of outdated \LaTeX{} commands such as \verb|\em|, but rather use the \LaTeX2e\ commands (\eg \verb|\emph|, \verb|\texttt|). 
 % \item Do \emph{not} make use of bold face (\cs{textbf}). Use \cs{emph} instead to typeset an important word in italics!
 % \item Always use the tilde \verb|~| to connect before \cs{ref}\marg{label}, \eg,\ \verb|Sec.~\ref{label}| rather than the problematic: \verb|Sec. \ref{label}|.
-% \item Always use the en-dash (\texttt{-{}-}) for ranges -- without spaces --\eg, \texttt{17-{}-34}. The hyphen (\texttt{-}) should only be used for compound words or hypenation. 
-% \item Do \emph{not} write abbreviations such as \verb|e.g.| but use the macros provided by the \DTXclassname class (see below). Add punctuation when necessary, for example, write \verb|, \ie,| to achive the correct punctuation for \enquote{id est} (i.\,e.) rather than \verb|, i.e.,| which introduces two problems: A missing spacing after the first full stop and a wrong spacing after the second full stop.
+% \item Always use the en-dash (\texttt{-{}-}) for ranges -- without spaces --\eg, \texttt{17-{}-34}. The hyphen (\texttt{-}) should only be used for compound words or hyphenation. 
+% \item Do \emph{not} write abbreviations such as \verb|e.g.| but use the macros provided by the \DTXclassname class (see below). Add punctuation when necessary, for example, write \verb|, \ie,| to achieve the correct punctuation for \enquote{id est} (i.\,e.) rather than \verb|, i.e.,| which introduces two problems: A missing spacing after the first full stop and a wrong spacing after the second full stop.
 %
 %
 % \item Follow the journal's style specification with respect to predefined text styles:
 % 	\begin{itemize}
-% 	\item Use \textsc{smallcaps} for names of open-source projects, products and companies etc, \eg,\ \verb|\textsc{eclipse}| to produce \textsc{eclipse}. \emph{Pay attention to lower case spelling}.
+% 	\item Use \textsc{smallcaps} for names of open-source projects, products and companies etc., \eg,\ \verb|\textsc{eclipse}| to produce \textsc{eclipse}. \emph{Pay attention to lower case spelling}.
 % 	\item \DescribeMacro{\meta}Use \texttt{non-proportional font} for language concepts, meta types, meta classes etc., \ie,\ \verb|\texttt{AbstractGoalType}| to produce \texttt{AbstractGoalType}, or use the predefined macro \cs{meta}\marg{metatype}, \eg,\ \verb|\meta{AbstractGoalType}|.
 % 	\item \DescribeMacro{\type}Use the \textsf{sans-serif font face} for type-level concepts etc., \eg,\ \verb|\textsf{Goal}| to produce \textsf{Goal} when referring to a \textsf{Goal} type, or use the predefined macro \cs{type}\marg{type}, \eg,\ \verb|\type{Goal}|.
 % 	\end{itemize}
@@ -1056,10 +1056,10 @@ This work consists of all files listed in manifest.txt.
 % In addition to common abbreviations, further initialisms are provided by the class for convenience and for a consistent visual appearance. Note that the class uses \textsc{smallcaps} for typesetting initialisms. The list of predefined initialisms comprises:
 %
 % \begin{itemize}
-% \item \cs{OMG} for \textsc{omg} (Object Managment Group).
+% \item \cs{OMG} for \textsc{omg} (Object Management Group).
 % \item \cs{BPM} for \textsc{bpm} (Business Process Management).
 % \item \cs{BPMN} for \textsc{bpmn} (Business Process Model and Notation).
-% \item \cs{UML} for \textsc{uml} (Unified Modeling Language).
+% \item \cs{UML} for \textsc{uml} (Unified Modelling Language).
 % \end{itemize}
 %
 % \DescribeMacro{\emisainitialism} You can add your own initialisms by stating \cs{emisainitialism\marg{\textbackslash initialism\_macro}\marg{text}} in the preamble.
@@ -1091,7 +1091,7 @@ This work consists of all files listed in manifest.txt.
 % 
 % \verb|@ARTICLE{key2, author = {{van der Weiden}, Jan W. P.} ...|
 % 
-% if both entries refer to the same author. This will lead to unexpected results with respect to the label generation of the citation. Make sure to always abbreviate author first names and to always use use curly brackets around multi-word lastnames, \eg \verb|{van der Weiden}, J. W. P.| in the bibentries.
+% if both entries refer to the same author. This will lead to unexpected results with respect to the label generation of the citation. Make sure to always abbreviate author first names and to always use use curly brackets around multi-word last names, \eg \verb|{van der Weiden}, J. W. P.| in the bibentries.
 %
 % \section{Figures}
 % All line-drawings must be provided as vector graphics (\emph{not} bitmap graphics) in PDF format and all other (non-schematic) figures (\eg screenshots) must be provided in PDF, JPEG or PNG format in a proper (high) resolution for the intended size of the rendered image to avoid pixelation due to low resolution; bitmap graphics shown in full page width in the submission should at least be of a resolution of two (2) megapixels or at least 1920 pixels wide.
@@ -1110,7 +1110,7 @@ This work consists of all files listed in manifest.txt.
 % A column 3cm wide and with possible line breaks &
 % \midrule
 % A column set flush-left with no line breaks &
-% A column set centered  with no line breaks &
+% A column set centred  with no line breaks &
 % A column set flush right with no line breaks \\
 % \bottomrule
 % \end{tabular}
@@ -1170,9 +1170,9 @@ This work consists of all files listed in manifest.txt.
 % Have a look at the package's documentation \cite{booktabs-pdf} for more details.
 %
 % \section{Source code listings}
-% \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \DTXclassname class uses the \pkg{listings} package (see the package documentation \cite{listings-pdf} for further information), and provides two customised \LaTeX{} environments: \env{sourcecode} and \env{java}. The \env{java} environment should be used to format source code listings in the Java programming language, and the sourcecode environment should be used to format source code in any other programming language. You can add the name of the programming language and other parameters known to \pkg{listings} like \opt{caption} or \opt{label} as an optional argument.
+% \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \DTXclassname class uses the \pkg{listings} package (see the package documentation \cite{listings-pdf} for further information), and provides two customised \LaTeX{} environments: \env{sourcecode} and \env{java}. The \env{java} environment should be used to format source code listings in the Java programming language, and the \env{sourcecode} environment should be used to format source code in any other programming language. You can add the name of the programming language and other parameters known to \pkg{listings} like \opt{caption} or \opt{label} as an optional argument.
 %
-% Note that the source code in either case is typset verbatim, \ie, the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. An example illustrates the use of both environments:
+% Note that the source code in either case is typeset verbatim, \ie, the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. An example illustrates the use of both environments:
 % \begin{examplecode}
 % \begin{java}[caption={A hello world example},label={hw-java}] 
 % public class HelloWorld 
@@ -1180,7 +1180,7 @@ This work consists of all files listed in manifest.txt.
 %   
 %    public static void main (String[] args)
 %    {
-%       // Ausgabe Hello World!
+%       // Output Hello World!
 %       System.out.println("Hello World!");
 %    }
 % }
@@ -1309,7 +1309,7 @@ This work consists of all files listed in manifest.txt.
 % \address{Enter affiliation of first (corresponding) author here.  Note that only the starred version of author* accepts a second argument requiring an email address for the corresponding author.}
 % \author{FirstName LastName}
 % \address{Enter affiliation of second and further authors here. Add further authors following this scheme.}
-% % Enter abstract, keywords, acknowledgements, authornotes
+% % Enter abstract, keywords, acknowledgements, author note
 % \abstract{Enter abstract here} 
 % \keywords{Enter at a minimum three keywords here. Keyword1 \and Keyword2 \and Keyword3}
 % \acknowledgements{Enter acknowledgements here.}
@@ -1322,7 +1322,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \subsection{Subsection title}\label{sec:somelabel}
 % % Example of a single-column figure (spanning only a single column).
-% % You can add an optional argument to inluence the float placement, 
+% % You can add an optional argument to influence the float placement, 
 % % which is htbp by default.
 % \begin{figure}
 % \centering
@@ -4280,7 +4280,7 @@ This work consists of all files listed in manifest.txt.
 %    \end{macrocode}
 % We start by declaring the file name and date.
 %    \begin{macrocode}
-\ProvidesFile{emisa.bbx}[2016/02/05 2.0 EMISA bibliography style]
+\ProvidesFile{emisa.bbx}[2016/02/06 2.0 EMISA bibliography style]
 %    \end{macrocode}
 % The \DTXclassname bibliography style is  built on top of the standard style \file{authoryear.bbx}
 % being loaded here \ldots
@@ -5898,7 +5898,7 @@ techreport = {},%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\ProvidesFile{emisa.cbx}[2016/02/05 2.0 EMISA citation style]
+\ProvidesFile{emisa.cbx}[2016/02/06 2.0 EMISA citation style]
 \RequireCitationStyle{authoryear-comp}
 \renewcommand*{\nameyeardelim}{\addspace}
 %    \end{macrocode}

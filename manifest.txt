@@ -24,7 +24,7 @@ precisely, it explains how the locutions "Work" and "Compiled Work",
 used in the LaTeX Project Public License, are to be interpreted
 in the case of this work.
 
-February 02, 2016 (version 2.0)
+February 06, 2016 (version 2.0)
 
 
 
