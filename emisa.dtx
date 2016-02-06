@@ -1044,8 +1044,8 @@ This work consists of all files listed in manifest.txt.
 % \DescribeMacro{\eg}\DescribeMacro{\ie}\DescribeMacro{\cf}\DescribeMacro{\etal}%
 % To achieve consistent typesetting of common abbreviations, macros are predefined by the \DTXclassname class. These macros should \emph{consistently} being used instead of writing the plain version. For example use \verb|\eg| rather than {\verb|e.g.,|}. The macros take care of spacing within and after the abbreviations. 
 % \begin{itemize}
-% \item \cs{eg} for e.\,g.,
-% \item \cs{ie} for i.\,e.,
+% \item \cs{eg} for e.\,g.
+% \item \cs{ie} for i.\,e.
 % \item \cs{cf} for cf.
 % \item \cs{etal} for et~al.
 % \end{itemize}
@@ -4152,8 +4152,8 @@ This work consists of all files listed in manifest.txt.
 \newcommand*{\emisaabbrv}[2]{\gdef#1{\emisa@abbrv{#2}}}
 \newcommand*{\emisa@initialism}[1]{\textsc{#1}\xspace}
 \newcommand*{\emisainitialism}[2]{\gdef#1{\emisa@initialism{#2}}}
-\newcommand*{\ie}{\@ifnextchar,{\emisa@abbrv{i.e.}}{\emisa@abbrv{i.e.,}}}
-\newcommand*{\eg}{\@ifnextchar,{\emisa@abbrv{e.g.}}{\emisa@abbrv{e.g.,}}}
+\newcommand*{\ie}{\emisa@abbrv{i.\,e.}}
+\newcommand*{\eg}{\emisa@abbrv{e.\,g.}}
 \newcommand*{\cf}{\emisa@abbrv{cf.}}
 \newcommand*{\etal}{\emisa@abbrv{et~al.}}
 \newcommand*{\OMG}{\emisa@initialism{omg}}
@@ -6017,9 +6017,6 @@ techreport = {},%
 %</issue>
 %<*article|issue>
 \begin{article}{%
-%% Please declare here the bibliography data base(s) you want to use 
-%% in this article (make sure to add the file extension, e.g. .bib):  
-  \bibliography{}
 %% Please declare the title elements of your article here.  Unused
 %% elements can either be deleted or commented out, or else just let 
 %% empty.  In either case they are not typeset.
@@ -6040,6 +6037,9 @@ techreport = {},%
   \keywords{Enter at a minimum three keywords here. Keyword1 \and Keyword2 \and Keyword3}
   \acknowledgements{Enter acknowledgements here.}
   \authornote{If your submission is based on a prior publication and revises / extends this work, enter a corresponding note here (This work is based on ...) but DO NOT cite the prior work during the reviewing process. INSTEAD provide full citations of all prior publications to the editors during the submission process (use the text field in the online submission system).}
+  %% Please declare here the bibliography data base(s) you want to use 
+  %% in this article (make sure to add the file extension, e.g. .bib):  
+  \bibliography{}
   %% Take note of the following closing bracket!
   }
 %</article|issue>

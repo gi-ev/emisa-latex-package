@@ -1233,8 +1233,8 @@
 \newcommand*{\emisaabbrv}[2]{\gdef#1{\emisa@abbrv{#2}}}
 \newcommand*{\emisa@initialism}[1]{\textsc{#1}\xspace}
 \newcommand*{\emisainitialism}[2]{\gdef#1{\emisa@initialism{#2}}}
-\newcommand*{\ie}{\@ifnextchar,{\emisa@abbrv{i.e.}}{\emisa@abbrv{i.e.,}}}
-\newcommand*{\eg}{\@ifnextchar,{\emisa@abbrv{e.g.}}{\emisa@abbrv{e.g.,}}}
+\newcommand*{\ie}{\emisa@abbrv{i.\,e.}}
+\newcommand*{\eg}{\emisa@abbrv{e.\,g.}}
 \newcommand*{\cf}{\emisa@abbrv{cf.}}
 \newcommand*{\etal}{\emisa@abbrv{et~al.}}
 \newcommand*{\OMG}{\emisa@initialism{omg}}
