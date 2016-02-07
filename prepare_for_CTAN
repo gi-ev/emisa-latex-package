@@ -3,4 +3,8 @@
 # ctanify is part of TeX Live and MiKTeX distributions
 # Please note, that you need at least version 1.8.2 to add the symbolic link correctly.
 #
+if [ -f emisa.tar.gz ]; then
+   echo "Remove old archive"
+   rm emisa.tar.gz
+fi
 ctanify emisa.ins emisa.pdf README.md manifest.txt "emisa-instructions.pdf=doc/latex/emisa" "emisa-author-template.tex=doc/latex/emisa" "emisa.bbx=tex/latex/emisa" "emisa.cbx=tex/latex/emisa"

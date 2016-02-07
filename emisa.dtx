@@ -186,8 +186,8 @@ This work consists of all files listed in manifest.txt.
   gobble=2,
   %%% texcsstyle=*{\footnotesize\ttfamily\color{Blue}},%
   }
-\lstnewenvironment{examplecode}
-{}
+\lstnewenvironment{examplecode}[1][]
+{\lstset{#1}}
 {}
 \usepackage{algorithm,algorithmic} 
 \usepackage[onehalfspacing]{setspace}
@@ -969,7 +969,7 @@ This work consists of all files listed in manifest.txt.
 % 
 % The package also includes a quick-start template for authors \file{emisa-author-template.tex} and the present instructions \file{emisa.pdf}.
 %
-% The package is available from the correspondig GitHub website (\url{https://github.com/sstrecker/emisa-latex-package}) and the \textsc{Comprehensive \TeX{} Archive Network} (CTAN, \url{https://ctan.org}). It will be available for installation through the recent \TeX{} distribution's package installer (\eg \TeX{}~Live's \file{tlmgr}). This type of installation is recommended in order to always get the latest version automatically. If you prefer a manual installation, please run \verb|pdflatex emisa.dtx| twice, and copy the resulting files to the same directory (folder) in which the source files for the manuscript will be maintained. 
+% The package is available from the correspondig GitHub website (\url{https://github.com/sstrecker/emisa-latex-package}) and the \textsc{Comprehensive \TeX{} Archive Network} (CTAN, \url{http://www.ctan.org/pkg/emisa}). It will be available for installation through the recent \TeX{} distribution's package installer (\eg \TeX{}~Live's \file{tlmgr}). This type of installation is recommended in order to always get the latest version automatically. If you prefer a manual installation, please run \verb|pdflatex emisa.dtx| twice, and copy the resulting files to the same directory (folder) in which the source files for the manuscript will be maintained. 
 %
 %
 % \section{Instructions and guidelines}
@@ -1027,7 +1027,7 @@ This work consists of all files listed in manifest.txt.
 % \item Manuscripts should \emph{not} make use of outdated \LaTeX{} commands such as \verb|\em|, but rather use the \LaTeX2e\ commands (\eg \verb|\emph|, \verb|\texttt|). 
 % \item Do \emph{not} make use of bold face (\cs{textbf}). Use \cs{emph} instead to typeset an important word in italics!
 % \item Always use the tilde \verb|~| to connect before \cs{ref}\marg{label}, \eg,\ \verb|Sec.~\ref{label}| rather than the problematic: \verb|Sec. \ref{label}|.
-% \item Always use the en-dash (\texttt{-{}-}) for ranges -- without spaces --\eg, \texttt{17-{}-34}. The hyphen (\texttt{-}) should only be used for compound words or hyphenation. 
+% \item Always use the en-dash (\texttt{-{}-}) for ranges -- without spaces -- \eg, \texttt{17-{}-34}. The hyphen (\texttt{-}) should only be used for compound words or hyphenation. 
 % \item Do \emph{not} write abbreviations such as \verb|e.g.| but use the macros provided by the \DTXclassname class (see below). Add punctuation when necessary, for example, write \verb|, \ie,| to achieve the correct punctuation for \enquote{id est} (i.\,e.) rather than \verb|, i.e.,| which introduces two problems: A missing spacing after the first full stop and a wrong spacing after the second full stop.
 %
 %
@@ -1041,7 +1041,7 @@ This work consists of all files listed in manifest.txt.
 %
 %
 % \section{Abbreviations and initialisms}
-% \DescribeMacro{\eg}\DescribeMacro{\ie}\DescribeMacro{\cf}\DescribeMacro{\etal}%
+% \DescribeMacro{\eg,\ie,\cf,\etal}%
 % To achieve consistent typesetting of common abbreviations, macros are predefined by the \DTXclassname class. These macros should \emph{consistently} being used instead of writing the plain version. For example use \verb|\eg| rather than {\verb|e.g.,|}. The macros take care of spacing within and after the abbreviations. 
 % \begin{itemize}
 % \item \cs{eg} for e.\,g.
@@ -1052,7 +1052,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \DescribeMacro{\emisaabbrv} If you miss any frequently used abbreviation for your article, you can easily add it using \cs{emisaabbrv\marg{\cs{abbreviation\_macro}}\marg{text}} in the preamble of your article.
 %
-% \DescribeMacro{\OMG}\DescribeMacro{\BPM}\DescribeMacro{\BPMN}\DescribeMacro{\UML}%
+% \DescribeMacro{\OMG,\BPM,\BPMN,\UML}%
 % In addition to common abbreviations, further initialisms are provided by the class for convenience and for a consistent visual appearance. Note that the class uses \textsc{smallcaps} for typesetting initialisms. The list of predefined initialisms comprises:
 %
 % \begin{itemize}
@@ -1149,7 +1149,7 @@ This work consists of all files listed in manifest.txt.
 %
 % Additional information can be obtained from the package's documentation \cite{tabularx-pdf}.
 %
-% For nicer tables you should get rid of any vertical lines between the columns. Instead you can use the macros provided by \pkg{booktabs} (preloaded by \DTXclassname) for horizontal lines of different width. Just replace the first standard \cs{hline} by \cs{toprule}, the last one by \cs{bottomrule} and all other by \cs{midrule}. There is even an alternative for \cs{cline} called \cs{cmidrule}. The example from Listing~\ref{lst:tabularx-var} then looks like:
+% For nicer tables you should get rid of any vertical lines between the columns. Instead you can use the macros provided by \pkg{booktabs} (preloaded by \DTXclassname) for horizontal lines of different width. Just replace the first standard \cs{hline} by \cs{toprule}, the last one by \cs{bottomrule} and all other by \cs{midrule}. There is even an alternative for \cs{cline} called \cs{cmidrule}. The example from Listing~\ref{lst:tabularx-var} then looks like:\clearpage
 % \begin{lstlisting}[escapechar=§,caption={An example for a table using the packages \pkg{tabularx} and \pkg{booktabs}},label={lst:tabularx-booktabs}]
 % ...
 % \begin{tabularx}{\textwidth}{p{3cm}XXX}
@@ -1172,12 +1172,11 @@ This work consists of all files listed in manifest.txt.
 % \section{Source code listings}
 % \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \DTXclassname class uses the \pkg{listings} package (see the package documentation \cite{listings-pdf} for further information), and provides two customised \LaTeX{} environments: \env{sourcecode} and \env{java}. The \env{java} environment should be used to format source code listings in the Java programming language, and the \env{sourcecode} environment should be used to format source code in any other programming language. You can add the name of the programming language and other parameters known to \pkg{listings} like \opt{caption} or \opt{label} as an optional argument.
 %
-% Note that the source code in either case is typeset verbatim, \ie, the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. An example illustrates the use of both environments:
-% \begin{examplecode}
+% Note that the source code in either case is typeset verbatim, \ie, the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. Listing~\ref{lst:sourcecode} illustrates the use of both environments.
+% \begin{examplecode}[caption={Example for the \env{java} and \env{sourcecode} environments},label={lst:sourcecode}]
 % \begin{java}[caption={A hello world example},label={hw-java}] 
 % public class HelloWorld 
 % {
-%   
 %    public static void main (String[] args)
 %    {
 %       // Output Hello World!
@@ -1188,18 +1187,14 @@ This work consists of all files listed in manifest.txt.
 %
 % \begin{sourcecode}[language=R]
 %   hello <- function( name ) {
-%      
 %      sprintf( "Hello, %s", name );
-%      
 %   }
 % \end{sourcecode} 
 % \end{examplecode}
 %
 % \section{Pseudo-code and algorithms}
-% \DescribeEnv{algorithm}\DescribeEnv{algorithmic}Apart from source code you might want to add pseudo code examples or algorithms. In contrast to the source code examples above \DTXclassname does not define its own environments for that. Instead we recommend using the bundle \pkg{algorithms} consisting of the two packages \pkg{algorithm} and \pkg{algorithmic}.
-%
-% Typical parts like loops, if-clauses or statements all have their own macro:
-% \begin{examplecode}
+% \DescribeEnv{algorithm}\DescribeEnv{algorithmic}Apart from source code you might want to add pseudo code examples or algorithms. In contrast to the source code examples above \DTXclassname does not define its own environments for that. Instead we recommend using the bundle \pkg{algorithms} consisting of the two packages \pkg{algorithm} and \pkg{algorithmic}. Typical parts like loops, if-clauses or statements all have their own macro. See Listing~\ref{lst:pseudocode} for an example.
+% \begin{examplecode}[caption={Example for a pseudocode presented within the \env{algorithmic} environment},label={lst:pseudocode}]
 % \begin{algorithmic}[1]
 % \REQUIRE $n \geq 0$
 % \ENSURE $y = x^n$
@@ -1263,9 +1258,9 @@ This work consists of all files listed in manifest.txt.
 %
 % Note that volume, issue number and issue date and, optionally, the title of the special issue appear in the multiline page headline of the article.
 %
-% \DescribeMacro{CCBYNCSAFour}\DescribeMacro{CCBYNCSAThree}If an article is licensed under a Creative Commons BY-NC-SA 4.0 or 3.0 licence, the reference to the licence can be automatically displayed at the end of the article by adding \cs{CCBYNCSAFour} and \cs{CCBYNCSAThree}, respectively. Read the licence text at \url{https://creativecommons.org/licenses/by-nc-sa/4.0/} (for version 4.0; likewise for version 3.0).
+% \DescribeMacro{\CCBYNCSAFour}\DescribeMacro{\CCBYNCSAThree}If an article is licensed under a Creative Commons BY-NC-SA 4.0 or 3.0 licence, the reference to the licence can be automatically displayed at the end of the article by adding \cs{CCBYNCSAFour} and \cs{CCBYNCSAThree}, respectively. Read the licence text at \url{https://creativecommons.org/licenses/by-nc-sa/4.0/} (for version 4.0; likewise for version 3.0).
 %
-% \DescribeMacro{license, licence}Alternatively, enter a license text by \cs{license} (or \cs{licence}).\\ Example: \verb|\license{This work is licensed under LPPL 1.3c.}|
+% \DescribeMacro{\license,\licence}Alternatively, enter a license text by \cs{license} (or \cs{licence}).\\ Example: \verb|\license{This work is licensed under LPPL 1.3c.}|
 %
 % \section{Example file for both, authors and editorial office}\label{sec:example}
 % \begin{examplecode}
@@ -1555,8 +1550,8 @@ This work consists of all files listed in manifest.txt.
 % 
 % \StopEventually{^^A
 %  \PrintChanges
-%  \PrintIndex
-%}
+%  ^^A\PrintIndex
+% }
 %
 %^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
@@ -5880,7 +5875,7 @@ techreport = {},%
 % 
 % \label{aut:cbx}
 % 
-% A citation style is a set of commands such as \cmd{cite} which print
+% A citation style is a set of commands such as \cs{cite} which print
 % different types of citations.  Such styles are defined in files with
 % the suffix \file{cbx}.  The \pkg{biblatex} package loads the
 % selected citation style file at the end of the package.  Note that a
@@ -6109,7 +6104,7 @@ techreport = {},%
 %</template>
 %    \end{macrocode}
 % 
-% \clearpage
-% \PrintIndex
+% ^^A\clearpage
+% ^^A\PrintIndex
 % \Finale
 \endinput
