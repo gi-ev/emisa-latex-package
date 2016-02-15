@@ -8,3 +8,7 @@ if [ -f emisa.tar.gz ]; then
    rm emisa.tar.gz
 fi
 ctanify emisa.ins emisa.pdf README.md manifest.txt "emisa-instructions.pdf=doc/latex/emisa" "emisa-author-template.tex=doc/latex/emisa" "emisa.bbx=tex/latex/emisa" "emisa.cbx=tex/latex/emisa"
+gunzip emisa.tar.gz
+tar --delete --file=emisa.tar emisa.tds.zip
+gzip emisa.tar
+
