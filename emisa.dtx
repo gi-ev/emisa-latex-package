@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/02/06 2.0 LaTeX class EMISA]
+[2016/02/15 2.0.1 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -952,6 +952,7 @@ This work consists of all files listed in manifest.txt.
 % \maketitle
 %
 %\changes{v2.0}{2016/02/06}{First official release on GitHub and CTAN}
+%\changes{v2.01}{2016/02/15}{Set uniquelist option to false in order to change the cite output}
 %
 %
 %
@@ -1893,7 +1894,8 @@ This work consists of all files listed in manifest.txt.
    bibencoding=inputenc,%
    sorting=anyt,%
    hyperref=true,%
-   uniquename=minfull%%
+   uniquename=minfull,%
+   uniquelist=false%
 }%
 %    \end{macrocode}
 % 
