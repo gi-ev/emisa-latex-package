@@ -114,7 +114,7 @@
     backend=biber,%
 ]{biblatex}
 \ExecuteBibliographyOptions{%
-   maxcitenames=3,%
+   maxcitenames=2,%
    maxbibnames=999,%
    terseinits=false,%
    isbn=false,%
