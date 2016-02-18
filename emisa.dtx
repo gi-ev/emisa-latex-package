@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/02/15 2.0.1 LaTeX class EMISA]
+[2016/02/18 2.0.1 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -954,6 +954,7 @@ This work consists of all files listed in manifest.txt.
 %
 %\changes{v2.0}{2016/02/06}{First official release on GitHub and CTAN}
 %\changes{v2.0.1}{2016/02/15}{Set uniquelist option to false in order to change the cite output}
+%\changes{v2.0.1}{2016/02/18}{Added \string\FloatBarrier from the placeins package at the end of the appendix}
 %
 %
 %
@@ -2035,6 +2036,9 @@ This work consists of all files listed in manifest.txt.
 \RequirePackage{eso-pic}%
 %    \end{macrocode}
 % 
+%    \begin{macrocode}
+\RequirePackage{placeins}%
+%    \end{macrocode}
 % 
 % 
 %^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3348,7 +3352,7 @@ This work consists of all files listed in manifest.txt.
   \ignorespaces
   }{%
   \end{refsection}%
-  \outputarticleappendix\par%
+  \outputarticleappendix\FloatBarrier\par%
   \vspace{\baselineskip}%
   \noindent\ignorespaces
   \if@licenseset

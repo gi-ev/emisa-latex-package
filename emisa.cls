@@ -31,7 +31,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2016/02/15 2.0.1 LaTeX class EMISA]
+[2016/02/18 2.0.1 LaTeX class EMISA]
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
@@ -145,6 +145,7 @@
 \RequirePackage{afterpage,xspace,calc}%
 \RequirePackage{geometry}%
 \RequirePackage{eso-pic}%
+\RequirePackage{placeins}%
 \RequirePackage{newtxtext}
 \RequirePackage{newtxmath}
 \RequirePackage[zerostyle=b,straightquotes]{newtxtt}
@@ -772,7 +773,7 @@
   \ignorespaces
   }{%
   \end{refsection}%
-  \outputarticleappendix\par%
+  \outputarticleappendix\FloatBarrier\par%
   \vspace{\baselineskip}%
   \noindent\ignorespaces
   \if@licenseset
