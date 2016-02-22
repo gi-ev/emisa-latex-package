@@ -531,7 +531,7 @@
   \setlength{\headwidth}{\paperwidth+2\bleed}%
   \setlength{\headmargin}{0.5\headwidth-0.5\textwidth}%
   \setlength{\footrulewidth}{0.5\headwidth+0.5\textwidth}}%
-\newcommand{\headbox}[6]{\bgroup%
+\newcommand{\headbox}[7]{\bgroup%
   \setstretch{1}%
   \reset@font\pageheadfont
   \tabcolsep\z@
@@ -548,12 +548,18 @@
     \hline
     #5 & #6\\
     \hline
+    #7\\
   \end{tabular*}%
   \hskip-\headmargin
   \egroup
 }%
 \newcommand{\theheadvolume}{%
-  \begingroup\hypersetup{urlcolor=headtextcolor}\textcolor{headtextcolor}{Vol.\,\@volume, No.\,\@issue\ (\@issuedate).\ifx\@doi\@empty\else\ \outdoi{\@doi}\fi\ifx\@specialissuetitle\relax\else\ \@specialissuetitle.\fi}\endgroup}%
+  \begingroup%
+  \hypersetup{urlcolor=headtextcolor}%
+  \textcolor{headtextcolor}{%
+     Vol.\,\@volume, No.\,\@issue\ (\@issuedate).%
+     \ifx\@doi\@empty\else\ \outdoi{\@doi}\fi}%
+  \endgroup}%
 \newlength{\headpageoffset}%
 \setlength{\headpageoffset}{10mm}%
 \def\theoddheadpage{%
@@ -584,11 +590,13 @@
     \headbox{\@journalname}{}%
             {\theheadvolume}{}%
             {{\@headmarkstyle\@oddmark}}{\theoddheadpage}%
+            {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%
   }%
   \def\@evenhead{%
     \headbox{}{\@journalname}%
             {}{\theheadvolume}%
             {\theevenheadpage}{{\@headmarkstyle\@evenmark}}%
+            {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%
   }%
   \let\@oddmark\relax
   \let\@evenmark\relax
@@ -778,8 +786,17 @@
   \vspace{\baselineskip}%
   \noindent\ignorespaces
   \if@licenseset
+     \edef\doclicenseURL{%
+        \doclicense@baseUrlCC/%
+        licenses/%
+        \doclicense@modifier/%
+        \doclicense@versionUsed\doclicense@UrlLangPart%
+     }
      \begin{minipage}{\columnwidth}
-     \parbox[t]{\dimexpr 0.975\columnwidth-\doclicense@imagewidth\relax}{\vskip 0pt\raggedright\fontsize{9pt}{10.8pt}\selectfont\doclicenseLongText}%
+     \parbox[t]{\dimexpr 0.975\columnwidth-\doclicense@imagewidth\relax}{\vskip 0pt\raggedright\fontsize{9pt}{10.8pt}\selectfont%
+        \doclicense@lang@thisDoc\space
+        \href{\doclicenseURL}{\doclicenseLongType\space\enquote{\doclicense@longName}}%
+        \doclicense@lang@word@license.}%
      \hfill%
      \parbox[t]{\doclicense@imagewidth}{\vskip 0pt\doclicenseImage}%
      \end{minipage}%
