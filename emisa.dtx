@@ -180,7 +180,8 @@ This work consists of all files listed in manifest.txt.
   basicstyle=\MacroFont,
   keywordstyle={},
   %%% keywordstyle=\MacroFont\bfseries\color{blue},
-  morekeywords={editor,received,accepted,volume,issue,specialissuetitle,CCBYNCSAFour,CCBYNCSAThree,license,address,subtitle,acknowledgements,authornote,author*,abstract,keywords,subsection},
+  morekeywords={editor,received,accepted,volume,issue,specialissuetitle,CCBYNCSAFour,CCBYNCSAThree,license,%
+     address,subtitle,acknowledgements,authornote,author*,abstract,keywords,subsection},
   commentstyle={\color{black!50}\bfseries},
   breaklines,
   emptylines=1,
@@ -956,7 +957,9 @@ This work consists of all files listed in manifest.txt.
 %\changes{v2.0}{2016/02/06}{First official release on GitHub and CTAN}
 %\changes{v2.0.1}{2016/02/15}{Set uniquelist option to false in order to change the cite output}
 %\changes{v2.0.1}{2016/02/18}{Added \string\FloatBarrier from the placeins package at the end of the appendix}
-%\changes{v2.0.2}{2016/02/22}{Added tracking for smallcaps}
+%\changes{v2.0.1}{2016/02/22}{Added tracking for smallcaps}
+%\changes{v2.0.1}{2016/02/22}{Modified position of specialissue title}
+%\changes{v2.0.1}{2016/02/22}{Modified insertion of license text}
 %
 %
 %
@@ -2866,7 +2869,7 @@ This work consists of all files listed in manifest.txt.
 % The main formatting routine for the running head is a 
 % \env{tabular*} environment.
 %    \begin{macrocode}
-\newcommand{\headbox}[6]{\bgroup%
+\newcommand{\headbox}[7]{\bgroup%
   \setstretch{1}%
   \reset@font\pageheadfont
   \tabcolsep\z@
@@ -2883,6 +2886,7 @@ This work consists of all files listed in manifest.txt.
     \hline
     #5 & #6\\
     \hline
+    #7\\
   \end{tabular*}%
   \hskip-\headmargin
   \egroup
@@ -2901,8 +2905,7 @@ This work consists of all files listed in manifest.txt.
   \hypersetup{urlcolor=headtextcolor}%
   \textcolor{headtextcolor}{%
      Vol.\,\@volume, No.\,\@issue\ (\@issuedate).%
-     \ifx\@doi\@empty\else\ \outdoi{\@doi}\fi%
-     \ifx\@specialissuetitle\relax\else\ \@specialissuetitle.\fi}%
+     \ifx\@doi\@empty\else\ \outdoi{\@doi}\fi}%
   \endgroup}%
 \newlength{\headpageoffset}%
 \setlength{\headpageoffset}{10mm}%
@@ -2970,11 +2973,13 @@ This work consists of all files listed in manifest.txt.
     \headbox{\@journalname}{}%
             {\theheadvolume}{}%
             {{\@headmarkstyle\@oddmark}}{\theoddheadpage}%
+            {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%
   }%
   \def\@evenhead{%
     \headbox{}{\@journalname}%
             {}{\theheadvolume}%
             {\theevenheadpage}{{\@headmarkstyle\@evenmark}}%
+            {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%
   }%
   \let\@oddmark\relax
   \let\@evenmark\relax
@@ -3365,8 +3370,17 @@ This work consists of all files listed in manifest.txt.
   \vspace{\baselineskip}%
   \noindent\ignorespaces
   \if@licenseset
+     \edef\doclicenseURL{%
+        \doclicense@baseUrlCC/%
+        licenses/%
+        \doclicense@modifier/%
+        \doclicense@versionUsed\doclicense@UrlLangPart%
+     }
      \begin{minipage}{\columnwidth}
-     \parbox[t]{\dimexpr 0.975\columnwidth-\doclicense@imagewidth\relax}{\vskip 0pt\raggedright\fontsize{9pt}{10.8pt}\selectfont\doclicenseLongText}%
+     \parbox[t]{\dimexpr 0.975\columnwidth-\doclicense@imagewidth\relax}{\vskip 0pt\raggedright\fontsize{9pt}{10.8pt}\selectfont%
+        \doclicense@lang@thisDoc\space
+        \href{\doclicenseURL}{\doclicenseLongType\space\enquote{\doclicense@longName}}%
+        \doclicense@lang@word@license.}%
      \hfill%
      \parbox[t]{\doclicense@imagewidth}{\vskip 0pt\doclicenseImage}%
      \end{minipage}%
