@@ -31,7 +31,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2016/02/18 2.0.1 LaTeX class EMISA]
+[2016/02/22 2.0.1 LaTeX class EMISA]
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
@@ -95,7 +95,8 @@
 \RequirePackage[T1]{fontenc}%
 \RequirePackage[full]{textcomp}%
 \if@microtype
-   \RequirePackage{microtype}%
+   \RequirePackage[final,tracking=smallcaps,expansion=alltext,protrusion=true]{microtype}%
+   \SetTracking{encoding=*,shape=sc}{50}%
 \else
    \ClassWarning{emisa}{Package `microtype' not loaded!%
       \MessageBreak Output will differ from final result in the journal!%

@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/02/18 2.0.1 LaTeX class EMISA]
+[2016/02/22 2.0.1 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -162,7 +162,8 @@ This work consists of all files listed in manifest.txt.
 \usepackage[T1]{fontenc}
 \usepackage{newtxtext}
 \usepackage[zerostyle=b,straightquotes]{newtxtt}
-\usepackage{microtype}
+\usepackage[final,tracking=smallcaps,expansion=alltext,protrusion=true]{microtype}%
+\SetTracking{encoding=*,shape=sc}{50}%
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 \usepackage[autostyle=once,english=british,strict]{csquotes}
 \usepackage{amssymb}
@@ -955,6 +956,7 @@ This work consists of all files listed in manifest.txt.
 %\changes{v2.0}{2016/02/06}{First official release on GitHub and CTAN}
 %\changes{v2.0.1}{2016/02/15}{Set uniquelist option to false in order to change the cite output}
 %\changes{v2.0.1}{2016/02/18}{Added \string\FloatBarrier from the placeins package at the end of the appendix}
+%\changes{v2.0.2}{2016/02/22}{Added tracking for smallcaps}
 %
 %
 %
@@ -1749,7 +1751,8 @@ This work consists of all files listed in manifest.txt.
 % Settings for various fonts are provided.
 %    \begin{macrocode}
 \if@microtype
-   \RequirePackage{microtype}%
+   \RequirePackage[final,tracking=smallcaps,expansion=alltext,protrusion=true]{microtype}%
+   \SetTracking{encoding=*,shape=sc}{50}%
 \else
    \ClassWarning{emisa}{Package `microtype' not loaded!%
       \MessageBreak Output will differ from final result in the journal!%
@@ -2894,7 +2897,13 @@ This work consists of all files listed in manifest.txt.
 % These macros are used to assemble the page head, \ldots
 %    \begin{macrocode}
 \newcommand{\theheadvolume}{%
-  \begingroup\hypersetup{urlcolor=headtextcolor}\textcolor{headtextcolor}{Vol.\,\@volume, No.\,\@issue\ (\@issuedate).\ifx\@doi\@empty\else\ \outdoi{\@doi}\fi\ifx\@specialissuetitle\relax\else\ \@specialissuetitle.\fi}\endgroup}%
+  \begingroup%
+  \hypersetup{urlcolor=headtextcolor}%
+  \textcolor{headtextcolor}{%
+     Vol.\,\@volume, No.\,\@issue\ (\@issuedate).%
+     \ifx\@doi\@empty\else\ \outdoi{\@doi}\fi%
+     \ifx\@specialissuetitle\relax\else\ \@specialissuetitle.\fi}%
+  \endgroup}%
 \newlength{\headpageoffset}%
 \setlength{\headpageoffset}{10mm}%
 \def\theoddheadpage{%
