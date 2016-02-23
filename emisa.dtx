@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/02/22 2.0.1 LaTeX class EMISA]
+[2016/02/23 2.0.1 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -960,6 +960,7 @@ This work consists of all files listed in manifest.txt.
 %\changes{v2.0.1}{2016/02/22}{Added tracking for smallcaps}
 %\changes{v2.0.1}{2016/02/22}{Modified position of specialissue title}
 %\changes{v2.0.1}{2016/02/22}{Modified insertion of license text}
+%\changes{v2.0.1}{2016/02/23}{Special issue title now right aligned on even pages}
 %
 %
 %
@@ -1260,7 +1261,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \DescribeMacro{issue}Enter the issue number and issue year of the article. Format example: \verb|\issue{1}{2016}|
 %
-% \DescribeMacro{specialissuetitle}Enter the title of the Special Issue to which the article belongs if any. Note that the prefix 'Special Issue on' is added automatically. Example: \verb|\specialissuetitle{Multilevel Modelling}|
+% \DescribeMacro{specialissuetitle}Enter the title of the Special Issue to which the article belongs if any. Note that the prefix \enquote{Special Issue on} is added automatically. Example: \verb|\specialissuetitle{Multilevel Modelling}|
 %
 % Note that volume, issue number and issue date and, optionally, the title of the special issue appear in the multiline page headline of the article.
 %
@@ -2869,7 +2870,7 @@ This work consists of all files listed in manifest.txt.
 % The main formatting routine for the running head is a 
 % \env{tabular*} environment.
 %    \begin{macrocode}
-\newcommand{\headbox}[7]{\bgroup%
+\newcommand{\headbox}[8]{\bgroup%
   \setstretch{1}%
   \reset@font\pageheadfont
   \tabcolsep\z@
@@ -2886,7 +2887,7 @@ This work consists of all files listed in manifest.txt.
     \hline
     #5 & #6\\
     \hline
-    #7\\
+    #7 & #8\\
   \end{tabular*}%
   \hskip-\headmargin
   \egroup
@@ -2973,13 +2974,13 @@ This work consists of all files listed in manifest.txt.
     \headbox{\@journalname}{}%
             {\theheadvolume}{}%
             {{\@headmarkstyle\@oddmark}}{\theoddheadpage}%
-            {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%
+            {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}{}%
   }%
   \def\@evenhead{%
     \headbox{}{\@journalname}%
             {}{\theheadvolume}%
             {\theevenheadpage}{{\@headmarkstyle\@evenmark}}%
-            {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%
+            {}{\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%
   }%
   \let\@oddmark\relax
   \let\@evenmark\relax

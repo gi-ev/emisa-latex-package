@@ -5,7 +5,7 @@ emisa --    A LaTeX package for preparing manuscripts for the journal EMISA
             Enterprise Modelling and Information Systems Architectures -
             An International Journal (EMISA)
 (c) 2015, 2016
-Version:    2.0        
+Version:    2.01        
 Maintainer: Stefan Strecker and Martin Sievers
 Email:      stefan.strecker@fernuni-hagen.de
             martin.sievers@schoenerpublizieren.de
@@ -24,4 +24,17 @@ package managers of recent TeX distributions (e.g. “tlmgr” of the
 TeX Live distribution).
 
 Read emisa.pdf for author instructions and style guidelines.
+
+Change log:
+
+2.01 to 2.0
+- Moved special issue title below title in page header
+- Changed maxcitenames=3 to maxcitenames=2
+- Added 5 per cent tracking space to small caps
+- ...
+
+
+2.0 Initial release of the completely reworked bundle
+
+
 ```

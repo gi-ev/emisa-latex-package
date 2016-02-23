@@ -31,7 +31,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2016/02/22 2.0.1 LaTeX class EMISA]
+[2016/02/23 2.0.1 LaTeX class EMISA]
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
@@ -531,7 +531,7 @@
   \setlength{\headwidth}{\paperwidth+2\bleed}%
   \setlength{\headmargin}{0.5\headwidth-0.5\textwidth}%
   \setlength{\footrulewidth}{0.5\headwidth+0.5\textwidth}}%
-\newcommand{\headbox}[7]{\bgroup%
+\newcommand{\headbox}[8]{\bgroup%
   \setstretch{1}%
   \reset@font\pageheadfont
   \tabcolsep\z@
@@ -548,7 +548,7 @@
     \hline
     #5 & #6\\
     \hline
-    #7\\
+    #7 & #8\\
   \end{tabular*}%
   \hskip-\headmargin
   \egroup
@@ -590,13 +590,13 @@
     \headbox{\@journalname}{}%
             {\theheadvolume}{}%
             {{\@headmarkstyle\@oddmark}}{\theoddheadpage}%
-            {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%
+            {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}{}%
   }%
   \def\@evenhead{%
     \headbox{}{\@journalname}%
             {}{\theheadvolume}%
             {\theevenheadpage}{{\@headmarkstyle\@evenmark}}%
-            {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%
+            {}{\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%
   }%
   \let\@oddmark\relax
   \let\@evenmark\relax
