@@ -33,4 +33,8 @@ Change log:
 - Added 5 per cent tracking space to small caps
 - ...
 
+
+2.0 Initial release of the completely reworked bundle
+
+
 ```
