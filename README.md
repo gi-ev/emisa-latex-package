@@ -24,4 +24,13 @@ package managers of recent TeX distributions (e.g. “tlmgr” of the
 TeX Live distribution).
 
 Read emisa.pdf for author instructions and style guidelines.
+
+Change log:
+
+2.01 to 2.0
+- Moved special issue title below title in page header
+- Changed maxcitenames=3 to maxcitenames=2
+- Added 5 per cent tracking space to small caps
+- ...
+
 ```
