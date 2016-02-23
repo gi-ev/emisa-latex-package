@@ -5,7 +5,7 @@ emisa --    A LaTeX package for preparing manuscripts for the journal EMISA
             Enterprise Modelling and Information Systems Architectures -
             An International Journal (EMISA)
 (c) 2015, 2016
-Version:    2.0        
+Version:    2.01        
 Maintainer: Stefan Strecker and Martin Sievers
 Email:      stefan.strecker@fernuni-hagen.de
             martin.sievers@schoenerpublizieren.de
