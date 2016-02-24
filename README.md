@@ -28,10 +28,12 @@ Read emisa.pdf for author instructions and style guidelines.
 Change log:
 
 2.01 to 2.0
-- Moved special issue title below title in page header
-- Changed maxcitenames=3 to maxcitenames=2
-- Added 5 per cent tracking space to small caps
-- ...
+– Set uniquelist option to false in order to change the cite output
+– Changed maxcitenames=3 to maxcitenames=2
+– Added \FloatBarrier from the placeins package at the end of the appendix
+– Added tracking (5%) for smallcaps
+– Moved special issue title below title in page header
+– Modified insertion of license text
 
 
 2.0 Initial release of the completely reworked bundle
