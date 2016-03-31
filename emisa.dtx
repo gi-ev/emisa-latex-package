@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/02/23 2.0.1 LaTeX class EMISA]
+[2016/03/31 2.1 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -498,6 +498,7 @@ This work consists of all files listed in manifest.txt.
 %^^A \DoNotIndex{\ifandothers}%%%
 %^^A \DoNotIndex{\ifbibxstring}%%%
 %^^A \DoNotIndex{\ifblank}%%%
+%^^A \DoNotIndex{\ifempty}%%%
 %^^A \DoNotIndex{\iffieldequalstr}%%%
 %^^A \DoNotIndex{\iffieldequals}%%%
 %^^A \DoNotIndex{\iffieldundef}%%%
@@ -962,6 +963,9 @@ This work consists of all files listed in manifest.txt.
 %\changes{v2.0.1}{2016/02/22}{Moved special issue title below title in page header}
 %\changes{v2.0.1}{2016/02/22}{Modified insertion of license text}
 %\changes{v2.0.1}{2016/02/23}{Special issue title now right aligned on even pages}
+%\changes{v2.1}{2016/03/31}{Fix incompatible changes introduced by biblatex >3.3}
+%\changes{v2.1}{2016/03/31}{Changed \string\ifblank to \string\ifempty because of wrong interpretations. Not sure, whether this is needed of older versions}
+
 %
 %
 %
@@ -4305,7 +4309,7 @@ This work consists of all files listed in manifest.txt.
 %    \end{macrocode}
 % We start by declaring the file name and date.
 %    \begin{macrocode}
-\ProvidesFile{emisa.bbx}[2016/02/06 2.0 EMISA bibliography style]
+\ProvidesFile{emisa.bbx}[2016/03/31 2.1 EMISA bibliography style]
 %    \end{macrocode}
 % The \DTXclassname bibliography style is  built on top of the standard style \file{authoryear.bbx}
 % being loaded here \ldots
@@ -4679,51 +4683,108 @@ This work consists of all files listed in manifest.txt.
 % 
 % 
 % 
+% This declares the output format of name lists to be used by \cs{printnames}.
+%
+% Please note: We have to check the biblatex version, since there has been an incompatible change for version 3.3 from 2016/03/03
+%    \begin{macrocode}
+\@ifpackagelater{biblatex}{2016/03/03}%
+%    \end{macrocode}
+% Now for the latest versions
+%    \begin{macrocode}
+{%
+   \DeclareNameFormat{emisa:names}{%
+      \nameparts{#1}%
+      \usebibmacro{name:family-giveninit}%
+         {\namepartfamily}%
+         {\namepartgiveni}%
+         {\namepartprefix}%
+         {\namepartsuffix}%
+      \usebibmacro{name:andothers}}%
+}%
+%    \end{macrocode}
+% and now for the older versions
 % All the formatting directives for name lists get the following «arguments»:
 % \begin{compactenum}[\#1{${}=$}]
-%   \item  last name
-%   \item  last name (initials)
-%   \item  first name
-%   \item  first name (initials)
-%   \item  name prefix, a.k.a. `von part'
-%   \item  name prefix (initials)
-%   \item  name affix, a.k.a. `junior part'
-%   \item  name affix (initials)
-% \end{compactenum}
-% 
-% This declares the output format of name lists to be used by \cs{printnames}.
+   %   \item  last name
+   %   \item  last name (initials)
+   %   \item  first name
+   %   \item  first name (initials)
+   %   \item  name prefix, a.k.a. `von part'
+   %   \item  name prefix (initials)
+   %   \item  name affix, a.k.a. `junior part'
+   %   \item  name affix (initials)
+   % \end{compactenum}
+%
 %    \begin{macrocode}
-\DeclareNameFormat{emisa:names}{%
+{%
+  \DeclareNameFormat{emisa:names}{%
   \usebibmacro{name:last-firstinit}{#1}{#4}{#5}{#7}%
-  \usebibmacro{name:andothers}}
+  \usebibmacro{name:andothers}}%
+}%
 %    \end{macrocode}
 % 
 % This bibmacro formats the names of authors, editors or translators.
 % \begin{bibmacro}{name:last-firstinit}
+% Again we check for the biblatex version. This could be neglected for this macro. However, it is clearer and maybe better for future development.
 %    \begin{macrocode}
-\newbibmacro*{name:last-firstinit}[4]{%
+\@ifpackagelater{biblatex}{2016/03/03}%
+%    \end{macrocode}
+% Now for the latest versions
+%    \begin{macrocode}
+{%
+ \newbibmacro*{name:family-giveninit}[4]{%
+    \usebibmacro{name:delim}{#2#3#1}%
+    \usebibmacro{name:hook}{#2#3#1}%
+%    \end{macrocode}
+% Formatting: name prefix (`von part'), \ldots
+%    \begin{macrocode}
+    \ifempty{#3}{}{%
+       \mkbibnameprefix{#3}%\isdot
+       \ifprefchar% replaces \ifpunctmark{'}%
+       {}%
+       {\ifuseprefix{\addhighpenspace}{\addlowpenspace}}}%
+%    \end{macrocode}
+% \ldots\ last name \ldots
+%    \begin{macrocode}
+     \mkbibnamefamily{#1}\addhighpenspace%
+%    \end{macrocode}
+% \ldots\ name affix (`junior part'), \ldots
+%    \begin{macrocode}
+   \ifempty{#4}{}{\addlowpenspace\mkbibnameaffix{#4}\addlowpenspace}%
+%    \end{macrocode}
+% \ldots\ and first name (initials).
+%    \begin{macrocode}
+   \ifempty{#2}{}{\mkbibnamegiven{#2}\isdot}%
+   }%
+}%
+%    \end{macrocode}
+% and now for the older versions
+%    \begin{macrocode}
+{%
+  \newbibmacro*{name:last-firstinit}[4]{%
   \usebibmacro{name:delim}{#2#3#1}%
   \usebibmacro{name:hook}{#2#3#1}%
 %    \end{macrocode}
 % Formatting: name prefix (`von part'), \ldots
 %    \begin{macrocode}
-  \ifblank{#3}{}{%
+  \ifempty{#3}{}{%
     \mkbibnameprefix{#3}%\isdot
-    \ifpunctmark{'}
+    \ifpunctmark{'}%
       {}
       {\ifuseprefix{\addhighpenspace}{\addlowpenspace}}}%
 %    \end{macrocode}
 % \ldots\ last name \ldots
 %    \begin{macrocode}
-  \mkbibnamelast{#1}\addhighpenspace
+  \mkbibnamelast{#1}\addhighpenspace%
 %    \end{macrocode}
 % \ldots\ name affix (`junior part'), \ldots
 %    \begin{macrocode}
-  \ifblank{#4}{}{\addlowpenspace\mkbibnameaffix{#4}\addlowpenspace}%
+  \ifempty{#4}{}{\addlowpenspace\mkbibnameaffix{#4}\addlowpenspace}%
 %    \end{macrocode}
 % \ldots\ and first name (initials).
 %    \begin{macrocode}
-  \ifblank{#2}{}{\mkbibnamefirst{#2}\isdot}%
+  \ifempty{#2}{}{\mkbibnamefirst{#2}\isdot}%
+}%
 }%
 %    \end{macrocode}
 % \end{bibmacro}
@@ -5923,7 +5984,7 @@ techreport = {},%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\ProvidesFile{emisa.cbx}[2016/02/06 2.0 EMISA citation style]
+\ProvidesFile{emisa.cbx}[2016/03/31 2.1 EMISA citation style]
 \RequireCitationStyle{authoryear-comp}
 \renewcommand*{\nameyeardelim}{\addspace}
 %    \end{macrocode}
