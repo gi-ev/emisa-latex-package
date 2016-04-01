@@ -10,7 +10,6 @@
 %% See there for more information.
 %% ------------------------------------------------------------------------
 %% 
-
 \ProvidesFile{emisa.bbx}[2016/03/31 2.1 EMISA bibliography style]
 \RequireBibliographyStyle{authoryear}
 \newcommand*{\bibitemlabel}[1]{%
@@ -142,14 +141,14 @@
   \newbibmacro*{name:last-firstinit}[4]{%
   \usebibmacro{name:delim}{#2#3#1}%
   \usebibmacro{name:hook}{#2#3#1}%
-  \ifempty{#3}{}{%
+  \ifblank{#3}{}{%
     \mkbibnameprefix{#3}%\isdot
     \ifpunctmark{'}%
       {}
       {\ifuseprefix{\addhighpenspace}{\addlowpenspace}}}%
   \mkbibnamelast{#1}\addhighpenspace%
-  \ifempty{#4}{}{\addlowpenspace\mkbibnameaffix{#4}\addlowpenspace}%
-  \ifempty{#2}{}{\mkbibnamefirst{#2}\isdot}%
+  \ifblank{#4}{}{\addlowpenspace\mkbibnameaffix{#4}\addlowpenspace}%
+  \ifblank{#2}{}{\mkbibnamefirst{#2}\isdot}%
 }%
 }%
 \renewbibmacro*{in:}{%

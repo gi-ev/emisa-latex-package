@@ -965,7 +965,7 @@ This work consists of all files listed in manifest.txt.
 %\changes{v2.0.1}{2016/02/23}{Special issue title now right aligned on even pages}
 %\changes{v2.1}{2016/03/31}{Fix incompatible changes introduced by biblatex >3.3}
 %\changes{v2.1}{2016/03/31}{Changed \string\ifblank to \string\ifempty because of wrong interpretations. Not sure, whether this is needed of older versions}
-
+%\changes{v2.1}{2016/04/01}{Returned to \string\ifblank for the old versions}
 %
 %
 %
@@ -4767,7 +4767,7 @@ This work consists of all files listed in manifest.txt.
 %    \end{macrocode}
 % Formatting: name prefix (`von part'), \ldots
 %    \begin{macrocode}
-  \ifempty{#3}{}{%
+  \ifblank{#3}{}{%
     \mkbibnameprefix{#3}%\isdot
     \ifpunctmark{'}%
       {}
@@ -4779,11 +4779,11 @@ This work consists of all files listed in manifest.txt.
 %    \end{macrocode}
 % \ldots\ name affix (`junior part'), \ldots
 %    \begin{macrocode}
-  \ifempty{#4}{}{\addlowpenspace\mkbibnameaffix{#4}\addlowpenspace}%
+  \ifblank{#4}{}{\addlowpenspace\mkbibnameaffix{#4}\addlowpenspace}%
 %    \end{macrocode}
 % \ldots\ and first name (initials).
 %    \begin{macrocode}
-  \ifempty{#2}{}{\mkbibnamefirst{#2}\isdot}%
+  \ifblank{#2}{}{\mkbibnamefirst{#2}\isdot}%
 }%
 }%
 %    \end{macrocode}
