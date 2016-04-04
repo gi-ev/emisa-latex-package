@@ -24,22 +24,24 @@ package managers of recent TeX distributions (e.g. “tlmgr” of the
 TeX Live distribution).
 
 Read emisa.pdf for author instructions and style guidelines.
-
-
-Changelog:
-
-2.1  to 2.01
-– Fixed a bug introduced by incompatible changes of latest biblatex packages (>3.3)
-
-2.01 to 2.0
-– Set uniquelist option to false in order to change the cite output
-– Changed maxcitenames=3 to maxcitenames=2
-– Added \FloatBarrier from the placeins package at the end of the appendix
-– Added tracking (5%) for smallcaps
-– Moved special issue title below title in page header
-– Modified insertion of license text
-
-2.0 Initial release of the completely reworked bundle
-
-
 ```
+
+## Changelog
+
+### 2.1  to 2.01
+
+* Fixed a bug introduced by incompatible changes of latest biblatex packages (>3.3)
+
+### 2.01 to 2.0
+
+* Set uniquelist option to false in order to change the cite output
+* Changed maxcitenames=3 to maxcitenames=2
+* Added \FloatBarrier from the placeins package at the end of the appendix
+* Added tracking (5%) for smallcaps
+* Moved special issue title below title in page header
+* Modified insertion of license text
+
+### 2.0
+
+* Initial release of the completely reworked bundle
+
