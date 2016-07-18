@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/03/31 2.1 LaTeX class EMISA]
+[2016/07/18 2.1.1 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -966,6 +966,7 @@ This work consists of all files listed in manifest.txt.
 %\changes{v2.1}{2016/03/31}{Fix incompatible changes introduced by biblatex >3.3}
 %\changes{v2.1}{2016/03/31}{Changed \string\ifblank to \string\ifempty because of wrong interpretations. Not sure, whether this is needed of older versions}
 %\changes{v2.1}{2016/04/01}{Returned to \string\ifblank for the old versions}
+%\changes{v2.1.1}{2016/07/18}{Bugfix: Change \string\ifempty\space to \string\ifdefvoid}
 %
 %
 %
@@ -4309,7 +4310,7 @@ This work consists of all files listed in manifest.txt.
 %    \end{macrocode}
 % We start by declaring the file name and date.
 %    \begin{macrocode}
-\ProvidesFile{emisa.bbx}[2016/03/31 2.1 EMISA bibliography style]
+\ProvidesFile{emisa.bbx}[2016/07/18 2.1.1 EMISA bibliography style]
 %    \end{macrocode}
 % The \DTXclassname bibliography style is  built on top of the standard style \file{authoryear.bbx}
 % being loaded here \ldots
@@ -4738,7 +4739,7 @@ This work consists of all files listed in manifest.txt.
 %    \end{macrocode}
 % Formatting: name prefix (`von part'), \ldots
 %    \begin{macrocode}
-    \ifempty{#3}{}{%
+    \ifdefvoid{#3}{}{%
        \mkbibnameprefix{#3}%\isdot
        \ifprefchar% replaces \ifpunctmark{'}%
        {}%
@@ -4750,11 +4751,11 @@ This work consists of all files listed in manifest.txt.
 %    \end{macrocode}
 % \ldots\ name affix (`junior part'), \ldots
 %    \begin{macrocode}
-   \ifempty{#4}{}{\addlowpenspace\mkbibnameaffix{#4}\addlowpenspace}%
+   \ifdefvoid{#4}{}{\addlowpenspace\mkbibnameaffix{#4}\addlowpenspace}%
 %    \end{macrocode}
 % \ldots\ and first name (initials).
 %    \begin{macrocode}
-   \ifempty{#2}{}{\mkbibnamegiven{#2}\isdot}%
+   \ifdefvoid{#2}{}{\mkbibnamegiven{#2}\isdot}%
    }%
 }%
 %    \end{macrocode}
@@ -5984,7 +5985,7 @@ techreport = {},%
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\ProvidesFile{emisa.cbx}[2016/03/31 2.1 EMISA citation style]
+\ProvidesFile{emisa.cbx}[2016/07/18 2.1.1 EMISA citation style]
 \RequireCitationStyle{authoryear-comp}
 \renewcommand*{\nameyeardelim}{\addspace}
 %    \end{macrocode}

@@ -10,7 +10,7 @@
 %% See there for more information.
 %% ------------------------------------------------------------------------
 %% 
-\ProvidesFile{emisa.bbx}[2016/03/31 2.1 EMISA bibliography style]
+\ProvidesFile{emisa.bbx}[2016/07/18 2.1.1 EMISA bibliography style]
 \RequireBibliographyStyle{authoryear}
 \newcommand*{\bibitemlabel}[1]{%
   \normalfont #1}
@@ -127,14 +127,14 @@
  \newbibmacro*{name:family-giveninit}[4]{%
     \usebibmacro{name:delim}{#2#3#1}%
     \usebibmacro{name:hook}{#2#3#1}%
-    \ifempty{#3}{}{%
+    \ifdefvoid{#3}{}{%
        \mkbibnameprefix{#3}%\isdot
        \ifprefchar% replaces \ifpunctmark{'}%
        {}%
        {\ifuseprefix{\addhighpenspace}{\addlowpenspace}}}%
      \mkbibnamefamily{#1}\addhighpenspace%
-   \ifempty{#4}{}{\addlowpenspace\mkbibnameaffix{#4}\addlowpenspace}%
-   \ifempty{#2}{}{\mkbibnamegiven{#2}\isdot}%
+   \ifdefvoid{#4}{}{\addlowpenspace\mkbibnameaffix{#4}\addlowpenspace}%
+   \ifdefvoid{#2}{}{\mkbibnamegiven{#2}\isdot}%
    }%
 }%
 {%
