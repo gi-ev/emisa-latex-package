@@ -27,12 +27,15 @@ Read emisa.pdf for author instructions and style guidelines.
 ```
 
 ## Changelog
+### 2.1.1 to 2.1
 
-### 2.1  to 2.01
+* Fixed a bug introduced with version 2.1. Undefined macro \ifempty was changed to \ifdefvoid
+
+### 2.1  to 2.0.1
 
 * Fixed a bug introduced by incompatible changes of latest biblatex packages (>3.3)
 
-### 2.01 to 2.0
+### 2.0.1 to 2.0
 
 * Set uniquelist option to false in order to change the cite output
 * Changed maxcitenames=3 to maxcitenames=2
