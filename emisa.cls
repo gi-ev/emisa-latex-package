@@ -75,6 +75,9 @@
 \DeclareOption{noreferee}{\@refereefalse}
 \DeclareOption{review}{\@refereetrue}
 \DeclareOption{noreview}{\@refereefalse}
+\newif\ifusecleveref
+\useclevereftrue
+\DeclareOption{nocleveref}{\useclevereffalse}
 \newif\if@cover
 \def\coveron{\@covertrue}
 \def\coveroff{\@coverfalse}
@@ -189,6 +192,17 @@
   urlcolor=black,
   hyperfootnotes=false
   ]{hyperref}%
+\ifusecleveref%
+   \usepackage[capitalise,nameinlink]{cleveref}
+   \crefname{section}{Sec.}{Sec.}
+   \Crefname{section}{Sec.}{Sec.}
+   \crefname{figure}{\figurename}{\figurename}
+   \Crefname{figure}{\figurename}{\figurename}
+   \crefname{listing}{\lstlistingname}{\lstlistingname}
+   \Crefname{listing}{\lstlistingname}{\lstlistingname}
+   \crefname{table}{\tablename}{\tablename}
+   \Crefname{table}{\tablename}{\tablename}
+\fi%
 \RequirePackage{doclicense}
 \begingroup
   \catcode`\Z=3

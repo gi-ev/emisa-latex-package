@@ -232,6 +232,11 @@ This work consists of all files listed in manifest.txt.
    filecolor=filecolor,
    urlcolor=urlcolor]{hyperref}
 %
+\usepackage[nameinlink,capitalise]{cleveref}
+\crefname{section}{Sec.}{Sec.}
+\Crefname{section}{Sec.}{Sec.}
+\crefname{enumi}{Point}{Points}
+\Crefname{enumi}{Point}{Points}
 \providecommand*\pkg[1]{\textsf{#1}}
 \makeatletter
 \newcommand*\DescribeOption{%
@@ -999,7 +1004,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \DescribeOption{UTF-8}\DescribeOption{File naming convention}The production process at the \DTXclassname editorial office is based entirely on \LaTeX{}, and runs pdf\LaTeX{} and \verb|biber| to produce the final proof and publication-ready PDF of an article. The \pkg{biblatex} package is used to typeset citations and references in conjunction with the \verb|biber| tool. Make sure to use \verb|biber| rather than \verb|bibtex| to process your bibliography data base file(s). Most \TeX{} editors have an option to easily switch to \verb|biber|. The production tool chain at the editorial office requires that all text files of an article are provided in \emph{UTF-8 file encoding}, and that all submitted files are provided with \emph{lower case filenames only}. Do \emph{not} use upper case characters in filenames at all and avoid non-ASCII characters in filenames.
 %
-% \DescribeOption{Author template}The file \file{emisa-author-template.tex} provides a good starting point for manuscript preparation (if the \DTXclassname package is available through your \TeX{} distribution, the file is stored at \texttt{/doc/latex/emisa/} inside your \TeX{} installation folder/directory. Just copy it to your working directory). It is also recommended to review the example of an article typeset with \file{emisa.cls} provided in Sec.~\ref{sec:example}. 
+% \DescribeOption{Author template}The file \file{emisa-author-template.tex} provides a good starting point for manuscript preparation (if the \DTXclassname package is available through your \TeX{} distribution, the file is stored at \texttt{/doc/latex/emisa/} inside your \TeX{} installation folder/directory. Just copy it to your working directory). It is also recommended to review the example of an article typeset with \file{emisa.cls} provided in \cref{sec:example}.
 %
 %
 % \section{Class Options}
@@ -1008,6 +1013,12 @@ This work consists of all files listed in manifest.txt.
 % \DescribeOption{american, USenglish} If you want to use American English instead, you can use the option \opt{american} or \opt{USenglish}. The hyphenation patterns and quotation marks will be set accordingly.
 %
 % \DescribeOption{referee, review} By default, a final version of the manuscript is typeset for online publication including the names and affiliations of authors. For reviewing purposes, the names and affiliations of the authors are omitted using the document option \verb|referee| or \verb|review| to allow for the anonymous (\ie double blind) peer-review process of \DTXclassname. Example: \verb|\documentclass[referee]{emisa}|.  Make sure to use the document option \verb|referee| or \verb|review| before typesetting the final PDF intended for submission to the journal. 
+%
+% \DescribeOption{nocleveref}When referencing figures, one has to type
+% \texttt{Figure\textasciitilde}\cs{ref\marg{label}}. The package \pkg{cleveref}
+% reduces the effort by offering the command \cs{cref\marg{label}}. This can be
+% used with all floating objects. The package is loaded as default. In case it
+% causes issues, one can disable it using with the \opt{nocleveref} option.
 %
 %
 % \section{Author information}
@@ -1039,7 +1050,8 @@ This work consists of all files listed in manifest.txt.
 % \begin{itemize}
 % \item Manuscripts should \emph{not} make use of outdated \LaTeX{} commands such as \verb|\em|, but rather use the \LaTeX2e\ commands (\eg \verb|\emph|, \verb|\texttt|). 
 % \item Do \emph{not} make use of bold face (\cs{textbf}). Use \cs{emph} instead to typeset an important word in italics!
-% \item Always use the tilde \verb|~| to connect before \cs{ref}\marg{label}, \eg,\ \verb|Sec.~\ref{label}| rather than the problematic: \verb|Sec. \ref{label}|.
+% \item Always use \verb|\cref{label}| to reference sections, tables, \ldots, \eg \verb|See \cref{tab:x}|.
+% In case you want to stick with the ``old'' style of referencing, always use tilde \verb|~| to connect before \cs{ref}\marg{label}, \eg,\ \verb|Sec.~\ref{label}| rather than the problematic: \verb|Sec. \ref{label}|.
 % \item Always use the en-dash (\texttt{-{}-}) for ranges -- without spaces -- \eg, \texttt{17-{}-34}. The hyphen (\texttt{-}) should only be used for compound words or hyphenation. 
 % \item Do \emph{not} write abbreviations such as \verb|e.g.| but use the macros provided by the \DTXclassname class (see below). Add punctuation when necessary, for example, write \verb|, \ie,| to achieve the correct punctuation for \enquote{id est} (i.\,e.) rather than \verb|, i.e.,| which introduces two problems: A missing spacing after the first full stop and a wrong spacing after the second full stop.
 %
@@ -1111,7 +1123,7 @@ This work consists of all files listed in manifest.txt.
 %
 %
 % \section{Tables}
-% \DescribeEnv{tabular}Tables can be added using the standard notation, \ie using \env{tabular} inside the floating environment \env{table} (see Listing~\ref{lst:tabular}). However, the standard column parameters \opt{p}, \opt{l}, \opt{c} and \opt{r} are often not sufficient to provide a table with an exact width, \eg the text width.
+% \DescribeEnv{tabular}Tables can be added using the standard notation, \ie using \env{tabular} inside the floating environment \env{table} (see \cref{lst:tabular}). However, the standard column parameters \opt{p}, \opt{l}, \opt{c} and \opt{r} are often not sufficient to provide a table with an exact width, \eg the text width.
 % \begin{lstlisting}[caption={An example for a standard table using \env{tabular}},label={lst:tabular}]
 % \begin{table}
 % \small % or \footnotesize if needed at all
@@ -1133,7 +1145,7 @@ This work consists of all files listed in manifest.txt.
 %
 % \DescribeEnv{tabularx} Therefore the \DTXclassname class loads the package \pkg{tabularx} by default. It defines an additional column parameter \opt{X}, which has to be used for at least one column. In addition the standard \env{tabular} environment is substituted by \env{tabularx} which has two mandatory arguments, namely the total width of the table and the definition for the columns.
 %
-% Listing~\ref{lst:tabularx} shows two typical examples for the application of \env{tabularx}. If you just mark one column with the parameter~\opt{X}, all other columns (\ie columns with parameters \opt{p}, \opt{l}, \opt{c} or \opt{r}) are set the usual way. The remaining width (width given as first argument to \env{tabularx} minus used width of all \enquote{non-X-columns}) is then assigned to the \opt{X}~column. To get a table two columns wide, please use \cs{textwidth} as the table's width.
+% \Cref{lst:tabularx} shows two typical examples for the application of \env{tabularx}. If you just mark one column with the parameter~\opt{X}, all other columns (\ie columns with parameters \opt{p}, \opt{l}, \opt{c} or \opt{r}) are set the usual way. The remaining width (width given as first argument to \env{tabularx} minus used width of all \enquote{non-X-columns}) is then assigned to the \opt{X}~column. To get a table two columns wide, please use \cs{textwidth} as the table's width.
 % \begin{lstlisting}[caption={An example for a table using the package \pkg{tabularx} for exactly one \opt{X} column},label={lst:tabularx}]
 % ...
 % \begin{tabularx}{\textwidth}{Xll}
@@ -1162,7 +1174,7 @@ This work consists of all files listed in manifest.txt.
 %
 % Additional information can be obtained from the package's documentation \cite{tabularx-pdf}.
 %
-% For nicer tables you should get rid of any vertical lines between the columns. Instead you can use the macros provided by \pkg{booktabs} (preloaded by \DTXclassname) for horizontal lines of different width. Just replace the first standard \cs{hline} by \cs{toprule}, the last one by \cs{bottomrule} and all other by \cs{midrule}. There is even an alternative for \cs{cline} called \cs{cmidrule}. The example from Listing~\ref{lst:tabularx-var} then looks like:\clearpage
+% For nicer tables you should get rid of any vertical lines between the columns. Instead you can use the macros provided by \pkg{booktabs} (preloaded by \DTXclassname) for horizontal lines of different width. Just replace the first standard \cs{hline} by \cs{toprule}, the last one by \cs{bottomrule} and all other by \cs{midrule}. There is even an alternative for \cs{cline} called \cs{cmidrule}. The example from \cref{lst:tabularx-var} then looks like:\clearpage
 % \begin{lstlisting}[escapechar=§,caption={An example for a table using the packages \pkg{tabularx} and \pkg{booktabs}},label={lst:tabularx-booktabs}]
 % ...
 % \begin{tabularx}{\textwidth}{p{3cm}XXX}
@@ -1185,7 +1197,7 @@ This work consists of all files listed in manifest.txt.
 % \section{Source code listings}
 % \DescribeEnv{sourcecode}\DescribeEnv{java}For marking up source code listings, the \DTXclassname class uses the \pkg{listings} package (see the package documentation \cite{listings-pdf} for further information), and provides two customised \LaTeX{} environments: \env{sourcecode} and \env{java}. The \env{java} environment should be used to format source code listings in the Java programming language, and the \env{sourcecode} environment should be used to format source code in any other programming language. You can add the name of the programming language and other parameters known to \pkg{listings} like \opt{caption} or \opt{label} as an optional argument.
 %
-% Note that the source code in either case is typeset verbatim, \ie, the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. Listing~\ref{lst:sourcecode} illustrates the use of both environments.
+% Note that the source code in either case is typeset verbatim, \ie, the author must arrange the input \LaTeX{} source code according to the intended output. Also note that the two environments have been predefined to always produce a two-column listing positioned at the top of the page. \Cref{lst:sourcecode} illustrates the use of both environments.
 % \begin{examplecode}[caption={Example for the \env{java} and \env{sourcecode} environments},label={lst:sourcecode}]
 % \begin{java}[caption={A hello world example},label={hw-java}] 
 % public class HelloWorld 
@@ -1206,7 +1218,7 @@ This work consists of all files listed in manifest.txt.
 % \end{examplecode}
 %
 % \section{Pseudo-code and algorithms}
-% \DescribeEnv{algorithm}\DescribeEnv{algorithmic}Apart from source code you might want to add pseudo code examples or algorithms. In contrast to the source code examples above \DTXclassname does not define its own environments for that. Instead we recommend using the bundle \pkg{algorithms} consisting of the two packages \pkg{algorithm} and \pkg{algorithmic}. Typical parts like loops, if-clauses or statements all have their own macro. See Listing~\ref{lst:pseudocode} for an example.
+% \DescribeEnv{algorithm}\DescribeEnv{algorithmic}Apart from source code you might want to add pseudo code examples or algorithms. In contrast to the source code examples above \DTXclassname does not define its own environments for that. Instead we recommend using the bundle \pkg{algorithms} consisting of the two packages \pkg{algorithm} and \pkg{algorithmic}. Typical parts like loops, if-clauses or statements all have their own macro. See \cref{lst:pseudocode} for an example.
 % \begin{examplecode}[caption={Example for a pseudocode presented within the \env{algorithmic} environment},label={lst:pseudocode}]
 % \begin{algorithmic}[1]
 % \REQUIRE $n \geq 0$
@@ -1462,6 +1474,12 @@ This work consists of all files listed in manifest.txt.
 %      {Package \pkg{caption}: Customising captions in floating environments}.
 % 
 % 
+%   \bibitem{cleveref-pdf}
+%     \href
+%      {http://www.ctan.org/pkg/cleveref}
+%      {Package \pkg{cleveref}:    Clever referencing. Especially automatically determs the labels and inclues them in the link}.
+%
+%
 %   \bibitem{csquotes-pdf}
 %     \href
 %      {http://www.ctan.org/pkg/csquotes}
@@ -1672,6 +1690,15 @@ This work consists of all files listed in manifest.txt.
 % \end{option}
 % \end{option}
 % \end{option}
+% \end{option}
+%
+% \begin{option}{nocleveref}
+% The option \opt{nocleveref} disables usage of cleveref.
+%    \begin{macrocode}
+\newif\ifusecleveref
+\useclevereftrue
+\DeclareOption{nocleveref}{\useclevereffalse}
+%    \end{macrocode}
 % \end{option}
 % 
 % \begin{option}{cover}
@@ -2125,6 +2152,24 @@ This work consists of all files listed in manifest.txt.
   hyperfootnotes=false
   ]{hyperref}%
 %    \end{macrocode}
+%
+% The \pkg{cleveref} package~\cite{cleveref-pdf} has to be loaded after hyperref.
+% This configures cleveref to behave as required by the publishers.
+% Different to the LNI class, ``Section'' is abbreviated as ``Sec.'' and not ``Sect.``.
+%
+%    \begin{macrocode}
+\ifusecleveref%
+   \usepackage[capitalise,nameinlink]{cleveref}
+   \crefname{section}{Sec.}{Sec.}
+   \Crefname{section}{Sec.}{Sec.}
+   \crefname{figure}{\figurename}{\figurename}
+   \Crefname{figure}{\figurename}{\figurename}
+   \crefname{listing}{\lstlistingname}{\lstlistingname}
+   \Crefname{listing}{\lstlistingname}{\lstlistingname}
+   \crefname{table}{\tablename}{\tablename}
+   \Crefname{table}{\tablename}{\tablename}
+\fi%
+%    \end{macrocode} 
 %
 %    \begin{macrocode}
 \RequirePackage{doclicense}
@@ -3183,7 +3228,7 @@ This work consists of all files listed in manifest.txt.
 % inner \env{minipage} environment. When used as an advertising page it has to
 % be \emph{centered horizontally and vertically} in the page area. This is
 % achieved most easily by using the \cs{AtPageDeadCenter} utility macro (see
-% section~\ref{sec:code:markup:coverpages}) from
+% \cref{sec:code:markup:coverpages}) from
 % \pkg{eso-pic}~\cite{eso-pic-pdf}.
 %    \begin{macrocode}
 \def\sigmobispage{%
@@ -4240,12 +4285,12 @@ This work consists of all files listed in manifest.txt.
 %    appends locally to any globally given bibliography data base(s).
 % \end{inparaenum}
 % 
-% Point~\ref{list:code:bib:bib-requirements:a} is met simply by postponing the 
+% \Cref{list:code:bib:bib-requirements:a} is met simply by postponing the 
 % redefinition until \cs{begin\{document\}}.  That way we have the unchanged 
 % behaviour in the preamble and the new one after that.
 % 
-% Points~\ref{list:code:bib:bib-requirements:b} and 
-% \ref{list:code:bib:bib-requirements:c} lead to redefining this macro 
+% \Cref{list:code:bib:bib-requirements:b,list:code:bib:bib-requirements:c}
+% lead to redefining this macro 
 % the same way as it was (in principle; see the original definition in 
 % \file{biblatex.sty}) but limited to a local scope.
 % 
