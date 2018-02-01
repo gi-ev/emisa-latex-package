@@ -31,7 +31,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2016/07/18 2.1.1 LaTeX class EMISA]
+[2018/02/01 2.2.0 LaTeX class EMISA]
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
@@ -277,6 +277,8 @@
 }
 \def\journalname#1{\@bsphack\def\@journalname{#1}\@esphack}%
 \journalname{Enterprise Modelling and Information Systems Architectures}%
+\def\journalsubtitle#1{\@bsphack\def\@journalsubtitle{#1}\@esphack}%
+\journalsubtitle{International Journal of Conceptual Modeling}%
 \long\def\issn#1{\@bsphack\long\def\@issn{#1}\@esphack}%
 \issn{%ISSN 1860-6059 (Print)\par
       ISSN 1866-3621 (Online)}%
@@ -593,7 +595,7 @@
             {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}{}%
   }%
   \def\@evenhead{%
-    \headbox{}{\@journalname}%
+    \headbox{}{\@journalsubtitle}%
             {}{\theheadvolume}%
             {\theevenheadpage}{{\@headmarkstyle\@evenmark}}%
             {}{\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%

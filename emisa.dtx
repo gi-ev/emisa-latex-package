@@ -1,9 +1,9 @@
 % \iffalse meta-comment
 % 
 % 
-% Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig 
+% Copyright (C) 2009-2012 by Martin Wilhelm Leidig 
 % <mwl@moss.in-berlin.de>
-% Copyright (C) 2015,2016 by Enterprise Modelling and Information 
+% Copyright (C) 2015-2018 by Enterprise Modelling and Information 
 % Systems Architectures -- An International Journal (EMISA)
 % --------------------------------------------------------------------
 %
@@ -46,7 +46,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2016/07/18 2.1.1 LaTeX class EMISA]
+[2018/02/01 2.2.0 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -955,7 +955,7 @@ This work consists of all files listed in manifest.txt.
 % \date{\today{} -- Version \fileversion}
 % \maketitle
 %
-%\changes{v2.0}{2016/02/06}{First official release on GitHub and CTAN}
+%\changes{v2.0.0}{2016/02/06}{First official release on GitHub and CTAN}
 %\changes{v2.0.1}{2016/02/15}{Set uniquelist option to false in order to change the cite output}
 %\changes{v2.0.1}{2016/02/16}{Changed maxcitenames=3 to maxcitenames=2}
 %\changes{v2.0.1}{2016/02/18}{Added \string\FloatBarrier from the placeins package at the end of the appendix}
@@ -963,11 +963,11 @@ This work consists of all files listed in manifest.txt.
 %\changes{v2.0.1}{2016/02/22}{Moved special issue title below title in page header}
 %\changes{v2.0.1}{2016/02/22}{Modified insertion of license text}
 %\changes{v2.0.1}{2016/02/23}{Special issue title now right aligned on even pages}
-%\changes{v2.1}{2016/03/31}{Fix incompatible changes introduced by biblatex >3.3}
-%\changes{v2.1}{2016/03/31}{Changed \string\ifblank to \string\ifempty because of wrong interpretations. Not sure, whether this is needed of older versions}
-%\changes{v2.1}{2016/04/01}{Returned to \string\ifblank for the old versions}
+%\changes{v2.1.0}{2016/03/31}{Fix incompatible changes introduced by biblatex >3.3}
+%\changes{v2.1.0}{2016/03/31}{Changed \string\ifblank to \string\ifempty because of wrong interpretations. Not sure, whether this is needed of older versions}
+%\changes{v2.1.0}{2016/04/01}{Returned to \string\ifblank for the old versions}
 %\changes{v2.1.1}{2016/07/18}{Bugfix: Change \string\ifempty\space to \string\ifdefvoid}
-%
+%\changes{v2.2.0}{2018/02/01}{Changed: New Journal's subtitle set as header on even pages}
 %
 %
 % \section{Introduction}
@@ -2429,6 +2429,13 @@ This work consists of all files listed in manifest.txt.
 \journalname{Enterprise Modelling and Information Systems Architectures}%
 %    \end{macrocode}
 % \end{macro}
+% \begin{macro}{\journalsubtitle}
+% The journal's subtitle.
+%    \begin{macrocode}
+\def\journalsubtitle#1{\@bsphack\def\@journalsubtitle{#1}\@esphack}%
+\journalsubtitle{International Journal of Conceptual Modeling}%
+%    \end{macrocode}
+% \end{macro}
 %
 % \begin{macro}{\issn}
 % The International Standard Serial Number (ISSN) is the standardized
@@ -2801,13 +2808,17 @@ This work consists of all files listed in manifest.txt.
 %   \begin{enumerate}[{Line\,}1{,\space\hskip-1em}]
 %   \item
 %     \begin{description}
-%       \item{inner side:} journal name;
+%       \item{inner side:}
+%     \begin{itemize}
+%       	\item{left pages:} journal's subtitle;
+%        \item{right pages:} journal name.
+%     \end{itemize}
 %       \item{outer side:} no text.
 %     \end{description}
 %   \item 
 %     \begin{description}
 %       \item{inner side:} volume/number/issue date, 
-%         text colour is 50\% grey;
+%         text colour is 50\,\% grey;
 %       \item{outer side:} no text.
 %     \end{description}
 %   \item  
@@ -2819,7 +2830,7 @@ This work consists of all files listed in manifest.txt.
 %           \item{editorial content, both sides:} section or category 
 %           name;
 %         \end{itemize}
-%       text colour is 50\% grey;
+%       text colour is 50\,\% grey;
 %       \item{outer side:} page number in bold type, coloured black,
 %       shifted by an amount of \cs{headpageoffset} to the outer edge
 %       of the page.
@@ -2983,7 +2994,7 @@ This work consists of all files listed in manifest.txt.
             {\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}{}%
   }%
   \def\@evenhead{%
-    \headbox{}{\@journalname}%
+    \headbox{}{\@journalsubtitle}%
             {}{\theheadvolume}%
             {\theevenheadpage}{{\@headmarkstyle\@evenmark}}%
             {}{\ifx\@specialissuetitle\relax\else\textcolor{headtextcolor}{\@specialissuetitle}\fi}%
