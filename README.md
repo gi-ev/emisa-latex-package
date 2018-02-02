@@ -24,7 +24,6 @@ package managers of recent TeX distributions (e.g. “tlmgr” of the
 TeX Live distribution).
 
 Read emisa.pdf for author instructions and style guidelines.
-
-Please see [CHANGELOG.md](CHANGELOG.md) for a version history
 ```
 
+Please see [CHANGELOG.md](CHANGELOG.md) for a version history
