@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file.
 - Bug introduced with version 2.1. Undefined macro `\ifempty` was changed to `\ifdefvoid`
 
 
-## [2.1] - 2016-04-01
+## [2.1.0] - 2016-04-01
 
 ### Fixed
 - Bug introduced by incompatible changes of latest `biblatex` packages (>3.3)
@@ -32,7 +32,7 @@ All notable changes to this project will be documented in this file.
 - Modified insertion of license text
 
 
-## [2.0] - 2016-02-06
+## [2.0.0] - 2016-02-06
 
 - Initial release of the completely reworked bundle
 
