@@ -12,7 +12,8 @@
 %% Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig
 %% <mwl@moss.in-berlin.de>
 %% Copyright (C) 2015,2016 by Enterprise Modelling and Information
-%% Systems Architectures -- An International Journal (EMISA)
+%% Systems Architectures -- International Journal of Conceptual Modeling
+%% (EMISAJ)
 %% ------------------------------------------------------------------------
 %% 
 %% This work may be distributed and/or modified under the
@@ -31,7 +32,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2018/02/01 2.2.0 LaTeX class EMISA]
+[2018/02/15 2.3.0 LaTeX class EMISA]
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
@@ -85,7 +86,7 @@
 \DeclareOption{nomicrotype}{\@microtypefalse}
 \PassOptionsToClass{a4paper,twoside,11pt}{article}%
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}%
-\ExecuteOptions{british,final,noreferee,nocover,oneside,openany}%
+\ExecuteOptions{american,final,noreferee,nocover,oneside,openany}%
 \ProcessOptions*\relax%
 \IfFileExists{latexrelease.sty}%
    {\RequirePackage[latest]{latexrelease}}%

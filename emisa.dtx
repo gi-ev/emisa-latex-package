@@ -4,7 +4,8 @@
 % Copyright (C) 2009-2012 by Martin Wilhelm Leidig 
 % <mwl@moss.in-berlin.de>
 % Copyright (C) 2015-2018 by Enterprise Modelling and Information 
-% Systems Architectures -- An International Journal (EMISA)
+% Systems Architectures -- International Journal of Conceptual
+% Modeling (EMISAJ)
 % --------------------------------------------------------------------
 %
 % This work may be distributed and/or modified under the
@@ -46,7 +47,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2018/02/01 2.2.0 LaTeX class EMISA]
+[2018/02/15 2.3.0 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -90,7 +91,8 @@ do so in \jobname.dtx (after altering the name, of course!).
 Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig 
 <mwl@moss.in-berlin.de>
 Copyright (C) 2015,2016 by Enterprise Modelling and Information 
-Systems Architectures -- An International Journal (EMISA)
+Systems Architectures -- International Journal of Conceptual Modeling
+(EMISAJ)
 ------------------------------------------------------------------------
 
 This work may be distributed and/or modified under the
@@ -157,7 +159,7 @@ This work consists of all files listed in manifest.txt.
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
 \usepackage[olddocinclude]{xdoc2}
-\usepackage[british]{babel}
+\usepackage[american]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{newtxtext}
@@ -165,7 +167,7 @@ This work consists of all files listed in manifest.txt.
 \usepackage[final,tracking=smallcaps,expansion=alltext,protrusion=true]{microtype}%
 \SetTracking{encoding=*,shape=sc}{50}%
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-\usepackage[autostyle=once,english=british,strict]{csquotes}
+\usepackage[autostyle=once,english=american,strict]{csquotes}
 \usepackage{amssymb}
 \usepackage{xspace}
 \usepackage{fancyvrb}
@@ -178,10 +180,14 @@ This work consists of all files listed in manifest.txt.
   backgroundcolor={\color{yellow!30}},
   language=[LaTeX]TeX,
   basicstyle=\MacroFont,
-  keywordstyle={},
-  %%% keywordstyle=\MacroFont\bfseries\color{blue},
-  morekeywords={editor,received,accepted,volume,issue,specialissuetitle,CCBYNCSAFour,CCBYNCSAThree,license,%
-     address,subtitle,acknowledgements,authornote,author*,abstract,keywords,subsection},
+  %%%keywordstyle={},
+  keywordstyle=\MacroFont\bfseries,
+  morekeywords={editor,received,accepted,volume,issue,%
+     specialissuetitle,CCBYNCSAFour,CCBYNCSAThree,license,%
+     address,subtitle,acknowledgements,authornote,author*,%
+     abstract,keywords,subsection,toprule,midrule,bottomrule,%
+     ENSURE,IF,FOR,STATE,WHILE,ELSE,ENDWHILE,ENDIF,REQUIRE,
+     includegraphics,printbibliography},
   commentstyle={\color{black!50}\bfseries},
   breaklines,
   emptylines=1,
@@ -216,7 +222,9 @@ This work consists of all files listed in manifest.txt.
 \colorlet{filecolor}{linkcolor}
 \colorlet{urlcolor}{blue!80!black}
 \usepackage[%
-   pdftitle={A LaTeX package for preparing manuscripts for submissions to the OA journal ‘Enterprise Modelling and Information Systems Architectures – An International Journal’ (EMISA)},
+   pdftitle={A LaTeX package for preparing manuscripts for submissions
+     to the OA journal ‘Enterprise Modelling and Information Systems
+     Architectures – International Journal of Conceptual Modeling’ (EMISAJ)},
    pdfauthor={Stefan Strecker and Martin Sievers},
    breaklinks,
    pagebackref,
@@ -264,7 +272,8 @@ This work consists of all files listed in manifest.txt.
 }%
 %
 \newcommand{\DTXname}{\jobname}
-\newcommand{\DTXclassname}{\texorpdfstring{\cls{\MakeUppercase{\DTXname}}\xspace}{\DTXname}}
+%%%\newcommand{\DTXclassname}{\texorpdfstring{\cls{\MakeUppercase{\DTXname}}\xspace}{\DTXname}}
+\newcommand{\DTXclassname}{\texorpdfstring{\cls{EMISAJ}\xspace}{EMISAJ}}
 % 
 \hfuzz200pt
 % 
@@ -951,70 +960,180 @@ This work consists of all files listed in manifest.txt.
 %^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % \author{Stefan Strecker (stefan.strecker@fernuni-hagen.de) \and Martin Sievers (martin.sievers@schoenerpublizieren.de)}
-% \title{A \LaTeX{} package for preparing manuscripts for submissions to the OA  journal \enquote{Enterprise Modelling and Information Systems Architectures – An International Journal} (\DTXclassname)}
+% \title{A \LaTeX{} package for preparing manuscripts for submissions
+% to the Open Access journal \enquote{Enterprise Modelling and Information
+% Systems Architectures – International Journal of Conceptual Modeling} 
+% (EMISAJ)}
 % \date{\today{} -- Version \fileversion}
 % \maketitle
 %
-%\changes{v2.0.0}{2016/02/06}{First official release on GitHub and CTAN}
-%\changes{v2.0.1}{2016/02/15}{Set uniquelist option to false in order to change the cite output}
-%\changes{v2.0.1}{2016/02/16}{Changed maxcitenames=3 to maxcitenames=2}
-%\changes{v2.0.1}{2016/02/18}{Added \string\FloatBarrier from the placeins package at the end of the appendix}
-%\changes{v2.0.1}{2016/02/22}{Added tracking (5\%) for smallcaps}
-%\changes{v2.0.1}{2016/02/22}{Moved special issue title below title in page header}
-%\changes{v2.0.1}{2016/02/22}{Modified insertion of license text}
-%\changes{v2.0.1}{2016/02/23}{Special issue title now right aligned on even pages}
-%\changes{v2.1.0}{2016/03/31}{Fix incompatible changes introduced by biblatex >3.3}
-%\changes{v2.1.0}{2016/03/31}{Changed \string\ifblank to \string\ifempty because of wrong interpretations. Not sure, whether this is needed of older versions}
-%\changes{v2.1.0}{2016/04/01}{Returned to \string\ifblank for the old versions}
-%\changes{v2.1.1}{2016/07/18}{Bugfix: Change \string\ifempty\space to \string\ifdefvoid}
-%\changes{v2.2.0}{2018/02/01}{Changed: New Journal's subtitle set as header on even pages}
+% \changes{v2.0.0}{2016/02/06}{First official release on GitHub and CTAN}
+% \changes{v2.0.1}{2016/02/15}{Set uniquelist option to false in order to 
+% change the cite output}
+% \changes{v2.0.1}{2016/02/16}{Changed maxcitenames=3 to maxcitenames=2}
+% \changes{v2.0.1}{2016/02/18}{Added \string\FloatBarrier from the placeins 
+% package at the end of the appendix}
+% \changes{v2.0.1}{2016/02/22}{Added tracking (5\%) for smallcaps}
+% \changes{v2.0.1}{2016/02/22}{Moved special issue title below title in page 
+% header}
+% \changes{v2.0.1}{2016/02/22}{Modified insertion of license text}
+% \changes{v2.0.1}{2016/02/23}{Special issue title now right aligned on even 
+% pages}
+% \changes{v2.1.0}{2016/03/31}{Fix incompatible changes introduced by biblatex 
+% >3.3}
+% \changes{v2.1.0}{2016/03/31}{Changed \string\ifblank to \string\ifempty 
+% because of wrong interpretations. Not sure, whether this is needed of older 
+% versions}
+% \changes{v2.1.0}{2016/04/01}{Returned to \string\ifblank for the old 
+% versions}
+% \changes{v2.1.1}{2016/07/18}{Bugfix: Change \string\ifempty\space to 
+% \string\ifdefvoid}
+% \changes{v2.2.0}{2018/02/01}{Changed: New Journal's subtitle set as header 
+% on even pages}
+% \changes{v2.3.0}{2018/02/15}{Changed: Author Instructions. Babel default 
+% option changed to \texttt{american} (from \texttt{british})} 
 %
 %
 % \section{Introduction}
-% Enterprise Modelling and Information Systems Architectures --~An International Journal (\DTXclassname) is a publisher-independent, peer-reviewed  open access journal (\url{https://emisa-journal.org}). 
-% \DTXclassname is published by the German Informatics Society (GI) and is a publication of its Special Interest Group (SIG) on Modelling Business Information Systems (SIG MoBIS) and its SIG on Design Methods for Information Systems (SIG \DTXclassname). SIG~MoBIS has sponsored the development of the \DTXclassname \LaTeX{} package currently maintained by Stefan Strecker (\href{mailto:stefan.strecker@fernuni-hagen.de}{stefan.strecker@fernuni-hagen.de}) and Martin Sievers (\href{mailto:martin.sievers@schoenerpublizieren.de}{martin.sievers@schoenerpublizieren.de}). It is based on an earlier funded work by Martin Leidig.
+% Enterprise Modelling and Information Systems Architectures
+% --~International Journal of Conceptual Modeling (\DTXclassname, formerly
+% abbreviated as EMISA) is a publisher-independent, peer-reviewed open access journal (\url{https://emisa-journal.org}). 
+% \DTXclassname is published by the German Informatics Society (GI) and is a publication of its Special Interest Group (SIG) on Modelling Business Information Systems (SIG MoBIS) and its SIG on Design Methods for Information Systems (SIG EMISA). SIG~MoBIS has sponsored the development of the \DTXclassname \LaTeX{} package currently maintained by Stefan Strecker (\href{mailto:stefan.strecker@fernuni-hagen.de}{stefan.strecker@fernuni-hagen.de}) and Martin Sievers (\href{mailto:martin.sievers@schoenerpublizieren.de}{martin.sievers@schoenerpublizieren.de}). It is based on earlier funded work by Martin Leidig.
 %
-% The \DTXclassname \LaTeX{} package is provided for preparing manuscripts for submission to \DTXclassname, and for preparing accepted submissions for publication as well as for typesetting the final document by the editorial office. Articles in \DTXclassname are published online at \url{https://emisa-journal.org} (in the Portable Document Format or PDF format).
+% The \DTXclassname \LaTeX{} package is provided for preparing
+% manuscripts for submission to \DTXclassname, and for preparing
+% accepted submissions for publication as well as for typesetting the
+% final document by the editorial office. For \DTXclassname{},
+% manuscripts are submitted online  and accepted articles are
+% published online at \url{https://emisa-journal.org} in the Portable
+% Document Format (PDF) format. 
 % The \DTXclassname editorial office is run (alongside many other tasks and projects) by the two Editors-in-Chief assisted by doctoral students. Editorial work at \DTXclassname is best described as a volunteer effort for the scientific community.
 % You can assist us by preparing your manuscript following the instructions and style guidelines described in this document: Your work will be published quicker with less (typographical) glitches and will have a professional appearance.
 %
 %
 % \section{Installation}
-% The \DTXclassname \LaTeX{} package consists of the document class \file{\DTXname.cls}, the \pkg{biblatex} bibliography style \file{emisa.bbx} and the \pkg{biblatex} citation style \file{emisa.cbx}.
+% The \DTXclassname \LaTeX{} package consists of the document class 
+% \file{\DTXname.cls}, the \pkg{biblatex} bibliography style 
+% \file{\DTXname.bbx} and the \pkg{biblatex} citation style 
+% \file{\DTXname.cbx}.
 % 
-% The package also includes a quick-start template for authors (\file{emisa-author-template.tex}) and the present author instructions and style guidelines (\file{emisa.pdf}).
+% The package also includes a quick-start template for authors 
+% (\file{emisa-author-template.tex}) and the present author instructions and 
+% style guidelines (\file{\DTXname.pdf}).
 %
-% \DescribeOption{Automatic installation}The preferred installation method of the canonical \emph{release} version is through your \TeX{} distribution's package installer (\eg \TeX{}~Live's \file{tlmgr} or the MiK\TeX{} Package Manager). For the later you may need to first update (or synchronise) the package database. This type of installation is recommended in order to always get the latest \emph{release} version automatically. The canonical release version of the package is also available from CTAN at \url{http://www.ctan.org/pkg/emisa}, while the \emph{current development} (i.\,e.\ most recent) version of the package with bug fixes and new features (relative to the release version) is available from GitHub (\url{https://github.com/gi-ev/emisa-latex-package}).
+% \DescribeOption{Automatic installation}The preferred installation
+% method of the canonical \emph{release} version is through your
+% \TeX{} distribution's package installer (\eg \TeX{}~Live's
+% \file{tlmgr} or the MiK\TeX{} Package Manager). For the latter you
+% may need to first update (or synchronise) the package database. This
+% type of installation is recommended in order to always get the
+% latest \emph{release} version automatically. The canonical release
+% version of the package is also available from CTAN at
+% \url{http://www.ctan.org/pkg/emisa} while the \emph{current
+% development} (i.\,e.\ most recent) version of the package with bug
+% fixes and new features (relative to the release version) is
+% available from the GitHub repository at \url{https://github.com/gi-ev/emisa-latex-package}.
 %
-% \DescribeOption{Manual installation}If you prefer a manual installation (or want to install the latest development version), download the corresponding Zip archive from Github (the latest development version is always available as Zip archive at \url{https://github.com/gi-ev/emisa-latex-package/archive/master.zip}), uncompress it in the same directory (folder) in which the source files for the manuscript will be maintained, and then run \verb|pdflatex emisa.dtx| twice, and start from \file{emisa-author-template.tex}.
+% \DescribeOption{Manual installation}If you prefer a manual installation (or 
+% want to install the latest development version), download the corresponding 
+% Zip archive from Github (the latest development version is always available 
+% as Zip archive at 
+% \url{https://github.com/gi-ev/emisa-latex-package/archive/master.zip}), 
+% uncompress it in the same directory (folder) in which the source files for 
+% the manuscript will be maintained, and then run \verb|pdflatex emisa.dtx| 
+% twice, and start from \file{emisa-author-template.tex}.
 %
 %
 % \section{Instructions and guidelines}
 % This document provides instructions and style guidelines for authors. 
-% Follow the instructions and guidelines in the present document to set up your files, to type in your text, to format figures, tables, source code listings and algorithms, and to obtain a consistent visual appearance in accordance with the journal's style specifications. Before submitting your manuscript online to the journal's online submission system at \url{https://emisa-journal.org}, use these instructions and guidelines as a checklist. Note that these instructions are \emph{not} intended as a general introduction to \LaTeX2e{} and corresponding tools (see, for example, \url{http://mirror.ctan.org/info/lshort/english/} for \enquote{The Not So Short Introduction to \LaTeX2e{}---Or \LaTeX2e{} in 157 minutes}). 
+% Follow the instructions and guidelines in the present document to
+% set up your files, to type in your text, to format figures, tables,
+% source code listings and algorithms, and to obtain a consistent
+% visual appearance in accordance with the journal's style
+% specifications. Before submitting your manuscript online to the
+% journal's online submission system at
+% \url{https://emisa-journal.org}, use these instructions and
+% guidelines as a checklist. Note that these instructions are \emph{not} 
+% intended as a general introduction to \LaTeX2e{} and corresponding tools 
+% (see, for example, \url{http://mirror.ctan.org/info/lshort/english/} for 
+% \enquote{The Not So Short Introduction to \LaTeX2e{}---Or \LaTeX2e{} in 157 
+% minutes}). 
 %
 %
 % \section{Preliminary remarks}
-% The \DTXclassname document class is derived from the standard \LaTeX{} article class, and produces a customised two-column layout with bibliographic information about the manuscript in a multi-line page headline (including the name of the journal, volume and issue number, date of publication, short title as well as author names) on A4-sized paper. The \DTXclassname class builds on a number of standard \LaTeX{} packages. It is highly recommended to install the \emph{full} set of \LaTeX{} packages that come with your \LaTeX\ distribution to make the required packages available to the \DTXclassname package. Alternatively, missing packages may be installed via your TeX{} distribution's package manager or on-the-fly (if supported by your distribution). 
+% The \DTXclassname document class is derived from the standard \LaTeX{} 
+% article class, and produces a customised two-column layout with 
+% bibliographic information about the manuscript in a multi-line page headline 
+% (including the name of the journal, volume and issue number, date of 
+% publication, short title as well as author names) on A4-sized paper. The 
+% \DTXclassname class builds on a number of standard \LaTeX{} packages. It is 
+% highly recommended to install the \emph{full} set of \LaTeX{} packages that 
+% come with your \LaTeX\ distribution to make the required packages available 
+% to the \DTXclassname package. Alternatively, missing packages may be 
+% installed via your TeX{} distribution's package manager or on-the-fly (if 
+% supported by your distribution). 
 %
-% \DescribeOption{UTF-8}\DescribeOption{File naming convention}The production process at the \DTXclassname editorial office is based entirely on \LaTeX{}, and runs pdf\LaTeX{} and \verb|biber| to produce the final proof and publication-ready PDF of an article. The \pkg{biblatex} package is used to typeset citations and references in conjunction with the \verb|biber| tool. Make sure to use \verb|biber| rather than \verb|bibtex| to process your bibliography data base file(s). Most \TeX{} editors have an option to easily switch to \verb|biber|. The production tool chain at the editorial office requires that all text files of an article are provided in \emph{UTF-8 file encoding}, and that all submitted files are provided with \emph{lower case filenames only}. Do \emph{not} use upper case characters in filenames at all and avoid non-ASCII characters in filenames.
+% \DescribeOption{UTF-8}\DescribeOption{File naming convention}The production 
+% process at the \DTXclassname editorial office is based entirely on \LaTeX{}, 
+% and runs pdf\LaTeX{} and \verb|biber| to produce the final proof and 
+% publication-ready PDF of an article. The \pkg{biblatex} package is used to 
+% typeset citations and references in conjunction with the \verb|biber| tool. 
+% Make sure to use \verb|biber| rather than \verb|bibtex| to process your 
+% bibliography data base file(s). Most \TeX{} editors have an option to easily 
+% switch to \verb|biber|. The production tool chain at the editorial office 
+% requires that all text files of an article are provided in \emph{UTF-8 file 
+% encoding}, and that all submitted files are provided with \emph{lower case 
+% filenames only}. Do \emph{not} use upper case characters in filenames at all 
+% and avoid non-ASCII characters in filenames.
 %
-% \DescribeOption{Author template}The file \file{emisa-author-template.tex} provides a good starting point for manuscript preparation (if the \DTXclassname package is available through your \TeX{} distribution, the file is stored at \texttt{/doc/latex/emisa/} inside your \TeX{} installation folder/directory. Just copy it to your working directory). It is also recommended to review the example of an article typeset with \file{emisa.cls} provided in Sec.~\ref{sec:example}. 
+% \DescribeOption{Author template}The file \file{emisa-author-template.tex} 
+% provides a good starting point for manuscript preparation (if the 
+% \DTXclassname package is available through your \TeX{} distribution, the 
+% file is stored at \texttt{/doc/latex/emisa/} inside your \TeX{} installation 
+% folder/directory. Just copy it to your working directory). It is also 
+% recommended to review the example of an article typeset with 
+% \file{\DTXname.cls} provided in Sec.~\ref{sec:example}. 
 %
 %
 % \section{Class Options}
-% \DescribeOption{british, UKenglish} British English is the language of choice for publishing in \DTXclassname. The class option \opt{british} is loaded by default to obtain the correct hyphenation for British English (as provided by the \pkg{babel} package). The  option \emph{may be} explicitly used with the \DTXclassname class to exemplify the use of British English. Example: \verb|\documentclass[british]{emisa}|. This is the standard option. Note that the \pkg{csquotes} package is loaded with settings to produce proper quotation marks in British English (see below).
+% \DescribeOption{american, USenglish} American English  is the language of 
+% choice for publishing in \DTXclassname. The class option \opt{american} is 
+% loaded by default to obtain the correct hyphenation for American English (as 
+% provided by the \pkg{babel} package). The option \emph{may be} explicitly 
+% used with the \DTXclassname class to exemplify the use of American English. 
+% Example: \verb|\documentclass[american]{emisa}|. This is the standard 
+% option. Note that the \pkg{csquotes} package is loaded with settings to 
+% produce proper quotation marks for American English (see below).
 %
-% \DescribeOption{american, USenglish} If you want to use American English instead, you can use the option \opt{american} or \opt{USenglish}. The hyphenation patterns and quotation marks will be set accordingly.
+% \DescribeOption{british, UKenglish} If you want to use British English 
+% instead, you can use the option \opt{british} or \opt{UKenglish}. The 
+% hyphenation patterns and quotation marks will be set accordingly.
 %
-% \DescribeOption{referee, review} By default, a final version of the manuscript is typeset for online publication including the names and affiliations of authors. For reviewing purposes, the names and affiliations of the authors are omitted using the document option \verb|referee| or \verb|review| to allow for the anonymous (\ie double blind) peer-review process of \DTXclassname. Example: \verb|\documentclass[referee]{emisa}|.  Make sure to use the document option \verb|referee| or \verb|review| before typesetting the final PDF intended for submission to the journal. 
+% \DescribeOption{referee, review} By default, a final version of the
+% manuscript is typeset for online publication including the names and
+% affiliations of authors. For reviewing purposes, the names and
+% affiliations of the authors must be omitted using the document option 
+% \verb|referee| or \verb|review| to allow for the anonymous (\ie double 
+% blind) peer-review process of \DTXclassname. Example: 
+% \verb|\documentclass[referee]{emisa}|.  Make sure to set the document option 
+% \verb|referee| or \verb|review| before typesetting the final PDF intended 
+% for submission to the journal. 
 %
 %
 % \section{Author information}
 % \DescribeMacro{\author}\DescribeMacro{\address}%
-% Each author is added using the macro \cs{author}\marg{author name} followed by the corresponding address \cs{address}\marg{author's address (line 1)\textbackslash\textbackslash\ \ldots (line 2)\textbackslash\textbackslash\ \ldots}. If you have multiple authors with the same address, please use \cs{address}\marg{author's address} only for the first one and \cs{address}\oarg{letter of address}\texttt{\{\}} for all others. See \file{emisa-author-template.tex} for details.
+% Each author is added using the macro \cs{author}\marg{author name} followed 
+% by the corresponding address \cs{address}\marg{author's address (line 
+% 1)\textbackslash\textbackslash\ \ldots (line 2)\textbackslash\textbackslash\ 
+% \ldots}. If you have multiple authors with the same address, please use 
+% \cs{address}\marg{author's address} only for the first one and 
+% \cs{address}\oarg{letter of address}\texttt{\{\}} for all others. See 
+% \file{emisa-author-template.tex} for details.
 %
-% \DescribeMacro{\author*}There always has to be declared exactly one author as the corresponding author. This is indicated by using the starred version of the \cs{author} command: \cs{author*}\marg{author's name}\marg{email address}.
+% \DescribeMacro{\author*}There always has to be declared exactly one author 
+% as the corresponding author. This is indicated by using the starred version 
+% of the \cs{author} command: \cs{author*}\marg{author's name}\marg{email 
+% address}.
 %
 %
 % \section{Title, subtitle, abstract, and keywords}
@@ -1080,10 +1199,10 @@ This work consists of all files listed in manifest.txt.
 %
 % \section{Quotation marks}
 % \DescribeMacro{\enquote}%
-% It is \emph{highly recommended} to use the \cs{enquote}\marg{quotation} command to produce correct quotation marks. Note that the command can be nested and will produce correct primary and secondary quotation marks in British English (or American English -- depending on the chosen class option), for example \verb|\enquote{A quote \enquote{within a quote}}|.
+% It is \emph{highly recommended} to use the \cs{enquote}\marg{quotation} command to produce correct quotation marks. Note that the command can be nested and will produce correct primary and secondary quotation marks in American English (or British English -- depending on the chosen class option), for example \verb|\enquote{A quote \enquote{within a quote}}|.
 % For other quotation macros and environment please consult the \pkg{csquotes} documentation \cite{csquotes-pdf}.
 %
-% Alternatively (but not recommended), the correct Unicode characters for the quotation marks in British (American) English can be used. See Wikipedia's entry for \enquote{quotation mark} for further information.  
+% Alternatively (but not recommended), the correct Unicode characters for the quotation marks in American (British) English can be used. See Wikipedia's entry for \enquote{quotation mark} for further information.  
 %
 % \section{Citations and references}
 % \DescribeMacro{\parencite}\DescribeMacro{\textcite}\DescribeMacro{\cite}%
@@ -1098,7 +1217,7 @@ This work consists of all files listed in manifest.txt.
 % \item \cs{cite} is used for typesetting the citation without parentheses, and is typically used within parentheses. Example: \verb|(see \cite{Knuth1986})| produces \enquote{(see Knuth 1986)}. This variant is the least used and should be used with care.
 % \end{itemize}
 %
-% \emph{Make sure to format the bibliographic entries consistently!} Do not mix abbreviated first names with unabbreviated first names, as for example
+% \textbf{Important note.} \emph{Make sure to format the bibliographic entries consistently!} Do not mix abbreviated first names with unabbreviated first names, as for example
 %		
 % \verb|@ARTICLE{key1, author = {{van der Weiden}, J. W. P.} ...|  
 % 
@@ -1278,20 +1397,20 @@ This work consists of all files listed in manifest.txt.
 % \section{Example file for both, authors and editorial office}\label{sec:example}
 % \begin{examplecode}
 % % Use the option [draft] to mark overfull lines.
-% \documentclass[british]{emisa}
+% \documentclass[american]{emisa}
 % % The following package imports are recommended, but not obligatory;
-% % you might want take a look into their respective manuals if you want to how they can be used:
+% % take a look into their respective manuals if you want to how they can be used:
 % \usepackage{amsmath,amssymb,mathtools}
 % \usepackage{algorithmic,algorithm}
 % % Additional package imports go here:
 % % The document begins here:
 % \begin{document}
-% % Optionally, set the style for typesetting source code listings (see listings package).
-% % \lstset{language=Java}
+% % Optionally, set the style for typesetting source code listings.
+% % \lstset{language=Java} % see listings package
 % % Take note of the following article environment!
 % \begin{article}{%
-% % Enter your bibliography database file here. 
-% % Make sure to use UTF-8 character encoding in the bibliography data bases, 
+% % Enter your bibliography database file here. Make sure to use
+% % UTF-8 character encoding in the bibliography data bases, 
 % % and add the .bib extension for the biblatex package!
 % \bibliography{emisa.bib}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1705,7 +1824,7 @@ This work consists of all files listed in manifest.txt.
 %    \begin{macrocode}
 \PassOptionsToClass{a4paper,twoside,11pt}{article}%
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}%
-\ExecuteOptions{british,final,noreferee,nocover,oneside,openany}%
+\ExecuteOptions{american,final,noreferee,nocover,oneside,openany}%
 \ProcessOptions*\relax%
 %    \end{macrocode}
 % 
@@ -6063,7 +6182,7 @@ techreport = {},%
 %    \begin{macrocode}
 %<*template>
 %<*article>
-\documentclass[british]{emisa}
+\documentclass[american]{emisa}
 %% You can use the following additional class options:
 %% referee, review -- Use for submission to peer-review process. 
 %% draft -- mark overfull lines
