@@ -5,19 +5,17 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Header on even pages to journal's new subtitle
-
+- Default language is now `american`
 
 ## [2.1.1] - 2016-07-18
 
 ### Fixed
 - Bug introduced with version 2.1. Undefined macro `\ifempty` was changed to `\ifdefvoid`
 
-
 ## [2.1.0] - 2016-04-01
 
 ### Fixed
 - Bug introduced by incompatible changes of latest `biblatex` packages (>3.3)
-
 
 ## [2.0.1] - 2016-02-23
 
@@ -30,7 +28,6 @@ All notable changes to this project will be documented in this file.
 - `maxcitenames=3` to `maxcitenames=2`
 - Moved special issue title below title in page header
 - Modified insertion of license text
-
 
 ## [2.0.0] - 2016-02-06
 
