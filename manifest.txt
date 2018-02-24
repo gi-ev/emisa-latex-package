@@ -4,7 +4,7 @@ This file is part of a work named "emisa".
 
 Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig 
 <mwl@moss.in-berlin.de>
-Copyright (C) 2015,2016 by Enterprise Modelling and Information 
+Copyright (C) 2015,2016,2017,2018 by Enterprise Modelling and Information 
 Systems Architectures - An International Electronic Journal (EMISA)
 --------------------------------------------------------------------
 This work may be distributed and/or modified under the
@@ -24,7 +24,7 @@ precisely, it explains how the locutions "Work" and "Compiled Work",
 used in the LaTeX Project Public License, are to be interpreted
 in the case of this work.
 
-July, 18th 2016 (version 2.1.1)
+February, 24th 2018 (version 2.2.0)
 
 
 

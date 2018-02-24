@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [2.2.0] - 2018-02-24
 
 ### Changed
 - Header on even pages to journal's new subtitle
@@ -34,7 +34,8 @@ All notable changes to this project will be documented in this file.
 - Initial release of the completely reworked bundle
 
 
-[Unreleased]: https://github.com/gi-ev/emisa-latex-package/compare/v2.1.1...HEAD
+[Unreleased]: https://github.com/gi-ev/emisa-latex-package/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/gi-ev/emisa-latex-package/tree/v2.2.0
 [2.1.1]: https://github.com/gi-ev/emisa-latex-package/tree/v2.1.1
 [2.1.0]: https://github.com/gi-ev/emisa-latex-package/tree/v2.1
 [2.0.1]: https://github.com/gi-ev/emisa-latex-package/tree/v2.0.1

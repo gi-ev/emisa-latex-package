@@ -47,7 +47,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2018/02/15 2.2.0-devel LaTeX class EMISA]
+[2018/02/24 2.2.0 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -90,7 +90,7 @@ do so in \jobname.dtx (after altering the name, of course!).
 
 Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig 
 <mwl@moss.in-berlin.de>
-Copyright (C) 2015,2016 by Enterprise Modelling and Information 
+Copyright (C) 2015,2016,2017,2018 by Enterprise Modelling and Information 
 Systems Architectures -- International Journal of Conceptual Modeling
 (EMISAJ)
 ------------------------------------------------------------------------
@@ -970,10 +970,11 @@ This work consists of all files listed in manifest.txt.
 % \changes{v2.0.0}{2016/02/06}{First official release on GitHub and CTAN}
 % \changes{v2.0.1}{2016/02/15}{Set uniquelist option to false in order to 
 % change the cite output}
-% \changes{v2.0.1}{2016/02/16}{Changed maxcitenames=3 to maxcitenames=2}
-% \changes{v2.0.1}{2016/02/18}{Added \string\FloatBarrier from the placeins 
+% \changes{v2.0.1}{2016/02/16}{Changed \texttt{maxcitenames=3} to 
+% \texttt{maxcitenames=2}}
+% \changes{v2.0.1}{2016/02/18}{Added \cs{FloatBarrier} from the placeins 
 % package at the end of the appendix}
-% \changes{v2.0.1}{2016/02/22}{Added tracking (5\%) for smallcaps}
+% \changes{v2.0.1}{2016/02/22}{Added tracking (5\,\%) for smallcaps}
 % \changes{v2.0.1}{2016/02/22}{Moved special issue title below title in page 
 % header}
 % \changes{v2.0.1}{2016/02/22}{Modified insertion of license text}
@@ -981,13 +982,14 @@ This work consists of all files listed in manifest.txt.
 % pages}
 % \changes{v2.1.0}{2016/03/31}{Fix incompatible changes introduced by biblatex 
 % >3.3}
-% \changes{v2.1.0}{2016/03/31}{Changed \string\ifblank to \string\ifempty 
+% \changes{v2.1.0}{2016/03/31}{Changed \cs{ifblank} to 
+% \cs{ifempty}
 % because of wrong interpretations. Not sure, whether this is needed of older 
 % versions}
-% \changes{v2.1.0}{2016/04/01}{Returned to \string\ifblank for the old 
+% \changes{v2.1.0}{2016/04/01}{Returned to \cs{ifblank} for the old 
 % versions}
-% \changes{v2.1.1}{2016/07/18}{Bugfix: Change \string\ifempty\space to 
-% \string\ifdefvoid}
+% \changes{v2.1.1}{2016/07/18}{Bugfix: Change \cs{ifempty} to 
+% \cs{ifdefvoid}}
 % \changes{v2.2.0}{2018/02/01}{Changed: New Journal's subtitle set as header 
 % on even pages}
 % \changes{v2.2.0}{2018/02/15}{Changed: Author Instructions. Babel default 
@@ -997,8 +999,16 @@ This work consists of all files listed in manifest.txt.
 % \section{Introduction}
 % Enterprise Modelling and Information Systems Architectures
 % --~International Journal of Conceptual Modeling (\DTXclassname, formerly
-% abbreviated as EMISA) is a publisher-independent, peer-reviewed open access journal (\url{https://emisa-journal.org}). 
-% \DTXclassname is published by the German Informatics Society (GI) and is a publication of its Special Interest Group (SIG) on Modelling Business Information Systems (SIG MoBIS) and its SIG on Design Methods for Information Systems (SIG EMISA). SIG~MoBIS has sponsored the development of the \DTXclassname \LaTeX{} package currently maintained by Stefan Strecker (\href{mailto:stefan.strecker@fernuni-hagen.de}{stefan.strecker@fernuni-hagen.de}) and Martin Sievers (\href{mailto:martin.sievers@schoenerpublizieren.de}{martin.sievers@schoenerpublizieren.de}). It is based on earlier funded work by Martin Leidig.
+% abbreviated as EMISA) is a publisher-independent, peer-reviewed open access 
+% journal (\url{https://emisa-journal.org}). 
+% \DTXclassname is published by the German Informatics Society (GI) and is a 
+% publication of its Special Interest Group (SIG) on Modelling Business 
+% Information Systems (SIG MoBIS) and its SIG on Design Methods for 
+% Information Systems (SIG EMISA). SIG~MoBIS has sponsored the development of 
+% the \DTXclassname \LaTeX{} package currently maintained by Stefan Strecker 
+% (\href{mailto:stefan.strecker@fernuni-hagen.de}{stefan.strecker@fernuni-hagen.de}) and Martin Sievers 
+% (\href{mailto:martin.sievers@schoenerpublizieren.de}{martin.sievers@schoenerpub
+% lizieren.de}). It is based on earlier funded work by Martin Leidig.
 %
 % The \DTXclassname \LaTeX{} package is provided for preparing
 % manuscripts for submission to \DTXclassname, and for preparing
@@ -1096,14 +1106,16 @@ This work consists of all files listed in manifest.txt.
 %
 %
 % \section{Class Options}
-% \DescribeOption{american, USenglish} American English  is the language of 
+% \DescribeOption{american, USenglish} American English is the language of 
 % choice for publishing in \DTXclassname. The class option \opt{american} is 
 % loaded by default to obtain the correct hyphenation for American English (as 
 % provided by the \pkg{babel} package). The option \emph{may be} explicitly 
-% used with the \DTXclassname class to exemplify the use of American English. 
-% Example: \verb|\documentclass[american]{emisa}|. This is the standard 
-% option. Note that the \pkg{csquotes} package is loaded with settings to 
-% produce proper quotation marks for American English (see below).
+% used with the \DTXclassname class to exemplify the use of American English: 
+% \verb|\documentclass[american]{emisa}|. Note that the \pkg{csquotes} package 
+% is loaded with settings to 
+% produce proper quotation marks for American English (see below).\\
+% \textbf{Note that versions of this class prior to 2.2.0 used British English 
+% as standard language!}
 %
 % \DescribeOption{british, UKenglish} If you want to use British English 
 % instead, you can use the option \opt{british} or \opt{UKenglish}. The 

@@ -11,7 +11,7 @@
 %% 
 %% Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig
 %% <mwl@moss.in-berlin.de>
-%% Copyright (C) 2015,2016 by Enterprise Modelling and Information
+%% Copyright (C) 2015,2016,2017,2018 by Enterprise Modelling and Information
 %% Systems Architectures -- International Journal of Conceptual Modeling
 %% (EMISAJ)
 %% ------------------------------------------------------------------------
@@ -32,7 +32,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2018/02/15 2.2.0-devel LaTeX class EMISA]
+[2018/02/24 2.2.0 LaTeX class EMISA]
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
