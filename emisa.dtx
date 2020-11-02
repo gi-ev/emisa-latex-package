@@ -3,7 +3,7 @@
 % 
 % Copyright (C) 2009-2012 by Martin Wilhelm Leidig 
 % <mwl@moss.in-berlin.de>
-% Copyright (C) 2015-2018 by Enterprise Modelling and Information 
+% Copyright (C) 2015-2020 by Enterprise Modelling and Information 
 % Systems Architectures -- International Journal of Conceptual
 % Modeling (EMISAJ)
 % --------------------------------------------------------------------
@@ -47,7 +47,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2018/02/24 2.3.0-devel LaTeX class EMISA]
+[2020/11/02 2.3.0-devel LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -88,9 +88,9 @@ it as you see fit.
 If you absolutely have to change \outFileName, please
 do so in \jobname.dtx (after altering the name, of course!).
 
-Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig 
+Copyright (C) 2009-2012 by Martin Wilhelm Leidig 
 <mwl@moss.in-berlin.de>
-Copyright (C) 2015,2016,2017,2018 by Enterprise Modelling and Information 
+Copyright (C) 2015-2020 by Enterprise Modelling and Information 
 Systems Architectures -- International Journal of Conceptual Modeling
 (EMISAJ)
 ------------------------------------------------------------------------
@@ -180,7 +180,6 @@ This work consists of all files listed in manifest.txt.
   backgroundcolor={\color{yellow!30}},
   language=[LaTeX]TeX,
   basicstyle=\MacroFont,
-  %%%keywordstyle={},
   keywordstyle=\MacroFont\bfseries,
   morekeywords={editor,received,accepted,volume,issue,%
      specialissuetitle,CCBYNCSAFour,CCBYNCSAThree,license,%
@@ -192,7 +191,6 @@ This work consists of all files listed in manifest.txt.
   breaklines,
   emptylines=1,
   gobble=2,
-  %%% texcsstyle=*{\footnotesize\ttfamily\color{Blue}},%
   }
 \lstnewenvironment{examplecode}[1][]
 {\lstset{#1}}
@@ -200,7 +198,6 @@ This work consists of all files listed in manifest.txt.
 \usepackage{algorithm,algorithmic} 
 \usepackage[onehalfspacing]{setspace}
 \usepackage[dvipsnames]{xcolor}
-%\usepackage{hologo}
 \usepackage{graphicx}
 \usepackage[alwaysadjust,flushright]{paralist}
 \setdefaultleftmargin{1.2em}{1.2em}{1.2em}{1.2em}{1.2em}{1.2em}%
@@ -2189,8 +2186,11 @@ This work consists of all files listed in manifest.txt.
 % 
 % \subsubsection{Scripts, fonts, and maps}
 % 
+% \changes{2.3}{2020/11/02}{\cs{\Bbbk} is defined by newtxmath and amssymb}
 %    \begin{macrocode}
 \RequirePackage{newtxtext}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
 \RequirePackage{newtxmath}
 \RequirePackage[zerostyle=b,straightquotes]{newtxtt}
 \if@microtype
@@ -2228,7 +2228,6 @@ This work consists of all files listed in manifest.txt.
    \lstnewenvironment{sourcecode*}[1][]
       {\lstset{float=htbp,#1}}
       {}
-   \RequirePackage{amsmath}
    \RequirePackage[amsmath,standard,hyperref]{ntheorem}
 %    \end{macrocode} 
 % 

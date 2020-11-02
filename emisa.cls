@@ -9,9 +9,9 @@
 %% If you absolutely have to change emisa.cls, please
 %% do so in emisa.dtx (after altering the name, of course!).
 %% 
-%% Copyright (C) 2009,2010,2011,2012 by Martin Wilhelm Leidig
+%% Copyright (C) 2009-2012 by Martin Wilhelm Leidig
 %% <mwl@moss.in-berlin.de>
-%% Copyright (C) 2015,2016,2017,2018 by Enterprise Modelling and Information
+%% Copyright (C) 2015-2020 by Enterprise Modelling and Information
 %% Systems Architectures -- International Journal of Conceptual Modeling
 %% (EMISAJ)
 %% ------------------------------------------------------------------------
@@ -32,7 +32,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2018/02/24 2.2.0 LaTeX class EMISA]
+[2020/11/02 2.3.0-devel LaTeX class EMISA]
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
@@ -149,6 +149,8 @@
 \RequirePackage{eso-pic}%
 \RequirePackage{placeins}%
 \RequirePackage{newtxtext}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
 \RequirePackage{newtxmath}
 \RequirePackage[zerostyle=b,straightquotes]{newtxtt}
 \if@microtype
@@ -173,7 +175,6 @@
    \lstnewenvironment{sourcecode*}[1][]
       {\lstset{float=htbp,#1}}
       {}
-   \RequirePackage{amsmath}
    \RequirePackage[amsmath,standard,hyperref]{ntheorem}
 \RequirePackage{url}
 \urlstyle{same}
