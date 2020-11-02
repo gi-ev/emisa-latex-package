@@ -191,7 +191,11 @@
   urlcolor=black,
   hyperfootnotes=false
   ]{hyperref}%
-\RequirePackage{doclicense}
+\RequirePackage[%
+   type={CC},%
+   modifier={by-nc-sa},%
+   version={4.0}%
+]{doclicense}
 \begingroup
   \catcode`\Z=3
   \long\gdef\@M@T@#1#2Z#3#4#5\@nil{#4}
