@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- New option `cleveref` (default) and `nocleveref` to support `cleveref` package
+
 ### Changed
 - Add explicit options to `doclicense`, because the fallbacks are deprecated
 

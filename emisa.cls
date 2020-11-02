@@ -76,6 +76,9 @@
 \DeclareOption{noreferee}{\@refereefalse}
 \DeclareOption{review}{\@refereetrue}
 \DeclareOption{noreview}{\@refereefalse}
+\newif\if@usecleveref
+\DeclareOption{cleveref}{\@useclevereftrue}
+\DeclareOption{nocleveref}{\@useclevereffalse}
 \newif\if@cover
 \def\coveron{\@covertrue}
 \def\coveroff{\@coverfalse}
@@ -86,7 +89,7 @@
 \DeclareOption{nomicrotype}{\@microtypefalse}
 \PassOptionsToClass{a4paper,twoside,11pt}{article}%
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}%
-\ExecuteOptions{american,final,noreferee,nocover,oneside,openany}%
+\ExecuteOptions{american,final,noreferee,nocover,cleveref,oneside,openany}%
 \ProcessOptions*\relax%
 \IfFileExists{latexrelease.sty}%
    {\RequirePackage[latest]{latexrelease}}%
@@ -191,6 +194,17 @@
   urlcolor=black,
   hyperfootnotes=false
   ]{hyperref}%
+\if@usecleveref%
+   \RequirePackage[capitalise,nameinlink]{cleveref}
+   \crefname{section}{Sec.}{Sec.}
+   \Crefname{section}{Sec.}{Sec.}
+   \crefname{figure}{\figurename}{\figurename}
+   \Crefname{figure}{\figurename}{\figurename}
+   \crefname{listing}{\lstlistingname}{\lstlistingname}
+   \Crefname{listing}{\lstlistingname}{\lstlistingname}
+   \crefname{table}{\tablename}{\tablename}
+   \Crefname{table}{\tablename}{\tablename}
+\fi%
 \RequirePackage[%
    type={CC},%
    modifier={by-nc-sa},%

@@ -991,7 +991,13 @@ This work consists of all files listed in manifest.txt.
 % on even pages}
 % \changes{v2.2.0}{2018/02/15}{Changed: Author Instructions. Babel default 
 % option changed to \texttt{american} (from \texttt{british})} 
-%
+% \changes{v2.3.0}{2020/11/02}{Change load order of \texttt{newtxmath}, 
+% \texttt{amsmath} and \texttt{amssymb} to fix problem with definition of 
+% \cs{Bbbk}}
+% \changes{v2.3.0}{2020/11/02}{Add explicit options to \texttt{doclicense}, 
+% because the fallbacks are deprecated}
+% \changes{v2.3.0}{2020/11/02}{New option `cleveref` (default) and `nocleveref` 
+% to support `cleveref` package}
 %
 % \section{Introduction}
 % Enterprise Modelling and Information Systems Architectures
@@ -1801,7 +1807,17 @@ This work consists of all files listed in manifest.txt.
 % \end{option}
 % \end{option}
 % \end{option}
-% 
+% \begin{option}{cleveref}   
+% \begin{option}{nocleveref}
+% \begin{switch}{@usecleveref} 
+%    \begin{macrocode}   
+\newif\if@usecleveref
+\DeclareOption{cleveref}{\@useclevereftrue}
+\DeclareOption{nocleveref}{\@useclevereffalse}
+%    \end{macrocode}
+% \end{switch}
+% \end{option}
+% \end{option}
 % \begin{option}{cover}
 % \begin{option}{nocover}
 % \begin{macro}{\coveron}
@@ -1833,7 +1849,7 @@ This work consists of all files listed in manifest.txt.
 %    \begin{macrocode}
 \PassOptionsToClass{a4paper,twoside,11pt}{article}%
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}%
-\ExecuteOptions{american,final,noreferee,nocover,oneside,openany}%
+\ExecuteOptions{american,final,noreferee,nocover,cleveref,oneside,openany}%
 \ProcessOptions*\relax%
 %    \end{macrocode}
 % 
@@ -2254,6 +2270,20 @@ This work consists of all files listed in manifest.txt.
   urlcolor=black,
   hyperfootnotes=false
   ]{hyperref}%
+%    \end{macrocode}
+% \changes{v2.3.0}{2020/11/02}{Add support for cleveref}
+%    \begin{macrocode}
+\if@usecleveref%
+   \RequirePackage[capitalise,nameinlink]{cleveref}
+   \crefname{section}{Sec.}{Sec.}
+   \Crefname{section}{Sec.}{Sec.}
+   \crefname{figure}{\figurename}{\figurename}
+   \Crefname{figure}{\figurename}{\figurename}
+   \crefname{listing}{\lstlistingname}{\lstlistingname}
+   \Crefname{listing}{\lstlistingname}{\lstlistingname}
+   \crefname{table}{\tablename}{\tablename}
+   \Crefname{table}{\tablename}{\tablename}
+\fi%
 %    \end{macrocode}
 % \changes{v2.3.0}{2020/11/02}{Package now needs explicit options}
 %    \begin{macrocode}
