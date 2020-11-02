@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+- Add explicit options to `doclicense`, because the fallbacks are deprecated
+
+### Fixed
+- Change load order of `newtxmath`, `amsmath` and `amssymb` to fix problem with definition of `\Bbbk`
+
 ## [2.2.0] - 2018-02-24
 
 ### Changed
