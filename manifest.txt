@@ -4,7 +4,7 @@ This file is part of a work named "emisa".
 
 Copyright (C) 2009-2012 by Martin Wilhelm Leidig 
 <mwl@moss.in-berlin.de>
-Copyright (C) 2015-2018 by Enterprise Modelling and Information 
+Copyright (C) 2015-2020 by Enterprise Modelling and Information 
 Systems Architectures - An International Electronic Journal (EMISA)
 --------------------------------------------------------------------
 This work may be distributed and/or modified under the
@@ -24,7 +24,7 @@ precisely, it explains how the locutions "Work" and "Compiled Work",
 used in the LaTeX Project Public License, are to be interpreted
 in the case of this work.
 
-February, 24th 2018 (version 2.3.0-devel)
+November, 2nd 2020 (version 2.3.0-devel)
 
 
 
@@ -35,9 +35,9 @@ In the case of the EMISA Bundle, the "Work" is the collection of the
 following 4 files:
 
 README.md     --  start by reading this file
+CHANGELOG.md  --  history of the development
 manifest.txt  --  the file you are reading now
 emisa.dtx     --  main source file
-emisa.ins     --  installation script
 
 If you have received the 4 files listed above, you possess an integral copy 
 of the EMISA Bundle.
@@ -52,6 +52,7 @@ In the case of the EMISA Bundle, a "Compiled Work" is the collection of:
 a) the following 2 files that are also part of the "Work" (see above):
 
 README.md
+CHANGELOG.md
 manifest.txt
 
 
