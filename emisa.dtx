@@ -47,7 +47,7 @@
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{emisa}%
 %<*class>
-[2020/11/02 2.3.0-devel LaTeX class EMISA]
+[2020/11/26 2.3.0 LaTeX class EMISA]
 %</class>
 %
 %<*driver>
@@ -979,8 +979,7 @@ This work consists of all files listed in manifest.txt.
 % pages}
 % \changes{v2.1.0}{2016/03/31}{Fix incompatible changes introduced by biblatex 
 % >3.3}
-% \changes{v2.1.0}{2016/03/31}{Changed \cs{ifblank} to 
-% \cs{ifempty}
+% \changes{v2.1.0}{2016/03/31}{Changed \cs{ifblank} to \cs{ifempty}
 % because of wrong interpretations. Not sure, whether this is needed of older 
 % versions}
 % \changes{v2.1.0}{2016/04/01}{Returned to \cs{ifblank} for the old 
@@ -996,8 +995,10 @@ This work consists of all files listed in manifest.txt.
 % \cs{Bbbk}}
 % \changes{v2.3.0}{2020/11/02}{Add explicit options to \texttt{doclicense}, 
 % because the fallbacks are deprecated}
-% \changes{v2.3.0}{2020/11/02}{New option `cleveref` (default) and `nocleveref` 
-% to support `cleveref` package}
+% \changes{v2.3.0}{2020/11/02}{New option \texttt{cleveref} (default) and 
+% `nocleveref` to support `cleveref` package}
+% \changes{v2.3.0}{2020/11/26}{Remove package \texttt{latexrelease} as 
+% suggested by Frank Mittelbach}
 %
 % \section{Introduction}
 % Enterprise Modelling and Information Systems Architectures
@@ -1852,15 +1853,9 @@ This work consists of all files listed in manifest.txt.
 \ExecuteOptions{american,final,noreferee,nocover,cleveref,oneside,openany}%
 \ProcessOptions*\relax%
 %    \end{macrocode}
-% 
-%    \begin{macrocode}
-\IfFileExists{latexrelease.sty}%
-   {\RequirePackage[latest]{latexrelease}}%
-   {\RequirePackage{fixltx2e}}%
-%    \end{macrocode}
-% 
+%
 %^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%
 % \subsection{Loading the base class and packages}
 % \label{sec:code:cls+pkg}
 % 
@@ -2136,13 +2131,13 @@ This work consists of all files listed in manifest.txt.
 % 
 % These macros are imported from \pkg{paralist}, setting standard
 % enumeration marks and list indentations.
-% \changes{0.95i}{2011/04/06}{Default left margin in all levels of
+% \changes{v0.95i}{2011/04/06}{Default left margin in all levels of
 % all list environments set to 1.25em.}
-% \changes{0.95l}{2012/12/11}{Default left margin setting changed back to old
+% \changes{v0.95l}{2012/12/11}{Default left margin setting changed back to old
 % setting after production-level \file{emisa.cfg}:
 % 1em/0.9em/0.7em/0.5em/0.4em/0.3em.}
-% \changes{2.0}{2015/12/21}{No more config files}
-% \changes{2.0}{2015/12/21}{pltopsep changed}
+% \changes{v2.0}{2015/12/21}{No more config files}
+% \changes{v2.0}{2015/12/21}{pltopsep changed}
 %    \begin{macrocode}
 \setdefaultenum{1.}{a)}{i.}{A}% 
 \setdefaultleftmargin{1em}{0.9em}{0.7em}{0.5em}{0.4em}{0.3em}%
@@ -2202,7 +2197,7 @@ This work consists of all files listed in manifest.txt.
 % 
 % \subsubsection{Scripts, fonts, and maps}
 % 
-% \changes{2.3}{2020/11/02}{\cs{\Bbbk} is defined by newtxmath and amssymb}
+% \changes{v2.3.0}{2020/11/02}{\cs{Bbbk} is defined by newtxmath and amssymb}
 %    \begin{macrocode}
 \RequirePackage{newtxtext}
 \RequirePackage{amsmath}
@@ -2637,11 +2632,11 @@ This work consists of all files listed in manifest.txt.
 % \end{macro}
 % 
 % \begin{macro}{\specialissuetitle}
-% \changes{0.92n}{2010/05/18}{Fixed missing \cs{space} after 
+% \changes{v0.92n}{2010/05/18}{Fixed missing \cs{space} after 
 % non-empty Special Issue title 
 % prefix.}
 % \begin{macro}{\specialissuetitle*}
-% \changes{0.92n}{2010/05/18}{New.}
+% \changes{v0.92n}{2010/05/18}{New.}
 % \begin{macro}{\specialissuetitleprefix}
 % If the current issue is a \emph{special issue}, the respective 
 % title goes here.
@@ -3124,7 +3119,7 @@ This work consists of all files listed in manifest.txt.
 % 
 % \begin{macro}{\headmarkstyle}
 % \begin{macro}{\markhead}
-% \changes{0.92d}{2010/01/20}{\cs{markboth} had to be renamed to
+% \changes{v0.92d}{2010/01/20}{\cs{markboth} had to be renamed to
 % \cs{markhead} to avoid \pkg{biblatex}'s \cs{printbibliography}
 % putting ``REFERENCES'' into the page head.}
 % \begin{macro}{\markarticle}
@@ -3769,7 +3764,7 @@ This work consists of all files listed in manifest.txt.
 %    \end{macrocode}
 % 
 % 
-% \changes{0.95i}{2011/04/06}{Affiliation adress for Reinhard Jung
+% \changes{v0.95i}{2011/04/06}{Affiliation adress for Reinhard Jung
 % changed from \emph{University of Duisburg-Essen} to \emph{University
 % of St.\,Gallen}.}
 %    \begin{macrocode}
@@ -5978,7 +5973,7 @@ This work consists of all files listed in manifest.txt.
 % The macros in this subsection will supersede any previous definition
 % by the same name(s).
 % 
-% \changes{2010-06-21}{v0.93}{Modified to use EMISA name format.}
+% \changes{v0.93}{2010/06/21}{Modified to use EMISA name format.}
 % \begin{bibmacro}{author}
 %    \begin{macrocode}
 \renewbibmacro*{author}{%
@@ -6004,7 +5999,7 @@ This work consists of all files listed in manifest.txt.
 % \end{bibmacro}
 % 
 % 
-% \changes{2010-06-21}{v0.93}{Modified to use EMISA name format.}
+% \changes{v0.93}{2010/06/21}{Modified to use EMISA name format.}
 % \begin{bibmacro}{bbx:editor}
 %    \begin{macrocode}
 \renewbibmacro*{bbx:editor}[1]{%
@@ -6031,7 +6026,7 @@ This work consists of all files listed in manifest.txt.
 % 
 % 
 % 
-% \changes{2010-06-21}{v0.93}{Modified to use EMISA name format.}
+% \changes{v0.93}{2010/06/21}{Modified to use EMISA name format.}
 % \begin{bibmacro}{bbx:translator}
 %    \begin{macrocode}
 \renewbibmacro*{bbx:translator}[1]{%

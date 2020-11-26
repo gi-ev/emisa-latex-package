@@ -3,11 +3,13 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [2.3.0] - 2020-11-26
 ### Added
 - New option `cleveref` (default) and `nocleveref` to support `cleveref` package
 
 ### Changed
 - Add explicit options to `doclicense`, because the fallbacks are deprecated
+- Remove package `latexrelease`
 
 ### Fixed
 - Change load order of `newtxmath`, `amsmath` and `amssymb` to fix problem with definition of `\Bbbk`
@@ -45,7 +47,8 @@ All notable changes to this project will be documented in this file.
 - Initial release of the completely reworked bundle
 
 
-[Unreleased]: https://github.com/gi-ev/emisa-latex-package/compare/v2.2.0...HEAD
+[Unreleased]: https://github.com/gi-ev/emisa-latex-package/compare/v2.3.0...HEAD
+[2.3.0]: https://github.com/gi-ev/emisa-latex-package/tree/v2.3.0
 [2.2.0]: https://github.com/gi-ev/emisa-latex-package/tree/v2.2.0
 [2.1.1]: https://github.com/gi-ev/emisa-latex-package/tree/v2.1.1
 [2.1.0]: https://github.com/gi-ev/emisa-latex-package/tree/v2.1

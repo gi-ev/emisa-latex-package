@@ -32,7 +32,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{emisa}%
-[2020/11/02 2.3.0-devel LaTeX class EMISA]
+[2020/11/26 2.3.0 LaTeX class EMISA]
 \def\@clearglobaloption#1{%
   \def\@tempa{#1}%
   \def\@tempb{\@gobble}%
@@ -91,9 +91,6 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}%
 \ExecuteOptions{american,final,noreferee,nocover,cleveref,oneside,openany}%
 \ProcessOptions*\relax%
-\IfFileExists{latexrelease.sty}%
-   {\RequirePackage[latest]{latexrelease}}%
-   {\RequirePackage{fixltx2e}}%
 \LoadClass{article}[2001/06/01]%
 \RequirePackage[utf8]{inputenc}%
 \RequirePackage[T1]{fontenc}%

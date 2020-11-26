@@ -6,7 +6,7 @@ emisa --    A LaTeX package for preparing manuscripts for the journal EMISA
             Enterprise Modelling and Information Systems Architectures -
             International Journal of Conceptual Modeling (EMISAJ)
 (c) 2015-2020
-Version:    2.3.0-devel
+Version:    2.3.0
 Maintainer: Stefan Strecker and Martin Sievers
 Email:      stefan.strecker@fernuni-hagen.de
             martin.sievers@schoenerpublizieren.de
